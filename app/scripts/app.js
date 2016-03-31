@@ -84,6 +84,18 @@
         
         
       })
+        .when('/imprimante', {
+        templateUrl: 'views/imprimante.html',
+        controller: 'imprimantesController'
+        
+        
+      }) 
+        .when('/tablette', {
+        templateUrl: 'views/tablettes.html',
+        controller: 'tabletteController'
+        
+        
+      })
 	  // new
     .when('/radio', {
         templateUrl: 'views/radio.html',
@@ -92,7 +104,7 @@
       })
     .when('/tv', {
         templateUrl: 'views/tv.html',
-        
+        controller:'registerController'
         
       })
     // end new
@@ -103,7 +115,7 @@
       })
     .when('/actu', {
         templateUrl: 'views/actu.html',
-        
+        controller:'facebookListController'
         
       })
       .otherwise({
