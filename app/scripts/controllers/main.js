@@ -72,13 +72,11 @@ angular.module('familyNetworkAppc', ["ngResource"])
 	
     $scope.pcs=allfbs.query();
 	 
-      
-<<<<<<< HEAD
 
-});
-=======
-})
- .controller('imprimantesController',function($scope, $resource){
+
+
+
+}).controller('imprimantesController',function($scope, $resource){
     
 	
 	
@@ -105,4 +103,4 @@ angular.module('familyNetworkAppc', ["ngResource"])
 
 
 ;
->>>>>>> f110c0f09980724f10f8f1dbea3e1ea7670eaeb3
+
