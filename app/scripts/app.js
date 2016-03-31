@@ -14,6 +14,8 @@
     
     'ngRoute',
 	'familyNetworkAppc'
+    
+     
 	
     
   ])
@@ -35,8 +37,9 @@
         
       })
     .when('/todo', {
-        templateUrl: 'views/todo.html'
-        
+      
+           templateUrl: 'views/todo.html',
+        controller:'TodoCtrl',
         
       })
     .when('/suggestion', {
@@ -46,7 +49,27 @@
       })
     .when('/calendar', {
         templateUrl: 'views/calendar.html',
-        controller: 'TodoCtrl'
+        
+        
+        
+      })
+     .when('/mapLocalisation', {
+        templateUrl: 'views/mapLocalisation.html',
+        
+        
+      })
+    .when('/mapTrace', {
+        templateUrl: 'views/mapTrace.html',
+        
+        
+      })
+    .when('/mapNbr', {
+        templateUrl: 'views/mapNbr.html',
+        
+        
+      })
+    .when('/counter', {
+        templateUrl: 'views/counter.html',
         
         
       })
@@ -57,6 +80,7 @@
       })
 	  .when('/comparator', {
         templateUrl: 'views/comparator.html',
+        controller: 'comparatorController'
         
         
       })

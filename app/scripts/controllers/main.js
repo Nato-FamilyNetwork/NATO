@@ -20,6 +20,7 @@ angular.module('familyNetworkAppc', ["ngResource"])
 	
     console.log($scope.fbs);
       
+
 }) .controller('TodoCtrl', function($scope, $resource) {
     
     var todoget =  $resource('http://127.0.0.1:3000/todo');
@@ -27,4 +28,18 @@ angular.module('familyNetworkAppc', ["ngResource"])
         
         
   
+
+})
+      .controller('comparatorController',function($scope, $resource){
+    
+	
+	
+	
+	var allfbs=$resource('http://127.0.0.1:3000/pcs');
+    //getAll
+	
+    $scope.pcs=allfbs.query();
+	 
+      
+
 });

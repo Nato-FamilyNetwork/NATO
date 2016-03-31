@@ -1,0 +1,43 @@
+<div class="page-content">
+    
+     
+     <script>
+    x= navigator.geolocation;
+        x.getCurrentPosition(success, failure);
+        function success(position){
+            var mylat = position.coords.latitude;
+            var mylong = position.coords.longitude;
+            $('#lat').html(mylat);
+            $('#long').html(mylong);
+            /*google api ready latitude and longitude*/
+            var coords = new google.maps.LatLng(mylat, mylong);
+            //setting up pir google map
+            var mapOptions ={
+                zoom: 16,
+                center: coords,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            //creating the map
+            var map = new google.maps.Map(document.getElementById("map"),mapOptions);
+            //creating marker
+            var marker = new google.maps.Marker({map: map, position: coords});
+        }
+        function failure(){
+            $('#lat').html("<p>it didn t work</p>")
+        }
+    </script>
+    <style>
+        #map{
+        width: 400px;
+            height: 400px;
+        }
+    </style>
+    <body>
+        <!--map placeholder-->
+        <div id="map"></div>
+        <!--langitude and attittude-->
+        <div id="lat"></div>
+        <div id="long"></div>
+    </body>
+    
+</div>
