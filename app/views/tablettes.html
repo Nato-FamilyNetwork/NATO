@@ -1,0 +1,81 @@
+ 
+ <div class="row">
+    							<div class="col-xs-12">
+    								<!-- PAGE CONTENT BEGINS -->
+    								<div class="row">
+    									<!-- #section:pages/pricing.large -->
+     Display All Products<select name="choix" ng-model="query">
+        <option name="choixx" value="Mytek">Mytek</option>
+        <option name="choixx" value="Tunisianet">TunisiaNet</option>
+        
+    </select>
+        <br>
+        <label>Search for a referance or type</label>
+        <input type="text" placeholder="Exemple: G5030" ng-model="query2">
+         
+
+    </form>	  
+      <div ng-repeat="m in tablettes|filter:query|filter:query2">
+    												<div class="col-xs-6 col-sm-3 pricing-box">
+    										<div class="widget-box widget-color-orange">
+    											<div class="widget-header">
+    												<h5 class="widget-title bigger lighter">{{m.source}}</h5>
+    											</div>
+
+    											<div class="widget-body">
+    												<div class="widget-main">
+    													<ul class="list-unstyled spaced2">
+    														<li>
+    															<img src={{m.photo}} style="width: 80%;">
+    														</li>
+
+    														<li>
+    															<i class="ace-icon fa fa-check green"></i>
+    															Marque: {{m.marque}}
+    														</li>
+
+    														<li>
+    															<i class="ace-icon fa fa-check green"></i>
+    															1000 Email Accounts
+    														</li>
+
+    														<li>
+    															<i class="ace-icon fa fa-check green"></i>
+    															100 MySQL Databases
+    														</li>
+
+    														<li>
+    															<i class="ace-icon fa fa-check green"></i>
+    															$25 Ad Credit
+    														</li>
+
+    														<li>
+    															<i class="ace-icon fa fa-check green"></i>
+    															Free Domain
+    														</li>
+    													</ul>
+
+    													<hr />
+    													<div class="price">
+    														{{m.prix}}
+    														<small>/TTC</small>
+    													</div>
+    												</div>
+
+    												<div>
+    													<a href="#" class="btn btn-block btn-warning">
+    														<i class="ace-icon fa fa-shopping-cart bigger-110"></i>
+    														<span>Buy</span>
+    													</a>
+    												</div>
+    											</div>
+    										</div>
+    									</div>
+    
+     </div>
+    								 </div>
+
+    							 
+    							</div><!-- /.col -->
+    						</div><!-- /.row -->
+    									

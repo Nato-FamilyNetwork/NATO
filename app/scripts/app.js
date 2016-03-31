@@ -85,6 +85,12 @@
         controller: 'imprimantesController'
         
         
+      }) 
+        .when('/tablette', {
+        templateUrl: 'views/tablettes.html',
+        controller: 'tabletteController'
+        
+        
       })
 	  // new
     .when('/radio', {

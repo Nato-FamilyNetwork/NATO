@@ -77,7 +77,18 @@ angular.module('familyNetworkAppc', ["ngResource"])
 	 
       
 })
-
+ .controller('tabletteController',function($scope, $resource){
+    
+	
+	
+	
+	var allfbs=$resource('http://127.0.0.1:3000/tablettes');
+    //getAll
+	
+    $scope.tablettes=allfbs.query();
+	 
+      
+})
 
 
 ;
