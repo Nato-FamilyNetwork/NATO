@@ -1,33 +1,27 @@
- 
-<div class="page-content">
+ <div class="page-content">
 						<!-- #section:settings.box -->
 						 
 
 						<!-- /section:settings.box -->
 						<div class="page-header">
 							<h1>
-								Gallery
+								 
 								<small>
 									<i class="ace-icon fa fa-angle-double-right"></i>
-									View What your family share!
-								</small>
+Choose A Team								</small>
 							</h1>
 						</div><!-- /.page-header -->
 
 						<div class="row">
 							<div class="col-xs-12" id="24">
 								<!-- PAGE CONTENT BEGINS -->
-                                <div ng-repeat="m in league">
+                                <div ng-repeat="m in team">
                                 <div class="col-xs-6 col-sm-3 pricing-box">
-    										<div  style="height: 60px;overflow: hidden;">
-    											<div class="widget-header">
-                    <a ng-href="#/team/{{m.link}}" title="Photo Title" data-rel="colorbox">
+                                         <a ng-href="#/team/{{m.Link}}" title="Photo Title" data-rel="colorbox">
                     <img  alt="150x150" src="{{m.logo}}" id="{{m.link}}" />
                     {{m.League}}
 											</a>
-    												<h5 class="widget-title bigger lighter"> </h5>
-    											</div>
-                                    </div>
+                                       
                                 </div>
                             </div>
 								<div>

@@ -112,6 +112,18 @@ angular.module('familyNetworkAppc', ["ngResource"])
 	 
       
 })
+ .controller('teamController',function($scope, $resource,$routeParams){
+    
+	
+	
+	//console.log($routeParams.param);
+	var allfbs=$resource('http://127.0.0.1:3000/league/'+$routeParams.param);
+    //getAll
+	
+    $scope.team=allfbs.query();
+	 
+      
+})
 
 ;
 

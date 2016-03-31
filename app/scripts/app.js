@@ -102,6 +102,12 @@
         
         
       })
+    .when('/team/:param', {
+        templateUrl: 'views/team.html',
+        controller: 'teamController'
+        
+        
+      })
     
 	  // new
     .when('/radio', {
