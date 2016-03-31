@@ -20,4 +20,11 @@ angular.module('familyNetworkAppc', ["ngResource"])
 	
     console.log($scope.fbs);
       
+}) .controller('TodoCtrl', function($scope, $resource) {
+    
+    var todoget =  $resource('http://127.0.0.1:3000/todo');
+    $scope.todos = todoget.query();
+        
+        
+  
 });

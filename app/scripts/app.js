@@ -46,6 +46,7 @@
       })
     .when('/calendar', {
         templateUrl: 'views/calendar.html',
+        controller: 'TodoCtrl'
         
         
       })
