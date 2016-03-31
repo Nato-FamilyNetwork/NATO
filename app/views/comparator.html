@@ -4,8 +4,7 @@
     								<!-- PAGE CONTENT BEGINS -->
     								<div class="row">
     									<!-- #section:pages/pricing.large -->
-    										 <form action="" method="post">
-    Display All Products<select name="choix" ng-model="query">
+     Display All Products<select name="choix" ng-model="query">
         <option name="choixx" value="Mytek">Mytek</option>
         <option name="choixx" value="Tunisianet">TunisiaNet</option>
         <option name="choixx" value="Technopro">Technopro</option>
@@ -15,11 +14,9 @@
         <br>
         <label>Search for a referance or type</label>
         <input type="text" placeholder="Exemple: G5030" ng-model="query2">
-    <input type="submit"/>
-        
+         
 
-    </form>			  
-      <div ng-repeat="m in pcs|filter:query|filter:query2">
+       <div ng-repeat="m in pcs|filter:query|filter:query2">
     									<div class="col-xs-6 col-sm-3 pricing-box">
     										<div class="widget-box widget-color-orange">
     											<div class="widget-header">

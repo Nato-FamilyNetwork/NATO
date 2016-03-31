@@ -96,6 +96,13 @@
         
         
       })
+    .when('/league', {
+        templateUrl: 'views/league.html',
+        controller: 'leagueController'
+        
+        
+      })
+    
 	  // new
     .when('/radio', {
         templateUrl: 'views/radio.html',
