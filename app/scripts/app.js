@@ -12,7 +12,8 @@
   var app = angular.module('familyNetworkApp', [
     
     
-    'ngRoute'
+    'ngRoute',
+	'familyNetworkAppc'
 	
     
   ])
@@ -50,7 +51,7 @@
       })
     .when('/galery', {
         templateUrl: 'views/galery.html',
-        controller: 'scheduleListController',
+        
         
       })
 	  .when('/comparator', {
@@ -72,7 +73,7 @@
     // end new
     .when('/programs', {
         templateUrl: 'views/programs.html',
-        
+        controller: 'scheduleListController'
         
       })
     .when('/actu', {

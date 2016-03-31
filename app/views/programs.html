@@ -1,6 +1,67 @@
-<center>
-<div>
-    <br/>
-    <img ng-src="images/tvschedule.jpg" width="770" alt="talvza plz" />
-</div>
-    </center>
+
+
+             
+    
+                
+
+
+<form method="POST" action="#">
+<label for="rech">Search a program</label><input type="text" name="rech" id="rech"/>
+    <input type="submit" value="Search"/>
+ </form>
+<div ng-repeat="aa in fbs">
+
+                            <div class="col-xs-12 col-sm-6 widget-container-col ui-sortable" style="width: 100%;">
+										<div class="widget-box widget-color-blue" style="background-color:#438EB9;">
+											<!-- #section:custom/widget-box.options -->
+											<div class="widget-header">
+												<h5 class="widget-title bigger lighter">
+													<i class="ace-icon fa fa-table"></i>
+													{{aa.chaine.nom}}
+												</h5>
+
+												 
+											</div>
+
+											<!-- /section:custom/widget-box.options -->
+											<div class="widget-body">
+												<div class="widget-main no-padding">
+													<table class="table table-striped table-bordered table-hover">
+														<thead class="thin-border-bottom">
+															<tr>
+																<th>
+ 																	<center>Time</center>
+																</th>
+
+																<th>
+                                                                    <center>
+                                                                        Program
+																	</center>
+																	
+																</th>
+ 															</tr>
+														</thead>
+
+														<tbody>
+                                                       
+
+                                                           
+   
+
+															<tr ng-repeat="a in aa.program">
+																<td class="">{{a.heur}}</td>
+
+																<td>
+																	<a href="#">{{a.contenue}}</a>
+																</td>
+
+																 
+															</tr>
+                                                             
+                                                            
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
