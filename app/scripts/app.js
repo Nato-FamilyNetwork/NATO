@@ -88,7 +88,7 @@
       })
     .when('/tv', {
         templateUrl: 'views/tv.html',
-        
+        controller:'registerController'
         
       })
     // end new

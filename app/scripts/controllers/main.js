@@ -21,6 +21,26 @@ angular.module('familyNetworkAppc', ["ngResource"])
     console.log($scope.fbs);
       
 })
+
+
+
+
+
+  .controller('registerController',function($scope, $http){
+    
+	
+	
+	// post
+    $scope.add = function(ad,a){
+	$http.post('http://127.0.0.1:3000/register',$scope.formData).
+        success(function(data) {
+            console.log("posted successfully");
+        }).error(function(data) {
+            console.error("error in posting");
+        })
+    }
+})
+
       .controller('comparatorController',function($scope, $resource){
     
 	
