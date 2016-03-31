@@ -56,6 +56,7 @@
       })
 	  .when('/comparator', {
         templateUrl: 'views/comparator.html',
+        controller: 'comparatorController'
         
         
       })

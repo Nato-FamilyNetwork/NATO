@@ -20,4 +20,16 @@ angular.module('familyNetworkAppc', ["ngResource"])
 	
     console.log($scope.fbs);
       
+})
+      .controller('comparatorController',function($scope, $resource){
+    
+	
+	
+	
+	var allfbs=$resource('http://127.0.0.1:3000/pcs');
+    //getAll
+	
+    $scope.pcs=allfbs.query();
+	 
+      
 });
