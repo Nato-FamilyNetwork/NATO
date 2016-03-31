@@ -1,11 +1,12 @@
 <h1> Latest news from mosaiquefm </h1>
+<label for="rech">Search a program</label><input type="text" name="rech" ng-model="rech"/>
 
 <div>
 
 
 <ul ng-repeat="fb in fbs">
 
-<li ng-repeat="f in fb">
+<li ng-repeat="f in fb|filter:rech">
 
 <span ng-if="f.message">
 {{f.message}}  &nbsp; &nbsp; &nbsp; &nbsp;
