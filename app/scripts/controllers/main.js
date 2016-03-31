@@ -52,4 +52,20 @@ angular.module('familyNetworkAppc', ["ngResource"])
     $scope.pcs=allfbs.query();
 	 
       
-});
+})
+ .controller('imprimantesController',function($scope, $resource){
+    
+	
+	
+	
+	var allfbs=$resource('http://127.0.0.1:3000/imprimantes');
+    //getAll
+	
+    $scope.imprimantes=allfbs.query();
+	 
+      
+})
+
+
+
+;

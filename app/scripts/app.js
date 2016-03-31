@@ -80,6 +80,12 @@
         
         
       })
+        .when('/imprimante', {
+        templateUrl: 'views/imprimante.html',
+        controller: 'imprimantesController'
+        
+        
+      })
 	  // new
     .when('/radio', {
         templateUrl: 'views/radio.html',
