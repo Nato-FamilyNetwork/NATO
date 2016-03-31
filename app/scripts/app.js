@@ -13,13 +13,14 @@
     
     
     'ngRoute'
+	
     
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
+        templateUrl: 'views/login.html',
+        //controller: 'MainCtrl',
         
       })
     .when('/404', {
@@ -28,7 +29,7 @@
         
       })
     .when('/login', {
-        templateUrl: 'views/login.html',
+        templateUrl: 'login.html',
         
         
       })
@@ -49,7 +50,7 @@
       })
     .when('/galery', {
         templateUrl: 'views/galery.html',
-        
+        controller: 'scheduleListController',
         
       })
 	  .when('/comparator', {
@@ -80,6 +81,6 @@
         
       })
       .otherwise({
-        redirectTo: '/404'
+        redirectTo: '/login'
       });
   });
