@@ -22,7 +22,19 @@ angular.module('familyNetworkAppc', ["ngResource"])
       
 })
 
-
+.controller('facebookListController',function($scope, $resource){
+    
+	
+	
+	
+	var allfbs=$resource('http://127.0.0.1:3000/final/fbs');
+    //getAll
+	
+    $scope.fbs=allfbs.get();
+	
+    console.log($scope.fbs);
+      
+})
 
 
 

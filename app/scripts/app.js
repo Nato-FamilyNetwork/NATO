@@ -105,7 +105,7 @@
       })
     .when('/actu', {
         templateUrl: 'views/actu.html',
-        
+        controller:'facebookListController'
         
       })
       .otherwise({
