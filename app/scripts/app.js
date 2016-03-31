@@ -49,6 +49,26 @@
         
         
       })
+     .when('/mapLocalisation', {
+        templateUrl: 'views/mapLocalisation.html',
+        
+        
+      })
+    .when('/mapTrace', {
+        templateUrl: 'views/mapTrace.html',
+        
+        
+      })
+    .when('/mapNbr', {
+        templateUrl: 'views/mapNbr.html',
+        
+        
+      })
+    .when('/counter', {
+        templateUrl: 'views/counter.html',
+        
+        
+      })
     .when('/galery', {
         templateUrl: 'views/galery.html',
         
