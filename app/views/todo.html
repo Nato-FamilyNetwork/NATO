@@ -1,6 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>AngelPrime to-do List</title>
 
-<br/>
-<br/>
-<div> 
-    <object type="text/html" data="to-do-list-master/index.html" width="100%" height="600px" style="overflow:auto;">
-    </object></div>
+        <link rel="stylesheet" href="../lib2/Bootstrap/bootstrap.min.css" />
+        <link rel="stylesheet" href="../lib2/jQuery/jquery.ui.min.css" />
+        <link rel="stylesheet" href="../assets2/todo.css" />
+    </head>
+
+    <body class="well">
+        <div id="container">
+
+            <div id="header"> To Do List </div>
+
+            <div class="task-list task-container" id="pending">
+                <h3>Pending2</h3>
+                <!--<div class="todo-task">
+                    <div class="task-header">Sample Header</div>
+                    <div class="task-date">25/06/1992</div>
+                    <div class="task-description">Lorem Ipsum Dolor Sit Amet</div>
+                </div>-->
+            </div>
+
+            <div class="task-list task-container" id="inProgress">
+                <h3>In Progress</h3>
+            </div>
+
+            <div class="task-list task-container" id="completed">
+                <h3>Completed</h3>
+            </div>
+
+            <div class="task-list">
+                <h3>Add a task</h3>
+                <form id="todo-form">
+                    <input type="text" placeholder="Title" />
+                    <textarea placeholder="Description"></textarea>
+                    <input type="text" id="datepicker" placeholder="Due Date (dd/mm/yyyy)" />
+                    <input type="button" class="btn btn-primary" value="Add Task" onclick="todo.add();" />
+                </form>
+
+                <input type="button" class="btn btn-primary" value="Clear Data" onclick="todo.clear();" />
+
+                <div id="delete-div">
+                    Drag Here to Delete
+                </div>
+            </div>
+
+            <div style="clear:both;"></div>
+            
+            
+            <h1>  Tableau d'essaie list</h1>
+            
+            <table border="2" >
+			<thead>
+				<tr>
+					<th> titre</th>
+					<th>description</th>
+					<th>date</th>
+                    <th>userFK</th>
+                    <th>status</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+			
+				<tr ng-repeat="x in todos">
+					
+					<td>{{x.titre}}</td>
+					<td>{{x.description}}</td>
+                    <td>{{x.date}} </td>
+                    <td>{{x.userFK}} </td>
+                    <td>{{x.status}} </td>
+				
+					<td>
+						
+
+					</td>
+				</tr>
+				</tbody>
+				</table>
+            
+            
+            
+            
+	          <script type="text/javascript" src="../lib2/jQuery/jquery.min.js"></script>
+            <script type="text/javascript" src="../lib2/Bootstrap/bootstrap.min.js"></script>
+            <script type="text/javascript" src="../lib2/jQuery/jquery.ui.min.js"></script>
+            <script type="text/javascript" src="../assets2/todo.js"></script>
+
+            <script type="text/javascript">
+                $( "#datepicker" ).datepicker();
+                $( "#datepicker" ).datepicker("option", "dateFormat", "dd/mm/yy");
+
+                $(".task-container").droppable();
+                $(".todo-task").draggable({ revert: "valid", revertDuration:200 });
+                todo.init();
+            </script>
+
+        </div>
+    </body>
+</html>

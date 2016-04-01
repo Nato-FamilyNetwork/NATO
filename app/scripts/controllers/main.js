@@ -20,7 +20,48 @@ angular.module('familyNetworkAppc', ["ngResource"])
 	
     console.log($scope.fbs);
       
+
+}) .controller('TodoCtrl', function($scope, $resource) {
+    
+    var todoget =  $resource('http://127.0.0.1:3000/todo');
+    $scope.todos = todoget.query();
+        
+        
+  
+
 })
+
+.controller('facebookListController',function($scope, $resource){
+    
+	
+	
+	
+	var allfbs=$resource('http://127.0.0.1:3000/final/fbs');
+    //getAll
+	
+    $scope.fbs=allfbs.get();
+	
+    console.log($scope.fbs);
+      
+})
+
+
+
+  .controller('registerController',function($scope, $http){
+    
+	
+	
+	// post
+    $scope.add = function(ad,a){
+	$http.post('http://127.0.0.1:3000/register',$scope.formData).
+        success(function(data) {
+            console.log("posted successfully");
+        }).error(function(data) {
+            console.error("error in posting");
+        })
+    }
+})
+
       .controller('comparatorController',function($scope, $resource){
     
 	
@@ -31,13 +72,44 @@ angular.module('familyNetworkAppc', ["ngResource"])
 	
     $scope.pcs=allfbs.query();
 	 
-      
-})
-.controller('mapTraceController',function($scope, $resource){
+
+
+
+
+}).controller('imprimantesController',function($scope, $resource){
     
 	
 	
 	
+	var allfbs=$resource('http://127.0.0.1:3000/imprimantes');
+    //getAll
+	
+    $scope.imprimantes=allfbs.query();
+	 
+      
+})
+ .controller('tabletteController',function($scope, $resource){
+    
+	
+	
+	
+	var allfbs=$resource('http://127.0.0.1:3000/tablettes');
+    //getAll
+	
+    $scope.tablettes=allfbs.query();
+	 
+      
+})
+<<<<<<< HEAD
+.controller('mapTraceController',function($scope, $resource){
+=======
+ .controller('leagueController',function($scope, $resource){
+>>>>>>> origin/master
+    
+	
+	
+	
+<<<<<<< HEAD
 	var map=$resource('http://127.0.0.1:3000/map/afficher');
     //getAll
 	
@@ -47,3 +119,27 @@ angular.module('familyNetworkAppc', ["ngResource"])
 	 
       
 });
+=======
+	var allfbs=$resource('http://127.0.0.1:3000/league');
+    //getAll
+	
+    $scope.league=allfbs.query();
+	 
+      
+})
+ .controller('teamController',function($scope, $resource,$routeParams){
+    
+	
+	
+	//console.log($routeParams.param);
+	var allfbs=$resource('http://127.0.0.1:3000/league/'+$routeParams.param);
+    //getAll
+	
+    $scope.team=allfbs.query();
+	 
+      
+})
+
+;
+
+>>>>>>> origin/master

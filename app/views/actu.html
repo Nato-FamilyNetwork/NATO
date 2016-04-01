@@ -1,6 +1,30 @@
-<center>
+<h1> Latest news from mosaiquefm </h1>
+<label for="rech">Search a program</label><input type="text" name="rech" ng-model="rech"/>
+
 <div>
-    <br/>
-    <img ng-src="images/actu.png" width="770" alt="talvza plz" />
+
+
+<ul ng-repeat="fb in fbs">
+
+<li ng-repeat="f in fb|filter:rech">
+
+<span ng-if="f.message">
+{{f.message}}  &nbsp; &nbsp; &nbsp; &nbsp;
+</span>
+
+<span ng-if="f.created_time">
+At : {{f.created_time}} &nbsp; &nbsp; &nbsp; &nbsp;
+    </span>
+
+
+
+
+<span ng-if="f.link">
+<a href="{{f.link}}" target="_blank" rel="nofollow"   > check it out </a> <br/><br/><br/>
+    </span>
+</li>
+
+</ul>
+
+
 </div>
-    </center>

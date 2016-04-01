@@ -5,10 +5,10 @@
                 
 
 
-<form method="POST" action="#">
-<label for="rech">Search a program</label><input type="text" name="rech" id="rech"/>
-    <input type="submit" value="Search"/>
- </form>
+
+<label for="rech">Search a program</label><input type="text" name="rech" ng-model="rech"/>
+    
+
 <div ng-repeat="aa in fbs">
 
                             <div class="col-xs-12 col-sm-6 widget-container-col ui-sortable" style="width: 100%;">
@@ -48,7 +48,7 @@
                                                            
    
 
-															<tr ng-repeat="a in aa.program">
+															<tr ng-repeat="a in aa.program|filter:rech">
 																<td class="">{{a.heur}}</td>
 
 																<td>

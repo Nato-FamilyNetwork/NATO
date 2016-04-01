@@ -14,6 +14,8 @@
     
     'ngRoute',
 	'familyNetworkAppc'
+    
+     
 	
     
   ])
@@ -35,8 +37,9 @@
         
       })
     .when('/todo', {
-        templateUrl: 'views/todo.html'
-        
+      
+           templateUrl: 'views/todo.html',
+        controller:'TodoCtrl',
         
       })
     .when('/suggestion', {
@@ -46,6 +49,7 @@
       })
     .when('/calendar', {
         templateUrl: 'views/calendar.html',
+        
         
         
       })
@@ -81,6 +85,31 @@
         
         
       })
+        .when('/imprimante', {
+        templateUrl: 'views/imprimante.html',
+        controller: 'imprimantesController'
+        
+        
+      }) 
+        .when('/tablette', {
+        templateUrl: 'views/tablettes.html',
+        controller: 'tabletteController'
+        
+        
+      })
+    .when('/league', {
+        templateUrl: 'views/league.html',
+        controller: 'leagueController'
+        
+        
+      })
+    .when('/team/:param', {
+        templateUrl: 'views/team.html',
+        controller: 'teamController'
+        
+        
+      })
+    
 	  // new
     .when('/radio', {
         templateUrl: 'views/radio.html',
@@ -89,7 +118,7 @@
       })
     .when('/tv', {
         templateUrl: 'views/tv.html',
-        
+        controller:'registerController'
         
       })
     // end new
@@ -100,7 +129,7 @@
       })
     .when('/actu', {
         templateUrl: 'views/actu.html',
-        
+        controller:'facebookListController'
         
       })
       .otherwise({
