@@ -61,6 +61,22 @@ angular.module('familyNetworkAppc', ["ngResource"])
         })
     }
 })
+ .controller('loginController',function($rootScope, $scope, $http){
+    
+	
+	
+	// post
+    $scope.login = function(){
+	$http.post('http://127.0.0.1:3000/login',$scope.user).
+        success(function(data) {
+            console.log("connected successfully");
+        $rootScope.currentuser = data;
+        console.log($rootScope.currentuser);
+    }).error(function(data) {
+            console.error("error in connecting");
+        })
+    }
+})
 
       .controller('comparatorController',function($scope, $resource){
     

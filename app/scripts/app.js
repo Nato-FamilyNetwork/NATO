@@ -138,6 +138,11 @@
         controller:'facebookListController'
         
       })
+    .when('/slogin', {
+        templateUrl: 'views/slogin.html',
+        controller:'loginController'
+        
+      })
       .otherwise({
         redirectTo: '/login'
       });
