@@ -110,7 +110,7 @@
         
         
       })
-    .when('/information/:param', {
+    .when('/:test/:param', {
         templateUrl: 'views/information.html',
         controller: 'informationController'
         
