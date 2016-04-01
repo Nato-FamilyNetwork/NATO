@@ -109,6 +109,12 @@
         
         
       })
+    .when('/information/:param', {
+        templateUrl: 'views/information.html',
+        controller: 'informationController'
+        
+        
+      })
     
 	  // new
     .when('/radio', {
