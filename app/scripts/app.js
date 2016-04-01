@@ -14,6 +14,7 @@
     
     'ngRoute',
 	'familyNetworkAppc'
+   
     
      
 	
@@ -39,7 +40,7 @@
     .when('/todo', {
       
            templateUrl: 'views/todo.html',
-        controller:'TodoCtrl',
+        controller:'userTodo',
         
       })
     .when('/suggestion', {

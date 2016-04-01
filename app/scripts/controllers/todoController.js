@@ -1,13 +1,12 @@
-
-angular.module('todo.Crtl', ['todo.fac','ngResource'])
-
+/*angular.module('todoCrtl', ["todo.fac"])
 
 
-    .controller('TodoCtrl2', function($scope, todoget) {
+
+    .controller('TodoCtrl', function($scope, todoget) {
     
   
     $scope.todos = todoget.query();
         
         
   
-});
+});*/

@@ -14,20 +14,48 @@
             <div id="header"> To Do List </div>
 
             <div class="task-list task-container" id="pending">
-                <h3>Pending2</h3>
-                <!--<div class="todo-task">
-                    <div class="task-header">Sample Header</div>
+                <h3>To Do</h3>
+               
+                <div   ng-repeat="x in todo">
+                 
+                     <div class="todo-task"  >
+                    <div class="task-header">{{x.titre}}</div>
                     <div class="task-date">25/06/1992</div>
                     <div class="task-description">Lorem Ipsum Dolor Sit Amet</div>
-                </div>-->
+                </div>
+                    
+               
+                </div>    
             </div>
 
             <div class="task-list task-container" id="inProgress">
-                <h3>In Progress</h3>
+                <h3>Doing</h3>
+                
+                 <div   ng-repeat="x in doing">
+                 
+                     <div class="todo-task"  >
+                    <div class="task-header">{{x.titre}}</div>
+                    <div class="task-date">25/06/1992</div>
+                    <div class="task-description">Lorem Ipsum Dolor Sit Amet</div>
+                </div>
+                    
+               
+                </div>   
             </div>
 
             <div class="task-list task-container" id="completed">
-                <h3>Completed</h3>
+                <h3>Done</h3>
+                 <div   ng-repeat="x in done">
+                 
+                     <div class="todo-task"  >
+                    <div class="task-header">{{x.titre}}</div>
+                    <div class="task-date">25/06/1992</div>
+                    <div class="task-description">Lorem Ipsum Dolor Sit Amet</div>
+                </div>
+                    
+               
+                </div>   
+                
             </div>
 
             <div class="task-list">
@@ -48,7 +76,7 @@
 
             <div style="clear:both;"></div>
             
-            
+         <!--   
             <h1>  Tableau d'essaie list</h1>
             
             <table border="2" >
@@ -79,7 +107,7 @@
 				</tr>
 				</tbody>
 				</table>
-            
+            -->
             
             
             

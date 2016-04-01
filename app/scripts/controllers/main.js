@@ -115,6 +115,21 @@ angular.module('familyNetworkAppc', ["ngResource"])
     $scope.tablettes=allfbs.query();
 	 
       
+}).controller('userTodo', function($scope, $resource) {
+    
+    var todo =  $resource('http://127.0.0.1:3000/todo/56e834c249ef8a783646f647/1');
+    var doing =  $resource('http://127.0.0.1:3000/todo/56e834c249ef8a783646f647/2');
+    var done =  $resource('http://127.0.0.1:3000/todo/56e834c249ef8a783646f647/3');
+    
+    
+    
+    $scope.todo = todo.query();
+    $scope.doing = doing.query();
+    $scope.done = done.query();
+        
+        
+  
+
 })
 
 .controller('mapTraceController',function($scope, $resource){
