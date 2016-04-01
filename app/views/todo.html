@@ -20,8 +20,9 @@
                  
                      <div class="todo-task"  >
                     <div class="task-header">{{x.titre}}</div>
-                    <div class="task-date">25/06/1992</div>
-                    <div class="task-description">Lorem Ipsum Dolor Sit Amet</div>
+                    <div class="task-date">{{x.date}}</div>
+                    <div class="task-description">{{x.description}}</div>
+                         <div>  <a href="#/todo/{{x.id}}"><button class="label label-success label-white middle"  > doing  </button></a></div>
                 </div>
                     
                
@@ -33,10 +34,10 @@
                 
                  <div   ng-repeat="x in doing">
                  
-                     <div class="todo-task"  >
-                    <div class="task-header">{{x.titre}}</div>
-                    <div class="task-date">25/06/1992</div>
-                    <div class="task-description">Lorem Ipsum Dolor Sit Amet</div>
+                     <div class="todo-task"  draggable=true>
+                     <div class="task-header">{{x.titre}}</div>
+                    <div class="task-date">{{x.date}}</div>
+                    <div class="task-description">{{x.description}}</div>
                 </div>
                     
                
@@ -48,9 +49,9 @@
                  <div   ng-repeat="x in done">
                  
                      <div class="todo-task"  >
-                    <div class="task-header">{{x.titre}}</div>
-                    <div class="task-date">25/06/1992</div>
-                    <div class="task-description">Lorem Ipsum Dolor Sit Amet</div>
+                   <div class="task-header">{{x.titre}}</div>
+                    <div class="task-date">{{x.date}}</div>
+                    <div class="task-description">{{x.description}}</div>
                 </div>
                     
                
@@ -61,10 +62,10 @@
             <div class="task-list">
                 <h3>Add a task</h3>
                 <form id="todo-form">
-                    <input type="text" placeholder="Title" />
-                    <textarea placeholder="Description"></textarea>
-                    <input type="text" id="datepicker" placeholder="Due Date (dd/mm/yyyy)" />
-                    <input type="button" class="btn btn-primary" value="Add Task" onclick="todo.add();" />
+                    <input type="text" placeholder="Title"   ng-model="t" />
+                    <textarea placeholder="Description"  ng-model="ds"></textarea>
+                    <input type="text" id="datepicker" placeholder="Due Date (dd/mm/yyyy)"  ng-model="d"/>
+                    <input type="button" class="btn btn-primary" value="Add Task" ng-click="add(t,ds,d)"/>
                 </form>
 
                 <input type="button" class="btn btn-primary" value="Clear Data" onclick="todo.clear();" />

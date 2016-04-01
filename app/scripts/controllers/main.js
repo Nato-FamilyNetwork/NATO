@@ -30,7 +30,6 @@ angular.module('familyNetworkAppc', ["ngResource"])
   
 
 })
-
 .controller('facebookListController',function($scope, $resource){
     
 	
@@ -71,7 +70,8 @@ angular.module('familyNetworkAppc', ["ngResource"])
         success(function(data) {
             console.log("connected successfully");
         $rootScope.currentuser = data;
-        console.log($rootScope.currentuser);
+        console.log($rootScope.currentuser._id);
+        console.log($scope.user);
     }).error(function(data) {
             console.error("error in connecting");
         })
@@ -168,11 +168,27 @@ angular.module('familyNetworkAppc', ["ngResource"])
     $scope.tablettes=allfbs.query();
 	 
       
-}).controller('userTodo', function($scope, $resource) {
+}).controller('userTodo', function($rootScope,$scope, $resource) {
+    console.log("salut"+$rootScope.currentuser._id);
+     $scope.add = function(t,ds,da){
+
+
+	 	var AddTodo = $resource('http://127.0.0.1:3000/todo');
+        var todo = new AddTodo;
+	 	 todo.titre = t;
+         todo.description=ds;
+         todo.date=da;
+         todo.userFK=$rootScope.currentuser._id;
+         todo.status="1";
+        
+	 	
+	 	
+	 	todo.$save();
+	 }
     
-    var todo =  $resource('http://127.0.0.1:3000/todo/56e834c249ef8a783646f647/1');
-    var doing =  $resource('http://127.0.0.1:3000/todo/56e834c249ef8a783646f647/2');
-    var done =  $resource('http://127.0.0.1:3000/todo/56e834c249ef8a783646f647/3');
+    var todo =  $resource('http://127.0.0.1:3000/todo/'+$rootScope.currentuser._id+'/1');
+    var doing =  $resource('http://127.0.0.1:3000/todo/'+$rootScope.currentuser._id+'/2');
+    var done =  $resource('http://127.0.0.1:3000/todo/'+$rootScope.currentuser._id+'/3');
     
     
     
@@ -240,6 +256,15 @@ angular.module('familyNetworkAppc', ["ngResource"])
     
       
 })
+
+.controller('updateTodo',function($scope,$resource,$routeParams){
+    
+	 console.log("hi djiddou");
+  
+      
+})
+
+
 ;
 
 
