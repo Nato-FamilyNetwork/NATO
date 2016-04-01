@@ -100,16 +100,16 @@ angular.module('familyNetworkAppc', ["ngResource"])
 	 
       
 })
-<<<<<<< HEAD
+
 .controller('mapTraceController',function($scope, $resource){
-=======
- .controller('leagueController',function($scope, $resource){
->>>>>>> origin/master
+
+ 
+
     
 	
 	
 	
-<<<<<<< HEAD
+
 	var map=$resource('http://127.0.0.1:3000/map/afficher');
     //getAll
 	
@@ -118,8 +118,9 @@ angular.module('familyNetworkAppc', ["ngResource"])
     
 	 
       
-});
-=======
+})
+.controller('leagueController',function($scope, $resource){
+
 	var allfbs=$resource('http://127.0.0.1:3000/league');
     //getAll
 	
@@ -142,4 +143,4 @@ angular.module('familyNetworkAppc', ["ngResource"])
 
 ;
 
->>>>>>> origin/master
+
