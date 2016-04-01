@@ -149,6 +149,11 @@
         controller:'logoutController'
         
       })
+    .when('/all', {
+        templateUrl: 'views/family.html',
+        controller:'familyListController'
+        
+      })
       .otherwise({
         redirectTo: '/login'
       });

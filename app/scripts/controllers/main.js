@@ -78,6 +78,32 @@ angular.module('familyNetworkAppc', ["ngResource"])
     }
 })
 
+
+.controller('familyListController',function($rootScope,$resource, $scope, $http, $routeParams){
+    
+    var allfbs=$resource('http://127.0.0.1:3000/login/all');
+    //getAll
+	
+    $scope.fbs=allfbs.query();
+	
+    console.log($scope.fbs);
+    
+    
+    $scope.addF = function(idd) {
+         var hj=$resource('http://127.0.0.1:3000/login/add/:id/:fid', {}, {
+      query: {method:'PUT', params:{id:idd,fid:$rootScope.currentuser.familyid}, isArray:false}});
+	  hj.query();
+    
+    }
+    
+    
+})
+
+
+
+
+
+
 .controller('logoutController',function($rootScope,$http, $scope, $resource){
     
 	
@@ -160,27 +186,14 @@ angular.module('familyNetworkAppc', ["ngResource"])
 })
 
 
-
-
-
-
 .controller('mapTraceController',function($scope, $resource){
 
- 
-
-    
-	
-	
-	
 
 	var map=$resource('http://127.0.0.1:3000/map/afficher');
     //getAll
 	
     $scope.trace=map.query();
-  
-    
-	 
-      
+   
 })
 .controller('leagueController',function($scope, $resource){
 
@@ -200,13 +213,9 @@ angular.module('familyNetworkAppc', ["ngResource"])
     //getAll
 	
     $scope.team=allfbs.query();
-	 
-      
 })
 .controller('informationController',function($scope, $resource,$routeParams){
-    
-	
-	
+
 	//console.log($routeParams.param);
 	var allfbs=$resource('http://127.0.0.1:3000/league/2000000000/'+$routeParams.param);
     //getAll
