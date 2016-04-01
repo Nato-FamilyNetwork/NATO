@@ -78,6 +78,28 @@ angular.module('familyNetworkAppc', ["ngResource"])
     }
 })
 
+.controller('logoutController',function($rootScope,$http, $scope, $resource){
+    
+	
+	
+	$scope.logout = function(){
+	$http.get('http://127.0.0.1:3000/login/logout').
+        success(function(data) {
+            console.log("loggingout");
+        $rootScope.currentuser=undefined;
+        }).error(function(data) {
+            console.error("error");
+        })
+    }
+   
+
+})
+
+
+
+
+
+
       .controller('comparatorController',function($scope, $resource){
     
 	
@@ -104,6 +126,11 @@ angular.module('familyNetworkAppc', ["ngResource"])
 	 
       
 })
+
+
+
+
+
  .controller('tabletteController',function($scope, $resource){
     
 	
@@ -131,6 +158,11 @@ angular.module('familyNetworkAppc', ["ngResource"])
   
 
 })
+
+
+
+
+
 
 .controller('mapTraceController',function($scope, $resource){
 

@@ -144,6 +144,11 @@
         controller:'loginController'
         
       })
+    .when('/logout', {
+        templateUrl: 'views/logout.html',
+        controller:'logoutController'
+        
+      })
       .otherwise({
         redirectTo: '/login'
       });
