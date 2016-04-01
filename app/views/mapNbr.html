@@ -1,7 +1,14 @@
 <div class="page-content">
    
 
-    <script>
+   
+
+<body>
+<div id="googleMap" style="width:400px;height:400px;"></div>
+</body>
+    
+</div>
+ <script>
 var init=new google.maps.LatLng(34.4167, 8.7833);
 var bizert1=new google.maps.LatLng(37.2763, 9.8731);
 var tunis1=new google.maps.LatLng(36.8188, 10.166);
@@ -279,11 +286,5 @@ sfax.setMap(map);
 tozeur.setMap(map);
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, 'click', initialize);
 </script>
-
-<body>
-<div id="googleMap" style="width:1200px;height:900px;"></div>
-</body>
-    
-</div>

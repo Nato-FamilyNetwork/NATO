@@ -56,6 +56,7 @@
       })
     .when('/mapTrace', {
         templateUrl: 'views/mapTrace.html',
+        controller: 'mapTraceController'
         
         
       })

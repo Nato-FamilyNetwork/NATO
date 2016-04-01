@@ -32,4 +32,18 @@ angular.module('familyNetworkAppc', ["ngResource"])
     $scope.pcs=allfbs.query();
 	 
       
+})
+.controller('mapTraceController',function($scope, $resource){
+    
+	
+	
+	
+	var map=$resource('http://127.0.0.1:3000/map/afficher');
+    //getAll
+	
+    $scope.trace=map.query();
+  
+    
+	 
+      
 });
