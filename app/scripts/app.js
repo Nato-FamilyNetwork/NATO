@@ -43,12 +43,33 @@
            templateUrl: 'views/todo.html',
         controller:'userTodo',
         
-      }).when('/todo/:id', {
-      
-           templateUrl: 'views/todo.html',
-        controller:'updateTodo',
+      })
+    .when('/todo/:id', {
+         templateUrl: 'views/todo.html',
+         controller: 'updateTodoCtrl'
         
       })
+    .when('/todo2/:id', {
+         templateUrl: 'views/todo.html',
+         controller: 'updateTodoneTodoCtrl'
+        
+      })
+     .when('/tododelete/:id', {
+         templateUrl: 'views/todo.html',
+         controller: 'deleteTodoCtrl'
+        
+      }).when('/tododeleteall', {
+         templateUrl: 'views/todo.html',
+         controller: 'deleteAllTodoCtrl'
+        
+      })
+    .when('/refreche', {
+        controller: 'refrecheCtrl',
+         templateUrl: 'views/todo.html'
+         
+        
+      })
+    
     .when('/suggestion', {
         templateUrl: 'views/suggestion.html',
         

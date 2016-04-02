@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the familyNetworkApp
  */
-angular.module('familyNetworkAppc', ["ngResource"])
+angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
   .controller('scheduleListController',function($scope, $resource){
     
 	
@@ -168,7 +168,7 @@ angular.module('familyNetworkAppc', ["ngResource"])
     $scope.tablettes=allfbs.query();
 	 
       
-}).controller('userTodo', function($rootScope,$scope, $resource) {
+}).controller('userTodo', function($rootScope,$scope, $resource, $location) {
     console.log("salut"+$rootScope.currentuser._id);
      $scope.add = function(t,ds,da){
 
@@ -184,19 +184,25 @@ angular.module('familyNetworkAppc', ["ngResource"])
 	 	
 	 	
 	 	todo.$save();
+      
+          $location.path( "/refreche" );
+         
+       console.log("haha2Added");
+      $location.path( "/refreche" );
 	 }
-    
+        
+    var done =  $resource('http://127.0.0.1:3000/todo/'+$rootScope.currentuser._id+'/3');
     var todo =  $resource('http://127.0.0.1:3000/todo/'+$rootScope.currentuser._id+'/1');
     var doing =  $resource('http://127.0.0.1:3000/todo/'+$rootScope.currentuser._id+'/2');
-    var done =  $resource('http://127.0.0.1:3000/todo/'+$rootScope.currentuser._id+'/3');
     
     
     
+     $scope.done = done.query();
     $scope.todo = todo.query();
     $scope.doing = doing.query();
-    $scope.done = done.query();
+   
         
-        
+         $location.path( "/todo" )
   
 
 })
@@ -257,11 +263,74 @@ angular.module('familyNetworkAppc', ["ngResource"])
       
 })
 
-.controller('updateTodo',function($scope,$resource,$routeParams){
+.controller("updateTodoCtrl",function($scope,$routeParams,$resource,todoFactory,$location){
     
-	 console.log("hi djiddou");
+    
+ var id = $routeParams.id
+  $scope.todo = todoFactory.query({id: id})
+   
+    console.log("haha1");
+    $scope.action = "Update"
+   
+    
+       
+    todoFactory.update({id: id}, $scope.todo, function() {
+          $scope.todo.status="2";
+      $location.path( "/todo" )
+       console.log("haha2");
+    })
   
-      
+	
+   
+     console.log("haha3");
+    
+  
+
+    
+}).controller("updateTodoneTodoCtrl",function($scope,$routeParams,$resource,tododoneFactory,$location){
+    
+    
+ var id = $routeParams.id
+  $scope.todo = tododoneFactory.query({id: id})
+   
+    console.log("haha1");
+    $scope.action = "Update"
+   
+    
+       
+    tododoneFactory.update({id: id}, $scope.todo, function() {
+         
+      $location.path( "/todo" )
+       console.log("haha2");
+    })
+  
+	
+   
+     console.log("haha3");
+    
+  
+
+    
+})
+.controller('deleteTodoCtrl', function( $routeParams, Deletetodo,$location) {
+   
+    Deletetodo.delete({id: $routeParams.id} ,$location.path( "/todo" ));
+    
+       
+    
+})
+.controller('deleteAllTodoCtrl', function($rootScope,DeletetodoAll,$location) {
+      $scope.action = "Update"
+   
+    DeletetodoAll.delete({id: $rootScope.currentuser._id});
+    
+        $location.path( "/refreche" );
+    
+})
+.controller('refrecheCtrl', function($location) {
+    
+        $location.path( "/todo" );
+    
 })
 
 
