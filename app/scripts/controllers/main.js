@@ -333,6 +333,15 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
     
 })
 
+.controller('chatCtrl', function($scope,$rootScope) {
+       $scope.chatid = $rootScope.currentuser._id;
+        $scope.chatusername = $rootScope.currentuser.username;
+    
+        $scope.date = new Date();
+
+
+})
+
 
 ;
 

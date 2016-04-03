@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>AngelPrime to-do List</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+      <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        
+    </head>
+
+    
+    
+    <style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+}
+        th {
+    text-align: left;
+}
+</style>
+
+
+<table style="width:100%">
+  <tr>
+    <th>User</th>
+      <th> message</th>
+      <th>Date</th>
+    <th>Hours</th>		
+    <th>minutes</th>
+  </tr>
+  <tr>
+      <td id="users"> </td>
+    <td id="message2"> </td>
+      <td id="date2"></td>
+    <td  id="h"></td>		
+    <td id="m"></td>
+  </tr>
+ 
+</table>
+    
+    
+    
+    
+    
+    
+<form action="" id="forml">
+    
+    
+    <input type="text" id="message"/>
+   
+     <input type="hidden"  id="username" value="{{chatusername}}" />
+      <input type="hidden"  id="date" value="{{date}}" />
+       <input type="hidden"  id="chatid" value="{{chatid}}" />
+    
+    
+     <input type="submit"  value="Envoyer" />
+</form>
+<script>
+    
+    (function ($) {
+    
+    
+    var socket = io.connect('http://127.0.0.1:300/');
+    
+    
+    $("#forml").submit(function (event) {
+       
+        event.preventDefault();
+        
+        socket.emit('login', {
+         
+            message  : $("#message").val(),
+            username  : $("#username").val(),
+            date  : $("#date").val(),
+             id  : $("#chatid").val()
+             
+            
+            
+        });
+
+   // jQuery methods go here...
+
+    });
+        
+        socket.on('newusers',function(me){
+            
+            $('#users').append('<h1 id='+ me.username+'>'+me.username+'</h1>');
+             $('#message2').append('<h3>'+me.message+'</h3>');
+            $('#date2').append('<h6>'+me.date+'</h6>');
+             $('#h').append('<h6>'+me.h+'h</h6>');
+             $('#m').append('<h6>'+me.m+'m</h6>');
+            
+            
+            
+        });
+        socket.on('disuser',function(me){
+            $('#'+me.username).remove();
+            
+        })
+    
+    
+    
+}(jQuery));
+    
+    
+    
+    
+    </script>
+
+
+
+
+
+
+ 
+     
+          

@@ -1,5 +1,6 @@
 {
     "jscodehints.detectedExclusions": [
-        "C:/Users/user/Desktop/int2/NATO/app/scripts/services/todoFactory.js"
+        "C:/Users/user/Desktop/int2/NATO/app/scripts/services/todoFactory.js",
+        "pace.js"
     ]
 }

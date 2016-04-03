@@ -68,6 +68,11 @@
          templateUrl: 'views/todo.html'
          
         
+      }).when('/chat', {
+        controller: 'chatCtrl',
+         templateUrl: 'views/chat.html'
+         
+        
       })
     
     .when('/suggestion', {
