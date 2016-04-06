@@ -20,8 +20,19 @@
      
 	
     
-  ])
-  .config(function ($routeProvider) {
+  ]).config( [
+    '$compileProvider',
+    function( $compileProvider )
+    {   
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension):/);
+       
+    }
+]);
+  
+
+
+  
+  app.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/login.html',
@@ -169,6 +180,11 @@
     .when('/actu', {
         templateUrl: 'views/actu.html',
         controller:'facebookListController'
+        
+      })
+    .when('/news', {
+        templateUrl: 'views/news.html',
+        controller:'newsListController'
         
       })
     .when('/slogin', {

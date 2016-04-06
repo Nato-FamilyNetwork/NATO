@@ -43,6 +43,31 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
     console.log($scope.fbs);
       
 })
+.controller('newsListController',function($scope, $resource){
+    
+	
+	
+	
+	var allfbs=$resource('http://127.0.0.1:3000/news/tounsya');
+    //getAll
+	
+    $scope.medianews=allfbs.query();
+	
+    console.log($scope.medianews);
+    
+    
+    
+    var allchourouk=$resource('http://127.0.0.1:3000/news/chourouk');
+    //getAll
+	
+    $scope.chourouk=allchourouk.query();
+	
+    console.log($scope.chourouk);
+    
+    
+    
+      
+})
 
 
 
@@ -76,6 +101,13 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
             console.error("error in connecting");
         })
     }
+    
+    
+    
+   
+    
+    
+    
 })
 
 
