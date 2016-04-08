@@ -30,6 +30,49 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
   
 
 })
+.controller('TwitterController', function($scope, $q, twitterService) {
+
+    $scope.tweets; //tableau twitts
+    
+    twitterService.initialize();
+
+    //refresh function
+    $scope.refreshTimeline = function() {
+        twitterService.getLatestTweets().then(function(data) {
+            $scope.tweets = data;
+        });
+    }
+
+    //popup + css
+    $scope.connectButton = function() {
+        twitterService.connectTwitter().then(function() {
+            if (twitterService.isReady()) {
+                //if the authorization is successful, hide the connect button and display the tweets
+                $('#connectButton').fadeOut(function(){
+                    $('#getTimelineButton, #signOut').fadeIn();
+                    $scope.refreshTimeline();
+                });
+            }
+        });
+    }
+
+    //fassa5 oauth session
+    $scope.signOut = function() {
+        twitterService.clearCache();
+        $scope.tweets.length = 0;
+        $('#getTimelineButton, #signOut').fadeOut(function(){
+            $('#connectButton').fadeIn();
+        });
+    }
+
+    //déja connecté
+    if (twitterService.isReady()) {
+        $('#connectButton').hide();
+        $('#getTimelineButton, #signOut').show();
+        $scope.refreshTimeline();
+    }
+
+})
 .controller('facebookListController',function($scope, $resource){
     
 	

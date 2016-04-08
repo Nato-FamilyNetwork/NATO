@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My twitter space</title>
+    
+    
+    <style>
+        .container {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #results .row {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Twitter space</h1>
+        <div class="row">
+            <div class="col-xs-12">
+                <button ng-click="connectButton()" id="connectButton" type="button" class="btn btn-primary">Add my Twitter</button>
+                <button ng-click="refreshTimeline()" id="getTimelineButton" type="button" class="btn btn-info" style="display:none;">Get latest tweets</button>
+                <button ng-click="signOut()" id="signOut" type="button" class="btn btn-link" style="display:none;">Sign Out</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12" id="results">
+                <div class="row" ng-repeat="t in tweets">
+                    <div class="col-xs-2 col-sm-1">
+                        <img ng-src="{{t.user.profile_image_url}}" class="img-circle">
+                    </div>
+                    <div class="col-xs-10 col-sm-11">
+                        <small>{{t.user.name}}</small><br>{{t.text}}
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

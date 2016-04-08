@@ -13,7 +13,8 @@
     
     
     'ngRoute',
-	'familyNetworkAppc'
+	'familyNetworkAppc',
+	'familyNetworkApp.services',
     
    
     
@@ -200,6 +201,11 @@
     .when('/all', {
         templateUrl: 'views/family.html',
         controller:'familyListController'
+        
+      })
+	  .when('/twitts', {
+        templateUrl: 'views/twitter.html',
+        controller:'TwitterController'
         
       })
       .otherwise({
