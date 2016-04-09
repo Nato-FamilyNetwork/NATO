@@ -322,6 +322,10 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
     $scope.tablettes=allfbs.query();
 	 
       
+}).controller('refrecheCtrl', function($location) {
+    
+        $location.path( "/todo" );
+    
 }).controller('userTodo', function($rootScope,$scope, $resource, $location) {
     console.log("salut"+$rootScope.currentuser._id);
      $scope.add = function(t,ds,da){
@@ -339,12 +343,12 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 	 	
 	 	todo.$save();
       
-          $location.path( "/refreche" );
          
        console.log("haha2Added");
-      $location.path( "/refreche" );
+        $location.path( "/refreche" );
 	 }
         
+
     var done =  $resource('http://127.0.0.1:3000/todo/'+$rootScope.currentuser._id+'/3');
     var todo =  $resource('http://127.0.0.1:3000/todo/'+$rootScope.currentuser._id+'/1');
     var doing =  $resource('http://127.0.0.1:3000/todo/'+$rootScope.currentuser._id+'/2');
@@ -481,11 +485,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         $location.path( "/refreche" );
     
 })
-.controller('refrecheCtrl', function($location) {
-    
-        $location.path( "/todo" );
-    
-})
+
 
 .controller('chatCtrl', function($scope,$rootScope) {
        $scope.chatid = $rootScope.currentuser._id;

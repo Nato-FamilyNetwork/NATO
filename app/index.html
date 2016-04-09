@@ -429,6 +429,174 @@
 
 								<div class="center">
                                     <div ng-view=""></div>
+                                    
+                                    <!-- debut chat tout les fenêtre
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+      <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script  src="http://127.0.0.1:300/socket.io/socket.io.js"></script>
+             <style>
+            #pp{
+                
+                position: relative;
+                
+                bottom: 0px; 
+                width: 350px;
+                margin-left:990px;
+                position:fixed;
+            }
+        
+        
+        
+        
+        </style>
+        
+        <div class="row">  
+        
+        
+    	<div class="widget-body" id="pp">
+												<div class="widget-main no-padding">
+												
+										<div class="widget-box">
+											<div class="widget-header">
+												<h4 class="widget-title lighter smaller">
+                                                    
+													<i class="ace-icon fa fa-comment blue"></i>
+													Conversation
+												</h4>
+											</div>
+
+											<div class="widget-body">
+                    <div class="widget-main no-padding">
+													
+     <div class="dialogs ace-scroll">
+             <div style="display: block; height: 300px;" class="scroll-track scroll-active">
+             <div style="height: 233px; top: 0px;" class="scroll-bar"></div>
+         </div>
+            <div style="max-height: 300px;" class="scroll-content">
+                                                       
+                                                           <div  id="messages"></div>
+														<div class="itemdiv dialogdiv" id="msgtpl"    >
+															<div class="user">
+																<img alt="Alexa's Avatar" src="../assets/avatars/avatar1.png">
+															</div>
+
+															<div class="body">
+																<div class="time">
+																	<span class="green" >{{h}} {{m}} </span>
+                                                                    
+																</div>
+
+																<div class="name">
+																	<a href="#" >{{username}}</a>
+																</div>
+																<div class="text" >{{message}} </div>
+
+																<div class="tools">
+																	<a href="#" class="btn btn-minier btn-info">
+																		<i class="icon-only ace-icon fa fa-share"></i>
+																	</a>
+																</div>
+															</div>
+														</div>
+                                                            
+
+
+														
+
+														
+
+													</div></div>
+                                            </div></div>
+
+												
+													<form id="forml">
+														<div class="form-actions">
+															<div class="input-group">
+																<input placeholder="Type your message here ..." class="form-control" name="message" type="text" id="message">
+                                                                <input type="hidden"  id="username" value="{{currentuser.username}}" />
+     
+                                                                    <input type="hidden"  id="chatid" value="{{currentuser._id}}" />
+																<span class="input-group-btn">
+																	<button class="btn btn-sm btn-info no-radius" type="submit">
+																		<i class="ace-icon fa fa-share"></i>
+																		Send
+																	</button>
+																</span>
+															</div>
+														</div>
+													</form>
+												</div>
+											</div>
+										</div>
+									
+    
+            </div> 
+     <script src="mustache2/mustache.js"></script>
+<script>
+    
+    (function ($) {
+     var tmp = $('#msgtpl').html();
+        $('#msgtpl').remove();
+             
+    
+    var socket = io.connect('http://127.0.0.1:300/');
+    
+    
+    $("#forml").submit(function (event) {
+       
+        event.preventDefault();
+        
+        socket.emit('login', {
+         
+            message  : $("#message").val(),
+            username  : $("#username").val(),
+            date  : $("#date").val(),
+             id  : $("#chatid").val()
+             
+            
+            
+        });
+
+   // jQuery methods go here...
+
+    });
+        
+        
+        socket.on('newusers',function(me){
+            
+   
+            $('#messages').append('<div class="itemdiv dialogdiv">'+Mustache.render(tmp,me)+'<div>');
+            /*
+            $('#message').append('<h3>'+me.message+'</h3>');
+           
+            $('#users').append('<h1 id='+ me.username+'>'+me.username+'</h1>');
+             $('#message2').append('<h3>'+me.message+'</h3>');
+            $('#date2').append('<h6>'+me.date+'</h6>');
+             $('#h').append('<h6>'+me.h+'h</h6>');
+             $('#m').append('<h6>'+me.m+'m</h6>');
+            */
+            
+            
+        });
+        socket.on('disuser',function(me){
+            $('#'+me.username).remove();
+            
+        })
+    
+    
+    
+}(jQuery));
+    
+    
+    
+    
+    </script>
+                         -->            
+                                    
+                                    
+                                    
+                                    
 									<br />
 									<br />
 									<br />

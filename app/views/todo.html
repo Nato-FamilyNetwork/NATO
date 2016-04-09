@@ -5,13 +5,14 @@
 
         <link rel="stylesheet" href="../lib2/Bootstrap/bootstrap.min.css" />
         <link rel="stylesheet" href="../lib2/jQuery/jquery.ui.min.css" />
+        
         <link rel="stylesheet" href="../assets2/todo.css" />
     </head>
 
     <body class="well">
         <div id="container">
 
-            <div id="header"> To Do List </div>
+              <div > <h3>To Do List</h3> </div>
 
             <div class="task-list task-container" id="pending">
                 <h3>To Do</h3>
@@ -23,7 +24,7 @@
                     <div class="task-date">{{x.date}}</div>
                     <div class="task-description" >{{x.description}}</div>
                       
-                         <div>  <a ng-href="#/todo/{{x._id}}" ng-click="update()" >doing  </a></div>
+                         <div> <span class="label " ><a ng-href="#/todo/{{x._id}}" ng-click="update()"  style="color:white">move to doing   </a> </span></div>
                             
                 </div>
                    
@@ -40,7 +41,8 @@
                      <div class="task-header">{{x.titre}}</div>
                     <div class="task-date">{{x.date}}</div>
                     <div class="task-description">{{x.description}}</div>
-                           <div>  <a ng-href="#/todo2/{{x._id}}" ng-click="update()" >pass to done  </a></div>
+                         
+                         <div> <span class="label label-success arrowed" > <a ng-href="#/todo2/{{x._id}}" ng-click="update()"  style="color:white">move to done   </a></span></div>
                 </div>
                     
                
@@ -55,8 +57,10 @@
                    <div class="task-header">{{x.titre}}</div>
                     <div class="task-date">{{x.date}}</div>
                     <div class="task-description">{{x.description}}</div>
+                        
                          
-                <div>  <a ng-href="#/tododelete/{{x._id}}" >finisied  </a></div>
+                         
+                         <div>  <span class=" label label-danger arrowed-in " ><a ng-href="#/tododelete/{{x._id}}" style="color:white"> clean  </a></span> </div>
                 </div>
                     
                
@@ -89,7 +93,7 @@
        
             
             
-	          <script type="text/javascript" src="../lib2/jQuery/jquery.min.js"></script>
+	        <script type="text/javascript" src="../lib2/jQuery/jquery.min.js"></script>
             <script type="text/javascript" src="../lib2/Bootstrap/bootstrap.min.js"></script>
             <script type="text/javascript" src="../lib2/jQuery/jquery.ui.min.js"></script>
             <script type="text/javascript" src="../assets2/todo.js"></script>
