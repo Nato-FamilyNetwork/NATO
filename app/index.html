@@ -383,7 +383,16 @@
 			<!-- /section:basics/sidebar.horizontal -->
 			<div class="main-content">
 				<div class="main-content-inner">
-                     <marquee>Hortefeux (LR) sur Sarkozy: "jamais la situation d'un homme politique n'a été autant disséquée"         &nbsp; &nbsp; &nbsp; &nbsp;         Cameroun : l'armée abat 162 membres de Boko Haram                  &nbsp; &nbsp; &nbsp; &nbsp;    Microsoft : la Surface Book débarque en France</marquee>
+                     <div ng-controller="WeatherCtrl">
+                    <h2>Weather in Tunis, Tunisia</h2>
+    <weather-icon cloudiness="{{ weather.clouds }}"></weather-icon>
+    <h3>Current: {{ weather.temp.current | temp:2 }}</h3>
+    min: {{ weather.temp.min | temp }}, max: {{ weather.temp.max | temp }}
+                         <br/>
+                         <br/>
+                         <br/>
+                         <br/>
+                    </div>
 					<div class="page-content">
 						
 						
