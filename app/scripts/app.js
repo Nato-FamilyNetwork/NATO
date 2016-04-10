@@ -49,13 +49,13 @@
       })
     .when('/calendar', {
         templateUrl: 'views/calendar.html',
+        controller:'calendarController',
         
         
         
       })
      .when('/mapLocalisation', {
         templateUrl: 'views/mapLocalisation.html',
-        
         
       })
     .when('/mapTrace', {

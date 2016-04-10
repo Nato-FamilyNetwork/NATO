@@ -1,34 +1,13 @@
 <div class="page-content">
-    
-     
-     <script>
-    x= navigator.geolocation;
-        x.getCurrentPosition(success, failure);
-        function success(position){
-            var mylat = position.coords.latitude;
-            var mylong = position.coords.longitude;
-            $('#lat').html(mylat);
-            $('#long').html(mylong);
-            /*google api ready latitude and longitude*/
-            var coords = new google.maps.LatLng(mylat, mylong);
-            //setting up pir google map
-            var mapOptions ={
-                zoom: 16,
-                center: coords,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            }
-            //creating the map
-            var map = new google.maps.Map(document.getElementById("map"),mapOptions);
-            //creating marker
-            var marker = new google.maps.Marker({map: map, position: coords});
-        }
-        function failure(){
-            $('#lat').html("<p>it didn t work</p>")
-        }
+    <script>
+        
     </script>
+     
+     
+     
     <style>
         #map{
-        width: 400px;
+        width: 1300px;
             height: 400px;
         }
     </style>
@@ -36,8 +15,22 @@
         <!--map placeholder-->
         <div id="map"></div>
         <!--langitude and attittude-->
-        <div id="lat"></div>
+        <div ></div>
         <div id="long"></div>
     </body>
+    <!--<input type="text" ng-model="formData.mylat" id="mylat" name="mylat"/>           
+                <input type="text" ng-model="formData.mylong" name="mylong" id="mylong"/>
+    <input type="text" ng-model="formData.date" name="date" id="date"></input>-->
+    <form role="form" id="form1" method="post" class="validate" ng-controller="localisationController">
+                
+
     
+        
+
+            <div class="form-group">
+                <button type="submit" ng-click="add()" class="btn btn-success">Validate</button>
+            </div>
+
+        </form>
+   
 </div>

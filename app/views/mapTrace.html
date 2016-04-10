@@ -6,8 +6,8 @@
 
 <style>
         #googleMap{
-        width: 400px;
-            height: 400px;
+        width: 1300px;
+            height: 600px;
         }
     </style>
 <body >
@@ -16,64 +16,9 @@
         <input class="attitude" type="text" value="{{m.attitude}}"/>
         <input class="longitude" type="text" value="{{m.longitude}}"/>
     </div>
-    <button onclick="bazoula()">é5dem</button>
+    <p id="chemin"></p>
+    <button onclick="bazoula()">check in map</button>
     
 </body>
     
 </div>
-<script>
-    
-   function bazoula(){
-       var t= new Array ;
-   var att = document.getElementsByClassName("attitude");
-       var long = document.getElementsByClassName("longitude");
-       console.log(att.length);
-   
-    
-    var i;
-for (i = 0; i < att.length; i++) {
-    t.push(new google.maps.LatLng(parseFloat(att[i].value),parseFloat(long[i].value)));
-    console.log(t);
-  
-}      
-       
-var stavanger=new google.maps.LatLng(58.983991,5.734863);
-var amsterdam=new google.maps.LatLng(52.395715,4.888916);
-var london=new google.maps.LatLng(51.508742,-0.120850);
-
-var myTrip=[stavanger,amsterdam,london,stavanger];
-       console.log(myTrip);
-     
-var x=new google.maps.LatLng(34.7406,10.7603);
-function initialize()
-{
-var mapProp = {
-  center:x,
-  zoom:6,
-  mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  
-var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-    
-
-    
-var flightPath=new google.maps.Polyline({
-  path:t,
-  strokeColor:"#0000FF",
-  strokeOpacity:0.8,
-  strokeWeight:2
-  });
-
-flightPath.setMap(map);
-}
-
-google.maps.event.addDomListener(window, 'click', initialize);
-       
-   }
-    
-    
-</script>
-<script>
-
-
-</script>
