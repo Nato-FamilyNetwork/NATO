@@ -13,13 +13,27 @@
     
     
     'ngRoute',
-	'familyNetworkAppc'
+	'familyNetworkAppc',
+	'familyNetworkApp.services',
+    
+   
     
      
 	
     
-  ])
-  .config(function ($routeProvider) {
+  ]).config( [
+    '$compileProvider',
+    function( $compileProvider )
+    {   
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension):/);
+       
+    }
+]);
+  
+
+
+  
+  app.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/login.html',
@@ -39,9 +53,40 @@
     .when('/todo', {
       
            templateUrl: 'views/todo.html',
-        controller:'TodoCtrl',
+        controller:'userTodo',
         
       })
+    .when('/todo/:id', {
+         templateUrl: 'views/todo.html',
+         controller: 'updateTodoCtrl'
+        
+      })
+    .when('/todo2/:id', {
+         templateUrl: 'views/todo.html',
+         controller: 'updateTodoneTodoCtrl'
+        
+      })
+     .when('/tododelete/:id', {
+         templateUrl: 'views/todo.html',
+         controller: 'deleteTodoCtrl'
+        
+      }).when('/tododeleteall', {
+         templateUrl: 'views/todo.html',
+         controller: 'deleteAllTodoCtrl'
+        
+      })
+    .when('/refreche', {
+        controller: 'refrecheCtrl',
+         templateUrl: 'views/todo.html'
+         
+        
+      }).when('/chat', {
+        controller: 'chatCtrl',
+         templateUrl: 'views/chat.html'
+         
+        
+      })
+    
     .when('/suggestion', {
         templateUrl: 'views/suggestion.html',
         
@@ -109,6 +154,12 @@
         
         
       })
+    .when('/:test/:param', {
+        templateUrl: 'views/information.html',
+        controller: 'informationController'
+        
+        
+      })
     
 	  // new
     .when('/radio', {
@@ -130,6 +181,31 @@
     .when('/actu', {
         templateUrl: 'views/actu.html',
         controller:'facebookListController'
+        
+      })
+    .when('/news', {
+        templateUrl: 'views/news.html',
+        controller:'newsListController'
+        
+      })
+    .when('/slogin', {
+        templateUrl: 'views/slogin.html',
+        controller:'loginController'
+        
+      })
+    .when('/logout', {
+        templateUrl: 'views/logout.html',
+        controller:'logoutController'
+        
+      })
+    .when('/all', {
+        templateUrl: 'views/family.html',
+        controller:'familyListController'
+        
+      })
+	  .when('/twitts', {
+        templateUrl: 'views/twitter.html',
+        controller:'TwitterController'
         
       })
       .otherwise({

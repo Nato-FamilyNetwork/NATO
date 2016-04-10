@@ -17,7 +17,7 @@ Choose A Team								</small>
 								<!-- PAGE CONTENT BEGINS -->
                                 <div ng-repeat="m in team">
                                 <div class="col-xs-6 col-sm-3 pricing-box">
-                                         <a ng-href="#/team/{{m.Link}}" title="Photo Title" data-rel="colorbox">
+                                         <a ng-href="#/{{hh.param}}/{{m.Link}}" title="Photo Title" data-rel="colorbox">
                     <img  alt="150x150" src="{{m.logo}}" id="{{m.link}}" />
                     {{m.League}}
 											</a>

@@ -5,41 +5,83 @@
 
         <link rel="stylesheet" href="../lib2/Bootstrap/bootstrap.min.css" />
         <link rel="stylesheet" href="../lib2/jQuery/jquery.ui.min.css" />
+        
         <link rel="stylesheet" href="../assets2/todo.css" />
     </head>
 
     <body class="well">
         <div id="container">
 
-            <div id="header"> To Do List </div>
+              <div > <h3>To Do List</h3> </div>
 
             <div class="task-list task-container" id="pending">
-                <h3>Pending2</h3>
-                <!--<div class="todo-task">
-                    <div class="task-header">Sample Header</div>
-                    <div class="task-date">25/06/1992</div>
-                    <div class="task-description">Lorem Ipsum Dolor Sit Amet</div>
-                </div>-->
+                <h3>To Do</h3>
+         
+                <div   ng-repeat="x in todo">
+                 
+                     <div class="todo-task"  >
+                    <div class="task-header">{{x.titre}}</div>
+                    <div class="task-date">{{x.date}}</div>
+                    <div class="task-description" >{{x.description}}</div>
+                      
+                         <div> <span class="label " ><a ng-href="#/todo/{{x._id}}" ng-click="update()"  style="color:white">move to doing   </a> </span></div>
+                            
+                </div>
+                   
+               
+                </div>    
             </div>
 
             <div class="task-list task-container" id="inProgress">
-                <h3>In Progress</h3>
+                <h3>Doing</h3>
+                
+                 <div   ng-repeat="x in doing">
+                 
+                     <div class="todo-task"  draggable=true>
+                     <div class="task-header">{{x.titre}}</div>
+                    <div class="task-date">{{x.date}}</div>
+                    <div class="task-description">{{x.description}}</div>
+                         
+                         <div> <span class="label label-success arrowed" > <a ng-href="#/todo2/{{x._id}}" ng-click="update()"  style="color:white">move to done   </a></span></div>
+                </div>
+                    
+               
+                </div>   
             </div>
 
             <div class="task-list task-container" id="completed">
-                <h3>Completed</h3>
+                <h3>Done</h3>
+                 <div   ng-repeat="x in done">
+                 
+                     <div class="todo-task"  >
+                   <div class="task-header">{{x.titre}}</div>
+                    <div class="task-date">{{x.date}}</div>
+                    <div class="task-description">{{x.description}}</div>
+                        
+                         
+                         
+                         <div>  <span class=" label label-danger arrowed-in " ><a ng-href="#/tododelete/{{x._id}}" style="color:white"> clean  </a></span> </div>
+                </div>
+                    
+               
+                </div>   
+                
             </div>
 
             <div class="task-list">
                 <h3>Add a task</h3>
                 <form id="todo-form">
-                    <input type="text" placeholder="Title" />
-                    <textarea placeholder="Description"></textarea>
-                    <input type="text" id="datepicker" placeholder="Due Date (dd/mm/yyyy)" />
-                    <input type="button" class="btn btn-primary" value="Add Task" onclick="todo.add();" />
+                    <input type="text" placeholder="Title"   ng-model="t" />
+                    <textarea placeholder="Description"  ng-model="ds"></textarea>
+                    <input type="text" id="datepicker" placeholder="Due Date (dd/mm/yyyy)"  ng-model="d"/>
+                    <input type="button" class="btn btn-primary" value="Add Task" ng-click="add(t,ds,d)"     />
                 </form>
 
-                <input type="button" class="btn btn-primary" value="Clear Data" onclick="todo.clear();" />
+                
+                <a ng-href="#/tododeleteall"  >  <input type="button" class="btn btn-primary" value="Clear Data" onclick="todo.clear();" /></a>
+                
+                
+                
 
                 <div id="delete-div">
                     Drag Here to Delete
@@ -48,42 +90,10 @@
 
             <div style="clear:both;"></div>
             
-            
-            <h1>  Tableau d'essaie list</h1>
-            
-            <table border="2" >
-			<thead>
-				<tr>
-					<th> titre</th>
-					<th>description</th>
-					<th>date</th>
-                    <th>userFK</th>
-                    <th>status</th>
-				</tr>
-			</thead>
-			
-			<tbody>
-			
-				<tr ng-repeat="x in todos">
-					
-					<td>{{x.titre}}</td>
-					<td>{{x.description}}</td>
-                    <td>{{x.date}} </td>
-                    <td>{{x.userFK}} </td>
-                    <td>{{x.status}} </td>
-				
-					<td>
-						
-
-					</td>
-				</tr>
-				</tbody>
-				</table>
+       
             
             
-            
-            
-	          <script type="text/javascript" src="../lib2/jQuery/jquery.min.js"></script>
+	        <script type="text/javascript" src="../lib2/jQuery/jquery.min.js"></script>
             <script type="text/javascript" src="../lib2/Bootstrap/bootstrap.min.js"></script>
             <script type="text/javascript" src="../lib2/jQuery/jquery.ui.min.js"></script>
             <script type="text/javascript" src="../assets2/todo.js"></script>

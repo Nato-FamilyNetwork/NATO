@@ -1,0 +1,24 @@
+<form role="form" id="form1" method="post" class="validate">
+
+            <div class="form-group">
+                <label class="control-label">Name :</label>
+
+                <input type="text" ng-model="user.username" id="nom"  class="form-control"  name="name" data-validate="required" data-message-required="This is a required field." placeholder="Required name" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Password :</label>
+
+                <input type="password" ng-model="user.password" id="adress"  class="form-control" required="true" />
+            </div>
+
+          
+
+            <div class="form-group">
+                <button type="submit" ng-click="login()" class="btn btn-success">Validate</button>
+                <button type="reset" class="btn btn-white">Reset</button>
+            </div>
+
+
+        </form>
+
