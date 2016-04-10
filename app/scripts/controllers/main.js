@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the familyNetworkApp
  */
-angular.module('familyNetworkAppc', ["ngResource"])
+angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
   .controller('scheduleListController',function($scope, $resource){
     
 	
@@ -30,7 +30,49 @@ angular.module('familyNetworkAppc', ["ngResource"])
   
 
 })
+.controller('TwitterController', function($scope, $q, twitterService) {
 
+    $scope.tweets; //tableau twitts
+    
+    twitterService.initialize();
+
+    //refresh function
+    $scope.refreshTimeline = function() {
+        twitterService.getLatestTweets().then(function(data) {
+            $scope.tweets = data;
+        });
+    }
+
+    //popup + css
+    $scope.connectButton = function() {
+        twitterService.connectTwitter().then(function() {
+            if (twitterService.isReady()) {
+                //if the authorization is successful, hide the connect button and display the tweets
+                $('#connectButton').fadeOut(function(){
+                    $('#getTimelineButton, #signOut').fadeIn();
+                    $scope.refreshTimeline();
+                });
+            }
+        });
+    }
+
+    //fassa5 oauth session
+    $scope.signOut = function() {
+        twitterService.clearCache();
+        $scope.tweets.length = 0;
+        $('#getTimelineButton, #signOut').fadeOut(function(){
+            $('#connectButton').fadeIn();
+        });
+    }
+
+    //déja connecté
+    if (twitterService.isReady()) {
+        $('#connectButton').hide();
+        $('#getTimelineButton, #signOut').show();
+        $scope.refreshTimeline();
+    }
+
+})
 .controller('facebookListController',function($scope, $resource){
     
 	
@@ -42,6 +84,31 @@ angular.module('familyNetworkAppc', ["ngResource"])
     $scope.fbs=allfbs.get();
 	
     console.log($scope.fbs);
+      
+})
+.controller('newsListController',function($scope, $resource){
+    
+	
+	
+	
+	var allfbs=$resource('http://127.0.0.1:3000/news/tounsya');
+    //getAll
+	
+    $scope.medianews=allfbs.query();
+	
+    console.log($scope.medianews);
+    
+    
+    
+    var allchourouk=$resource('http://127.0.0.1:3000/news/chourouk');
+    //getAll
+	
+    $scope.chourouk=allchourouk.query();
+	
+    console.log($scope.chourouk);
+    
+    
+    
       
 })
 
@@ -124,6 +191,158 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
         
 })
 
+ .controller('loginController',function($rootScope, $scope, $http){
+    
+	
+	
+	// post
+    $scope.login = function(){
+	$http.post('http://127.0.0.1:3000/login',$scope.user).
+        success(function(data) {
+            console.log("connected successfully");
+        $rootScope.currentuser = data;
+        console.log($rootScope.currentuser._id);
+        console.log($scope.user);
+    }).error(function(data) {
+            console.error("error in connecting");
+        })
+    }
+    
+    
+    
+   
+    
+    
+    
+})
+
+
+.controller('familyListController',function($rootScope,$resource, $scope, $http, $routeParams){
+    
+    var allfbs=$resource('http://127.0.0.1:3000/login/all');
+    //getAll
+	
+    $scope.fbs=allfbs.query();
+	
+    console.log($scope.fbs);
+    
+    
+    $scope.addF = function(idd) {
+         var hj=$resource('http://127.0.0.1:3000/login/add/:id/:fid', {}, {
+      query: {method:'PUT', params:{id:idd,fid:$rootScope.currentuser.familyid}, isArray:false}});
+	  hj.query();
+    
+    }
+    
+    
+})
+
+
+
+.factory('weatherService', function($http) {
+    return { 
+      getWeather: function() {
+        var weather = { temp: {}, clouds: null };
+        $http.jsonp('http://api.openweathermap.org/data/2.5/weather?q=Tunis,at&units=metric&callback=JSON_CALLBACK&APPID=f9dbd911bc01df1d9ce563b2ba4d3209').success(function(data) {
+            if (data) {
+                if (data.main) {
+                    weather.temp.current = data.main.temp;
+                    weather.temp.min = data.main.temp_min;
+                    weather.temp.max = data.main.temp_max;
+                }
+                weather.clouds = data.clouds ? data.clouds.all : undefined;
+            }
+        });
+
+        return weather;
+      }
+    }; 
+})
+
+.filter('temp', function($filter) {
+    return function(input, precision) {
+        if (!precision) {
+            precision = 1;
+        }
+        var numberFilter = $filter('number');
+        return numberFilter(input, precision) + '\u00B0C';
+    };
+})
+
+.controller('WeatherCtrl', function ($scope, weatherService) {
+    $scope.weather = weatherService.getWeather();
+})
+
+.directive('weatherIcon', function() {
+    return {
+        restrict: 'E', replace: true,
+        scope: {
+            cloudiness: '@'
+        },
+        controller: function($scope) {
+            $scope.imgurl = function() {
+                var baseUrl = 'https://ssl.gstatic.com/onebox/weather/128/';
+                if ($scope.cloudiness < 20) {
+                    return baseUrl + 'sunny.png';
+                } else if ($scope.cloudiness < 90) {
+                   return baseUrl + 'partly_cloudy.png';
+                } else {
+                    return baseUrl + 'cloudy.png';
+                }
+            };
+        },
+        template: '<div style="float:left"><img ng-src="{{ imgurl() }}"></div>'
+    };
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.controller('logoutController',function($rootScope,$http, $scope, $resource){
+    
+	
+	
+	$scope.logout = function(){
+	$http.get('http://127.0.0.1:3000/login/logout').
+        success(function(data) {
+            console.log("loggingout");
+        $rootScope.currentuser=undefined;
+        }).error(function(data) {
+            console.error("error");
+        })
+    }
+   
+
+})
+
+
+
+
+
+
       .controller('comparatorController',function($scope, $resource){
     
 	
@@ -150,6 +369,11 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
 	 
       
 })
+
+
+
+
+
  .controller('tabletteController',function($scope, $resource){
     
 	
@@ -161,9 +385,20 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
     $scope.tablettes=allfbs.query();
 	 
       
-})
+}).controller('refrecheCtrl', function($location) {
+    
+        $location.path( "/todo" );
+    
+}).controller('userTodo', function($rootScope,$scope, $resource, $location) {
+    console.log("salut"+$rootScope.currentuser._id);
+     $scope.add = function(t,ds,da){
+
+
 
 .controller('mapTraceController',function($scope, $resource){
+
+
+
 	var map=$resource('http://127.0.0.1:3000/map/afficher');
     //getAll
     $scope.trace=map.query();
@@ -242,6 +477,7 @@ flightPath.setMap(map);
 	});    
 	 
       
+
 })
 .controller('leagueController',function($scope, $resource){
 
@@ -249,6 +485,12 @@ flightPath.setMap(map);
     //getAll
 	
     $scope.league=allfbs.query();
+    
+    $scope.updateme=function(link)
+    {
+        console.log(link);
+        
+    }
 	 
       
 })
@@ -449,14 +691,27 @@ flightPath.setMap(map);
 	//console.log($routeParams.param);
 	var allfbs=$resource('http://127.0.0.1:3000/league/'+$routeParams.param);
     //getAll
+
 	
     $scope.team=allfbs.query();
-	 
-      
+     $scope.hh=$routeParams;
 })
 
+.controller('informationController',function($scope, $resource,$routeParams,$rootScope){
+    
+	
+	
+	console.log($routeParams.param);
+	var allfbs=$resource('http://127.0.0.1:3000/league/'+$routeParams.test+'/'+$routeParams.param);
 
-
-;
-
+    //getAll
+	
+    $scope.information=allfbs.query();
+	 
+    var hj=$resource('http://127.0.0.1:3000/login/update/:user/:league/:team', {}, {
+      query: {method:'PUT', params:{user:$rootScope.currentuser._id,league:$routeParams.test,team:$routeParams.param}, isArray:false}});
+	  hj.query();
+    
+      
+});
 
