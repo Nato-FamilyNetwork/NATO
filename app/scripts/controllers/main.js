@@ -297,30 +297,6 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .controller('logoutController',function($rootScope,$http, $scope, $resource){
     
 	
@@ -337,9 +313,6 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
    
 
 })
-
-
-
 
 
 
@@ -389,10 +362,7 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
     
         $location.path( "/todo" );
     
-}).controller('userTodo', function($rootScope,$scope, $resource, $location) {
-    console.log("salut"+$rootScope.currentuser._id);
-     $scope.add = function(t,ds,da){
-
+})
 
 
 .controller('mapTraceController',function($scope, $resource){
