@@ -366,15 +366,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 })
 
 
-.controller('mapTraceController',function($scope, $resource){
 
-
-	var map=$resource('http://127.0.0.1:3000/map/afficher');
-    //getAll
-	
-    $scope.trace=map.query();
-   
-})
 .controller('leagueController',function($scope, $resource){
 
 	var allfbs=$resource('http://127.0.0.1:3000/league');
@@ -496,7 +488,151 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 
 })
 
+.controller('mapTraceController',function($scope, $resource){
 
-;
+
+
+	var map=$resource('http://127.0.0.1:3000/map/afficher');
+    //getAll
+    $scope.trace=map.query();
+    $scope.trace.$promise.then(function(value) {
+        var t = new Array;
+        var b = new Array;
+        var c = new Array;
+        var b = new Array;
+        var count;
+        var country;
+        var state;
+        var city;
+		var x=new google.maps.LatLng(34.7406,10.7603);
+/*function initialize()
+{*/
+var mapProp = {
+  center:x,
+  zoom:7,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    for(var i=0 ;i<value.length; i++){
+        t.push(new google.maps.LatLng (parseFloat(value[i].attitude),parseFloat(value[i].longitude)));
+        b.push(value[i].date);
+        var geocoder;
+geocoder = new google.maps.Geocoder();
+var latlng = new google.maps.LatLng(value[i].attitude, value[i].longitude);
+    
+geocoder.geocode(
+    {'latLng': latlng}, 
+    function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+                if (results[0]) {
+                    var add= results[0].formatted_address ;
+                    var  valuee=add.split(",");
+
+                    count=valuee.length;
+                   /* country=value[count-1];*/
+                    state=valuee[count-2];
+                   /* city=value[count-3];*/
+                    c.push(state);
+                    
+                    /*alert("city name is: " + state);*/
+                }
+                else  {
+                    alert("address not found");
+                }
+        }
+         else {
+            alert("Geocoder failed due to: " + status);
+        }
+        var total = new Array;
+        for (i = 0; i < c.length; i++) {
+            total.push(c[i]+' '+b[i]+'</br>');
+        }
+        document.getElementById("chemin").innerHTML =  total.join("");}
+          
+);}
+    
+    console.log(value);
+
+    
+var flightPath=new google.maps.Polyline({
+  path:t,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2
+  });
+
+flightPath.setMap(map);
+/*}*/
+
+/*google.maps.event.addDomListener(window, 'load', initialize);*/
+        
+	});    
+	 
+      
+
+})
+.controller('localisationController',function($scope, $http){
+    // post
+    var addd = function(){
+         var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+var h = today.getHours();
+var m = today.getMinutes();
+var s = today.getSeconds();
+
+if(dd<10) {
+    dd='0'+dd
+} 
+
+if(mm<10) {
+    mm='0'+mm
+} 
+
+today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
+        console.log(today);
+        var x= navigator.geolocation;
+        x.getCurrentPosition(success, failure);
+        function success(position){
+            var mylat = position.coords.latitude;
+            var mylong = position.coords.longitude;
+            /* document.getElementById("mylat").value = mylat;
+            document.getElementById("mylong").value = mylong;
+            document.getElementById("date").value = today;*/
+            var date = today;
+            $scope.formData ={mylat,mylong,date };
+            
+            /*google api ready latitude and longitude*/
+            var coords = new google.maps.LatLng(mylat, mylong);
+            //setting up pir google map
+            var mapOptions ={
+                zoom: 16,
+                center: coords,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            //creating the map
+            var map = new google.maps.Map(document.getElementById("map"),mapOptions);
+            //creating marker
+            var marker = new google.maps.Marker({map: map, position: coords});
+            
+	$http.post('http://127.0.0.1:3000/map/addmap',$scope.formData).
+        success(function(data) {
+            console.log("posted successfully");
+        }).error(function(data) {
+            console.error("error in posting");
+        })
+    console.log($scope.formData);
+    }
+        
+        function failure(){
+            $('#lat').html("<p>it didn t work</p>")
+        }
+    }
+    addd();
+   
+        
+});
 
 
