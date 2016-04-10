@@ -35,8 +35,10 @@
   
   app.config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/login.html',
+      .when('/login', {
+        templateUrl: function(urlattr){
+                    return '' + urlattr.templateName + '.html';
+                }
         //controller: 'MainCtrl',
         
       })

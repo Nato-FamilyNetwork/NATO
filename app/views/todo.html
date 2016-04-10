@@ -3,7 +3,7 @@
     <head>
         <title>AngelPrime to-do List</title>
 
-        <link rel="stylesheet" href="../lib2/Bootstrap/bootstrap.min.css" />
+        
         <link rel="stylesheet" href="../lib2/jQuery/jquery.ui.min.css" />
         
         <link rel="stylesheet" href="../assets2/todo.css" />
@@ -74,11 +74,11 @@
                     <input type="text" placeholder="Title"   ng-model="t" />
                     <textarea placeholder="Description"  ng-model="ds"></textarea>
                     <input type="text" id="datepicker" placeholder="Due Date (dd/mm/yyyy)"  ng-model="d"/>
-                    <input type="button" class="btn btn-primary" value="Add Task" ng-click="add(t,ds,d)"     />
+                    <input type="button" style="color: white; background-color: #2E64FE;" value="Add Task" ng-click="add(t,ds,d)"     />
                 </form>
 
                 
-                <a ng-href="#/tododeleteall"  >  <input type="button" class="btn btn-primary" value="Clear Data" onclick="todo.clear();" /></a>
+                <a ng-href="#/tododeleteall"  >  <input type="button" style="color: white; background-color: #2E64FE;" value="Clear Data" onclick="todo.clear();" /></a>
                 
                 
                 

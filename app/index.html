@@ -43,6 +43,7 @@
     <!-- endbuild -->
   </head>
   <body class="no-skin" ng-app="familyNetworkApp">
+      
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -57,7 +58,11 @@
 					<a href="#" class="navbar-brand">
 						<small>
 							<i class="fa fa-leaf"></i>
+                            
 							Family Network
+                            <div ng-if="{{currentuser}}">
+      ahla
+      </div>
 						</small>
 					</a>
 
@@ -383,10 +388,10 @@
 			<!-- /section:basics/sidebar.horizontal -->
 			<div class="main-content">
 				<div class="main-content-inner">
-                     <div ng-controller="WeatherCtrl">
+                     <div id="weatherplz" ng-controller="WeatherCtrl">
                     <h2>Weather in Tunis, Tunisia</h2>
     <weather-icon cloudiness="{{ weather.clouds }}"></weather-icon>
-    <h3>Current: {{ weather.temp.current | temp:2 }}</h3>
+    <h4>Current: {{ weather.temp.current | temp:2 }}</h4>
     min: {{ weather.temp.min | temp }}, max: {{ weather.temp.max | temp }}
                          <br/>
                          <br/>
@@ -597,46 +602,7 @@
                                     
                                     
                                     
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
-									<br />
+									
 								</div>
 
 								<!-- PAGE CONTENT ENDS -->
@@ -772,9 +738,7 @@
             <script  src="http://127.0.0.1:300/socket.io/socket.io.js"></script>
       <script  src="scripts/js/client.js"></script>
             
-    <div class="container">
     
-    </div>
 
     
 
