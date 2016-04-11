@@ -13,61 +13,16 @@
     
     <style>
         #pp{
-            position: absolute;
+            position: relative;
             
-            top: 200px;
+           
             
         }
 </style>
 
-<!--
-<table style="width:100%">
-  <tr>
-    <th>User</th>
-      <th> message</th>
-      <th>Date</th>
-    <th>Hours</th>		
-    <th>minutes</th>
-  </tr>
-  <tr>
-      <td id="users"> </td>
-    <td id="message2"> </td>
-      <td id="date2"></td>
-    <td  id="h"></td>		
-    <td id="m"></td>
-  </tr>
- 
-</table> -->
+
     <body>
-    <!--
-    <div id="messages"> 
-      <div class="message" id="msgtpl" style="display:none;">
-        
-        
-        <p>{{username}}</p>
-           <p>{{message}}</p>
-            <p>{{h}}{{m}}</p>
-        </div>
-    
-    </div> 
-   
-    
  
-    
- 
-<form action="" id="forml">
-    
-    
-    <input type="text" id="message"/>
-   
-     <input type="hidden"  id="username" value="{{chatusername}}" />
-      <input type="hidden"  id="date" value="{{date}}" />
-       <input type="hidden"  id="chatid" value="{{chatid}}" />
-    
-    
-     <input type="submit"  value="Envoyer" />
-</form> 
-    -->
         
         <div class="row">  
         
@@ -196,9 +151,12 @@
         
         
         socket.on('newusers',function(me){
-            
+           
    
+
             $('#messages').append('<div class="itemdiv dialogdiv">'+Mustache.render(tmp,me)+'<div>');
+       
+       
             /*
             $('#message').append('<h3>'+me.message+'</h3>');
            

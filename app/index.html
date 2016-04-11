@@ -60,9 +60,9 @@
 							<i class="fa fa-leaf"></i>
                             
 							Family Network
-                            <div ng-if="{{currentuser}}">
+                           <div ng-if="{{currentuser}}">
       ahla
-      </div>
+      </div> 
 						</small>
 					</a>
 
@@ -435,7 +435,7 @@
 								<div class="center">
                                     <div ng-view=""></div>
                                     
-                                    <!-- debut chat tout les fenêtre
+                                   
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
       <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -522,6 +522,7 @@
                                                                 <input type="hidden"  id="username" value="{{currentuser.username}}" />
      
                                                                     <input type="hidden"  id="chatid" value="{{currentuser._id}}" />
+                                                                <input type="hidden"  id="fid" value="{{currentuser.familyid}}" />
 																<span class="input-group-btn">
 																	<button class="btn btn-sm btn-info no-radius" type="submit">
 																		<i class="ace-icon fa fa-share"></i>
@@ -541,13 +542,16 @@
 <script>
     
     (function ($) {
+        
+    
      var tmp = $('#msgtpl').html();
         $('#msgtpl').remove();
-             
+             var hh ="";
     
     var socket = io.connect('http://127.0.0.1:300/');
     
     
+  
     $("#forml").submit(function (event) {
        
         event.preventDefault();
@@ -557,21 +561,34 @@
             message  : $("#message").val(),
             username  : $("#username").val(),
             date  : $("#date").val(),
-             id  : $("#chatid").val()
+             id  : $("#chatid").val(),
+             fid  : $("#fid").val()
              
             
+               
+         
             
-        });
+           
+        } );
+        
+       
+      
 
    // jQuery methods go here...
 
     });
         
         
-        socket.on('newusers',function(me){
+        socket.on('newusers', function(me){
+                var ffid = $("#fid").val();
+         
             
-   
-            $('#messages').append('<div class="itemdiv dialogdiv">'+Mustache.render(tmp,me)+'<div>');
+            if(me.fid == ffid){
+                 $('#messages').append('<div class="itemdiv dialogdiv">'+Mustache.render(tmp,me)+'<div>');
+            }
+                 
+         
+          
             /*
             $('#message').append('<h3>'+me.message+'</h3>');
            
@@ -597,7 +614,7 @@
     
     
     </script>
-                         -->            
+                                 
                                     
                                     
                                     
