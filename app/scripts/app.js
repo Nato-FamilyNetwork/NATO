@@ -36,10 +36,8 @@
   app.config(function ($routeProvider) {
     $routeProvider
       .when('/login', {
-        templateUrl: function(urlattr){
-                    return '' + urlattr.templateName + '.html';
-                }
-        //controller: 'MainCtrl',
+        templateUrl: 'views/login.html',
+       controller:'loginController'
         
       })
     .when('/404', {
@@ -47,11 +45,7 @@
         
         
       })
-    .when('/login', {
-        templateUrl: 'login.html',
-        
-        
-      })
+    
     .when('/todo', {
       
            templateUrl: 'views/todo.html',

@@ -91,7 +91,7 @@
                         
 					
 						<!-- #section:basics/navbar.user_menu -->
-                        
+                        <div ng-if="currentuser">
 						<li class="light-blue user-min">
 							<div data-toggle="dropdown" class="dropdown-toggle">
 								<img class="nav-user-photo" src="images/user.jpg" alt="Jason's Photo" />
@@ -129,7 +129,7 @@
 								</li>
 							</ul>
 						</li>
-
+</div>
 						<!-- /section:basics/navbar.user_menu -->
 					</ul>
 				</div>
@@ -138,23 +138,15 @@
 				<nav role="navigation" class="navbar-menu pull-left collapse navbar-collapse">
 					
 
-					<!-- #section:basics/navbar.form -->
-					<form class="navbar-form navbar-left form-search" role="search">
-						<div class="form-group">
-							<input type="text" placeholder="search" />
-						</div>
+					
 
-						<button type="button" class="btn btn-mini btn-info2">
-							<i class="ace-icon fa fa-search icon-only bigger-110"></i>
-						</button>
-					</form>
-
-					<!-- /section:basics/navbar.form -->
+					
 				</nav>
 			</div><!-- /.navbar-container -->
 		</div>
 
 		<!-- /section:basics/navbar.layout -->
+      
 		<div class="main-container ace-save-state" id="main-container">
 			
 
@@ -162,7 +154,7 @@
 			<div id="sidebar" class="sidebar      h-sidebar                navbar-collapse collapse          ace-save-state">
 				
 
-				
+				<div ng-if="currentuser">
 				<ul class="nav nav-list">
 					<li class="active hover">
 						<a href="#/">
@@ -381,11 +373,12 @@
 
 				<!-- /section:basics/sidebar.layout.minimize -->
 			</div>
+            </div>
 
 			<!-- /section:basics/sidebar.horizontal -->
 			<div class="main-content">
-				<div class="main-content-inner">
-                     <div id="weatherplz" ng-controller="WeatherCtrl">
+				<div  class="main-content-inner">
+                     <div ng-if="currentuser" id="weatherplz" ng-controller="WeatherCtrl">
                     <h2>Weather in Tunis, Tunisia</h2>
     <weather-icon cloudiness="{{ weather.clouds }}"></weather-icon>
     <h4>Current: {{ weather.temp.current | temp:2 }}</h4>
@@ -422,7 +415,7 @@
 									<em>minimized</em>.
 								</div>
 
-								<div class="hidden-sm hidden-xs">
+								<div ng-if="currentuser" class="hidden-sm hidden-xs">
 									<button type="button" class="sidebar-collapse btn btn-white btn-primary" data-target="#sidebar">
 										<i class="ace-icon fa fa-angle-double-up" data-icon1="ace-icon fa fa-angle-double-up" data-icon2="ace-icon fa fa-angle-double-down"></i>
 										Collapse/Expand Menu
@@ -632,7 +625,7 @@
 				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
 			</a>
 		</div><!-- /.main-container -->
-
+      
 		<!-- basic scripts -->
 
 		<!--[if !IE]> -->
