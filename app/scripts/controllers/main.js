@@ -262,7 +262,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
     
 	
 	
-	$scope.logout = function(){
+	
 	$http.get('http://127.0.0.1:3000/login/logout').
         success(function(data) {
             console.log("loggingout");
@@ -270,7 +270,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         }).error(function(data) {
             console.error("error");
         })
-    }
+    
    
 
 })

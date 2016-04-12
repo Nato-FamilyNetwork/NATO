@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="styles/css/fonts/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="styles/css/bootstrap.css">
 	<link rel="stylesheet" href="styles/css/xenon-core.css">
+	<link rel="stylesheet" href="styles/css/simple-sidebar.css">
 	<link rel="stylesheet" href="styles/css/xenon-forms.css">
 	<link rel="stylesheet" href="styles/css/xenon-components.css">
 	<link rel="stylesheet" href="styles/css/xenon-skins.css">
@@ -43,6 +44,12 @@
     <!-- endbuild -->
   </head>
   <body class="no-skin" ng-app="familyNetworkApp">
+  
+      
+      
+      
+      
+      
       
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -53,11 +60,11 @@
      
 		<div id="navbar" class="navbar navbar-default    navbar-collapse       h-navbar ace-save-state">
 			<div class="navbar-container ace-save-state" id="navbar-container">
-				<div class="navbar-header pull-left">
+				<div ng-if="currentuser" class="navbar-header pull-left">
 					<!-- #section:basics/navbar.layout.brand -->
 					<a href="#" class="navbar-brand">
 						<small>
-							<i class="fa fa-leaf"></i>
+							<i class="fa fa-leaf"></i>Family Network
                             
 				
 						</small>
@@ -105,24 +112,14 @@
 							
                             </div>
 							<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-								<li>
-									<a href="#">
-										<i class="ace-icon fa fa-cog"></i>
-										Settings
-									</a>
-								</li>
+								
 
-								<li>
-									<a href="profile.html">
-										<i class="ace-icon fa fa-user"></i>
-										Profile
-									</a>
-								</li>
+								
 
 								<li class="divider"></li>
 
 								<li>
-									<a href="#/login">
+									<a href="#/logout">
 										<i class="ace-icon fa fa-power-off"></i>
 										Logout
 									</a>
@@ -235,9 +232,9 @@
 					</li>
 
 					<li class="hover">
-						<a href="#/suggestion">
+						<a href="#/league">
 							<i class="menu-icon fa fa-list-alt"></i>
-							<span class="menu-text"> Needs </span>
+							<span class="menu-text"> Football </span>
 						</a>
 
 						<b class="arrow"></b>
@@ -415,13 +412,49 @@
 									<em>minimized</em>.
 								</div>
 
-								<div ng-if="currentuser" class="hidden-sm hidden-xs">
-									<button type="button" class="sidebar-collapse btn btn-white btn-primary" data-target="#sidebar">
-										<i class="ace-icon fa fa-angle-double-up" data-icon1="ace-icon fa fa-angle-double-up" data-icon2="ace-icon fa fa-angle-double-down"></i>
-										Collapse/Expand Menu
-									</button>
-								</div>
+								
+    <div id="wrapper">
 
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                
+                <li>
+                
+                
+                
+                </li>
+                <li>
+                    <video controls poster="images/jfm2.jpg">
+    <source src="http://streaming2.toutech.net:8000/jawharafm">
+        </source>
+    </video>
+                </li>
+                <li>
+                    <video controls poster="images/ifm2.png">
+    <source src="http://5.135.138.182:8000/direct">
+        </source>
+    </video>
+                </li>
+                <li>
+                    <video controls poster="images/mosalive.png">
+    <source src="http://radio.mosaiquefm.net:8000/mosalive">
+        </source>
+    </video>
+                </li>
+                
+                
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                   
+        <!-- /#page-content-wrapper -->
+
+    </div>
 								<div class="center">
                                     <div ng-view=""></div>
                                     
@@ -449,7 +482,7 @@
         <div class="row">  
         
         
-    	<div class="widget-body" id="pp">
+    	<div ng-if="currentuser" class="widget-body" id="pp">
 												<div class="widget-main no-padding">
 												
 										<div class="widget-box">
@@ -805,6 +838,12 @@ if (annyang) {
   annyang.start();
 }
 </script>
+      <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
         <!-- endbuild -->
       
 </body>

@@ -157,12 +157,7 @@
         
       })
     
-	  // new
-    .when('/radio', {
-        templateUrl: 'views/radio.html',
-        
-        
-      })
+	
     .when('/tv', {
         templateUrl: 'views/tv.html',
         controller:'registerController'
