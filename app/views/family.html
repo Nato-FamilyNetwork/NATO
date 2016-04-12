@@ -1,7 +1,42 @@
 
-<div ng-if="currentuser">
-<div ng-repeat="p in fbs|filter:currentuser.familyname">
-{{p.username}} <button class="btn btn-primary" ng-click="addF(p._id)">Add to Family</button>
 
+
+
+	<div ng-show="currentuser.familyid">	 	
+<div ng-repeat="p in fbs|filter:currentuser.familyname">
+    																		<div class="col-xs-6 col-sm-3 pricing-box" style="max-height:502px">
+    										<div class="widget-box widget-color-orange">
+    											<div class="widget-header" style="max-height:10px">
+    												<h5 class="widget-title bigger lighter">{{m.titre}}</h5>
+    											</div>
+
+    											<div class="widget-body">
+    												<div class="widget-main">
+    													<ul class="list-unstyled spaced2">
+    														
+
+    														<li>
+    															<i class="ace-icon fa fa-check green"></i>
+    															Name:{{p.name}}
+    														</li>
+                                                            <li>
+    															<i class="ace-icon fa fa-check green"></i>
+    															Family Name:{{p.familyname}}
+    														</li>
+                                                            
+
+    													 
+    													</ul>
+
+    													<hr />
+    													
+    												</div>
+
+    												<div>
+    													<button class="btn btn-primary" ng-click="addF(p._id)">Add to Family</button>
+    												</div>
+    											</div>
+    										</div>
+    									</div>
+     </div>
 </div>
-    </div>
