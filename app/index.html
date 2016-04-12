@@ -364,8 +364,13 @@
 						</a>
                         
 					</li>
+                      <li class="hover">
+						<a href="#" id="chat2"> <i class="menu-icon fa fa-envelope"></i><span class="menu-text"> Conversation </span> </a>
+                        
+					</li>
 
-				</ul><!-- /.nav-list -->
+				</ul>
+                     <!-- /.nav-list -->
 				<!-- #section:basics/sidebar.layout.minimize -->
 
 				<!-- /section:basics/sidebar.layout.minimize -->
@@ -478,11 +483,11 @@
         
         
         </style>
+          
+        <div ng-show="currentuser" class="row" id="pp">  
+     
         
-        <div ng-show="currentuser" class="row">  
-        
-        
-    	<div  class="widget-body" id="pp">
+    	<div  class="widget-body" >
 												<div class="widget-main no-padding">
 												
 										<div class="widget-box">
@@ -842,6 +847,13 @@ if (annyang) {
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+ <script>
+    $("#chat2").click(function(e) {
+        e.preventDefault();
+        $("#pp").toggle();
     });
     </script>
         <!-- endbuild -->
