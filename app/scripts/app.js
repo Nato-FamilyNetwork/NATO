@@ -105,6 +105,12 @@
         
         
       })
+     .when('/needs', {
+        templateUrl: 'views/needs.html',
+        controller: 'needsController'
+        
+        
+      })
     .when('/mapNbr', {
         templateUrl: 'views/mapNbr.html',
         

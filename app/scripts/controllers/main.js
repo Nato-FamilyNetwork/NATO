@@ -399,6 +399,22 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 	 
       
 })
+
+
+
+.controller('needsController',function($scope, $resource){
+
+	var allfbs=$resource('http://127.0.0.1:3000/needs');
+    //getAll
+	
+    $scope.needs=allfbs.query();
+    
+   
+	 
+      
+})
+
+
  .controller('teamController',function($scope, $resource,$routeParams){
     
 	
