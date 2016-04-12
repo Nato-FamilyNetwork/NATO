@@ -114,7 +114,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 
 
 
-  .controller('registerController',function($scope, $http){
+  .controller('registerController',function($rootScope,$scope, $http, $route, $location){
     
 	
 	
@@ -122,13 +122,16 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
     $scope.add = function(ad,a){
 	$http.post('http://127.0.0.1:3000/register',$scope.formData).
         success(function(data) {
-            console.log("posted successfully");
+            $rootScope.currentuser=data;
+        //$location.path( "/login" );
+        
         }).error(function(data) {
+        $scope.error = "An error has occured please try again!";
             console.error("error in posting");
         })
     }
 })
- .controller('loginController',function($rootScope, $scope, $http){
+ .controller('loginController',function($rootScope, $scope, $http, $location){
     
 	
 	
@@ -138,9 +141,10 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         success(function(data) {
             console.log("connected successfully");
         $rootScope.currentuser = data;
-        console.log($rootScope.currentuser._id);
-        console.log($scope.user);
+        
+        $location.path( "/todo" );
     }).error(function(data) {
+        $scope.error = "Error in connecting please try again!";
             console.error("error in connecting");
         })
     }
@@ -154,7 +158,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 })
 
 
-.controller('familyListController',function($rootScope,$resource, $scope, $http, $routeParams){
+.controller('familyListController',function($rootScope,$resource, $scope, $http, $routeParams, $route){
     
     var allfbs=$resource('http://127.0.0.1:3000/login/all');
     //getAll
@@ -168,7 +172,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
          var hj=$resource('http://127.0.0.1:3000/login/add/:id/:fid', {}, {
       query: {method:'PUT', params:{id:idd,fid:$rootScope.currentuser.familyid}, isArray:false}});
 	  hj.query();
-    
+    $route.reload();
     }
     
     

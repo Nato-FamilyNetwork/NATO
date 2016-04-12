@@ -158,7 +158,7 @@
       })
     
 	
-    .when('/tv', {
+    .when('/register', {
         templateUrl: 'views/tv.html',
         controller:'registerController'
         
@@ -179,11 +179,7 @@
         controller:'newsListController'
         
       })
-    .when('/slogin', {
-        templateUrl: 'views/slogin.html',
-        controller:'loginController'
-        
-      })
+    
     .when('/logout', {
         templateUrl: 'views/logout.html',
         controller:'logoutController'

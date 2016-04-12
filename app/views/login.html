@@ -60,6 +60,9 @@
 												<i class="ace-icon fa fa-coffee green"></i>
 												Please Enter Your Information
 											</h4>
+                                            <div ng-show="error" class="alert alert-danger">
+ <strong>{{error}}</strong>
+</div>
 
 											<div class="space-6"></div>
 
@@ -101,7 +104,7 @@
 											
 
 											<div>
-												<a href="index.html#/tv" data-target="#signup-box" class="user-signup-link">
+												<a href="index.html#/register" data-target="#signup-box" class="user-signup-link">
 													I want to register
 													<i class="ace-icon fa fa-arrow-right"></i>
 												</a>

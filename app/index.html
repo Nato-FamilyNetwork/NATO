@@ -60,7 +60,7 @@
      
 		<div id="navbar" class="navbar navbar-default    navbar-collapse       h-navbar ace-save-state">
 			<div class="navbar-container ace-save-state" id="navbar-container">
-				<div ng-if="currentuser" class="navbar-header pull-left">
+				<div ng-show="currentuser" class="navbar-header pull-left">
 					<!-- #section:basics/navbar.layout.brand -->
 					<a href="#" class="navbar-brand">
 						<small>
@@ -98,7 +98,7 @@
                         
 					
 						<!-- #section:basics/navbar.user_menu -->
-                        <div ng-if="currentuser">
+                        <div ng-show="currentuser">
 						<li class="light-blue user-min">
 							<div data-toggle="dropdown" class="dropdown-toggle">
 								<img class="nav-user-photo" src="images/user.jpg" alt="Jason's Photo" />
@@ -151,7 +151,7 @@
 			<div id="sidebar" class="sidebar      h-sidebar                navbar-collapse collapse          ace-save-state">
 				
 
-				<div ng-if="currentuser">
+				<div ng-show="currentuser">
 				<ul class="nav nav-list">
 					<li class="active hover">
 						<a href="#/">
@@ -375,7 +375,7 @@
 			<!-- /section:basics/sidebar.horizontal -->
 			<div class="main-content">
 				<div  class="main-content-inner">
-                     <div ng-if="currentuser" id="weatherplz" ng-controller="WeatherCtrl">
+                     <div ng-show="currentuser" id="weatherplz" ng-controller="WeatherCtrl">
                     <h2>Weather in Tunis, Tunisia</h2>
     <weather-icon cloudiness="{{ weather.clouds }}"></weather-icon>
     <h4>Current: {{ weather.temp.current | temp:2 }}</h4>
@@ -413,7 +413,7 @@
 								</div>
 
 								
-    <div id="wrapper">
+    <div ng-show="currentuser" id="wrapper">
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
@@ -479,10 +479,10 @@
         
         </style>
         
-        <div class="row">  
+        <div ng-show="currentuser" class="row">  
         
         
-    	<div ng-if="currentuser" class="widget-body" id="pp">
+    	<div  class="widget-body" id="pp">
 												<div class="widget-main no-padding">
 												
 										<div class="widget-box">
