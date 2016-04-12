@@ -44,10 +44,10 @@
 							<div class="center">
 								<h1>
 									<i class="ace-icon fa fa-leaf green"></i>
-									<span class="red">LOGIN</span>
-									<span class="red" id="id-text2">to Application</span>
+									<span class="red">Welcome</span>
+									<span class="blue" id="id-text2">to FamilyNetwork</span>
 								</h1>
-								<h4 class="blue" id="id-company-text">&copy; FamilyNetwork</h4>
+							
 							</div>
 
 							<div class="space-6"></div>
@@ -60,6 +60,9 @@
 												<i class="ace-icon fa fa-coffee green"></i>
 												Please Enter Your Information
 											</h4>
+                                            <div ng-show="error" class="alert alert-danger">
+ <strong>{{error}}</strong>
+</div>
 
 											<div class="space-6"></div>
 
@@ -82,10 +85,7 @@
 													<div class="space"></div>
 
 													<div class="clearfix">
-														<label class="inline">
-															<input type="checkbox" class="ace" />
-															<span class="lbl"> Remember Me</span>
-														</label>
+														
 
 														<button type="submit" ng-click="login()" type="button" class="width-35 pull-right btn btn-sm btn-primary">
 															<i class="ace-icon fa fa-key"></i>
@@ -104,7 +104,7 @@
 											
 
 											<div>
-												<a href="/tv" data-target="#signup-box" class="user-signup-link">
+												<a href="index.html#/register" data-target="#signup-box" class="user-signup-link">
 													I want to register
 													<i class="ace-icon fa fa-arrow-right"></i>
 												</a>
