@@ -93,52 +93,20 @@
 				</div>
 
 				<!-- #section:basics/navbar.dropdown -->
-				<div class="navbar-buttons navbar-header pull-right  collapse navbar-collapse" role="navigation">
+				<div ng-show="currentuser" class="navbar-buttons navbar-header pull-right  collapse navbar-collapse" role="navigation">
 					<ul class="nav ace-nav">
-                        
-					
-						<!-- #section:basics/navbar.user_menu -->
-                        <div ng-show="currentuser">
-						<li class="light-blue user-min">
-							<div data-toggle="dropdown" class="dropdown-toggle">
-								<img class="nav-user-photo" src="images/user.jpg" alt="Jason's Photo" />
-								<span class="user-info">
-									<small>{{currentuser.username}}</small>
-									
-                
-								</span>
-
-								<i class="ace-icon fa fa-caret-down"></i>
-							
-                            </div>
-							<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                        <li class="transparent">
+							<a  href="#/logout">
+							<i>Welcome {{currentuser.username}}</i>
 								
-
-								
-
-								<li class="divider"></li>
-
-								<li>
-									<a href="#/logout">
-										<i class="ace-icon fa fa-power-off"></i>
-										Logout
-									</a>
-								</li>
-							</ul>
-						</li>
-</div>
-						<!-- /section:basics/navbar.user_menu -->
+							</a>
+                        </li>
+						
 					</ul>
 				</div>
 
 				<!-- /section:basics/navbar.dropdown -->
-				<nav role="navigation" class="navbar-menu pull-left collapse navbar-collapse">
-					
-
-					
-
-					
-				</nav>
+				
 			</div><!-- /.navbar-container -->
 		</div>
 
