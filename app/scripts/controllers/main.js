@@ -232,7 +232,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
                 }
             };
         },
-        template: '<div style="float:left"><img ng-src="{{ imgurl() }}"></div>'
+        template: '<div style="float:left"><img width="60" ng-src="{{ imgurl() }}"></div>'
     };
 })
 
