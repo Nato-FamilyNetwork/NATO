@@ -70,15 +70,15 @@
 
             <div class="task-list">
                 <h3>Add a task</h3>
-                <form id="todo-form">
-                    <input type="text" placeholder="Title"   ng-model="t" />
-                    <textarea placeholder="Description"  ng-model="ds"></textarea>
-                    <input type="text" id="datepicker" placeholder="Due Date (dd/mm/yyyy)"  ng-model="d"/>
-                    <input type="button" style="color: white; background-color: #2E64FE;" value="Add Task" ng-click="add(t,ds,d)"     />
+                <form method="post" id="todo-form">
+                    <input type="text" placeholder="Title" required   ng-model="t" />
+                    <textarea placeholder="Description" required  ng-model="ds"></textarea>
+                    <input type="text" id="datepicker" required placeholder="Due Date (dd/mm/yyyy)"  ng-model="d"/>
+                    <input type="submit" style="color: white; background-color: #2E64FE;" value="Add Task" ng-click="add(t,ds,d)"     />
                 </form>
 
                 
-                <a ng-href="#/tododeleteall"  >  <input type="button" style="color: white; background-color: #2E64FE;" value="Clear Data" onclick="todo.clear();" /></a>
+                <a ng-href="#/tododeleteall"  >  <input type="submit" style="color: white; background-color: #2E64FE;" value="Clear Data" onclick="todo.clear();" /></a>
                 
                 
                 
@@ -99,14 +99,22 @@
             <script type="text/javascript" src="../assets2/todo.js"></script>
 
             <script type="text/javascript">
-                $( "#datepicker" ).datepicker();
-                $( "#datepicker" ).datepicker("option", "dateFormat", "dd/mm/yy");
+                
 
                 $(".task-container").droppable();
                 $(".todo-task").draggable({ revert: "valid", revertDuration:200 });
                 todo.init();
             </script>
 
+            
+            <script>
+            window.onload = function() {
+    if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
+}
+            </script>
         </div>
     </body>
 </html>

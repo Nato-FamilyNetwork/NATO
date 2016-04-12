@@ -322,13 +322,30 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
     $scope.tablettes=allfbs.query();
 	 
       
-}).controller('refrecheCtrl', function($location) {
-    
+}).controller('refrecheCtrl', function($location, $route) {
+    $route.reload(); 
         $location.path( "/todo" );
     
-}).controller('userTodo', function($rootScope,$scope, $resource, $location) {
+    
+}).controller('userTodo', function($rootScope,$scope, $resource, $location, $route) {
+    
     console.log("salut"+$rootScope.currentuser._id);
-     $scope.add = function(t,ds,da){
+    $location.path( "/todo" );
+     
+       
+
+    var done =  $resource('http://127.0.0.1:3000/todo/'+$rootScope.currentuser._id+'/3');
+    var todo =  $resource('http://127.0.0.1:3000/todo/'+$rootScope.currentuser._id+'/1');
+    var doing =  $resource('http://127.0.0.1:3000/todo/'+$rootScope.currentuser._id+'/2');
+    
+    
+    
+     $scope.done = done.query();
+    $scope.todo = todo.query();
+    $scope.doing = doing.query();
+   
+        $scope.add = function(t,ds,da){
+         
 
 
 	 	var AddTodo = $resource('http://127.0.0.1:3000/todo');
@@ -346,21 +363,11 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
          
        console.log("haha2Added");
         $location.path( "/refreche" );
+         
+         
+         
 	 }
-        
-
-    var done =  $resource('http://127.0.0.1:3000/todo/'+$rootScope.currentuser._id+'/3');
-    var todo =  $resource('http://127.0.0.1:3000/todo/'+$rootScope.currentuser._id+'/1');
-    var doing =  $resource('http://127.0.0.1:3000/todo/'+$rootScope.currentuser._id+'/2');
-    
-    
-    
-     $scope.done = done.query();
-    $scope.todo = todo.query();
-    $scope.doing = doing.query();
-   
-        
-         $location.path( "/todo" )
+         $location.path( "/todo" );
   
 
 })
@@ -462,20 +469,21 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 
     
 })
-.controller('deleteTodoCtrl', function( $routeParams, Deletetodo,$location) {
+.controller('deleteTodoCtrl', function( $routeParams, Deletetodo,$location, $route) {
    
     Deletetodo.delete({id: $routeParams.id} ,$location.path( "/todo" ));
+    $route.reload(); 
     
        
     
 })
-.controller('deleteAllTodoCtrl', function($rootScope,DeletetodoAll,$location) {
-      $scope.action = "Update"
+.controller('deleteAllTodoCtrl', function($rootScope,DeletetodoAll,$location, $route) {
+      
    
-    DeletetodoAll.delete({id: $rootScope.currentuser._id});
+    DeletetodoAll.delete({id: $rootScope.currentuser._id} ,$location.path( "/todo" ));
     
-        $location.path( "/refreche" );
-    
+        
+    $route.reload();
 })
 
 
