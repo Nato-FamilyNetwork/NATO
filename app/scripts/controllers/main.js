@@ -920,7 +920,29 @@ console.log(abbb);
 
 })
 	
+  .controller('remainController',function($scope, $resource){
+    var x = document.getElementById("myAudio"); 
+function playAudio() { 
+    x.play(); 
+} 
+     $scope.timeRemain = function(){
+    var timeLeft= document.getElementById('time');
+    var tache = document.getElementById('tache');
+		var compteur= document.getElementById('compteur');
+		var intervalID = setInterval(function() { 
+		compteur.innerHTML = tache.value+" expire dans (" + --timeLeft.value + "s)";
+        }, 1000);
+        var timerID = setTimeout(function() { 
+		clearInterval(intervalID);
+          
+		compteur.innerHTML = tache.value+" terminer";
+            compteur.style.color="red";
+		playAudio();
+
+		}, 1000+(timeLeft.value*1000));};
+	 
       
+})    
 });
 
 

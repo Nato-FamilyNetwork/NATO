@@ -193,15 +193,7 @@
 						
 					</li>
 
-					<li class="hover">
-						<a ng-href="#/suggestion">
-							<i class="menu-icon fa fa-pencil-square-o"></i>
-							<span class="menu-text"> Suggestion </span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
- 
-					</li>
+					
 
 					<li class="hover">
 						<a href="#/league">
@@ -298,28 +290,71 @@
 					</li>
 
 					
-					<li class="hover">
-						<a href="#/comparator" target="">
-							<i class="menu-icon fa fa-euro"></i>
-
+					<li class="open hover">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-file-o"></i>
 							<span class="menu-text">
 								Price Comparator
-
-								<!-- #section:basics/sidebar.layout.badge -->
-								<span class="badge badge-primary">5</span>
-
-								<!-- /section:basics/sidebar.layout.badge -->
 							</span>
 
 							<b class="arrow fa fa-angle-down"></b>
 						</a>
-                        
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							 
+							 
+
+							<li class="hover">
+								<a href="#/comparator">
+									<i class="menu-icon fa fa-caret-right"></i>
+									PCs
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="hover">
+								<a href="#/imprimante">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Printers
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="hover">
+								<a href="#/tablette">
+									<i class="menu-icon fa fa-caret-right"></i>
+								    Tablets
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+
+							 
+
+						 </ul>
+
+	 
+
 					</li>
                     
                     <li ng-show="currentuser.familyid" class="hover">
 						<a href="#/all">
 							<i class="menu-icon fa fa-user"></i>
 							<span class="menu-text"> Add members to my family </span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+                        
+					</li>
+                    <li class="hover">
+						<a href="#/reminder">
+							<i class="menu-icon fa fa-tag"></i>
+							<span class="menu-text"> Reminder </span>
 
 							<b class="arrow fa fa-angle-down"></b>
 						</a>
