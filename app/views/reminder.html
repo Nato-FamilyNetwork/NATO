@@ -1,0 +1,37 @@
+<html>
+    <p id="resultat"></p>
+    <audio id="myAudio">
+  <source src="http://www.memoclic.com/medias/sons-wav/1/335.wav" type="audio/wav">
+  <source src="http://www.memoclic.com/medias/sons-wav/1/335.mp3" type="audio/mpeg">
+</audio>
+<div class="form-group has-success">
+  <label class="control-label" for="inputSuccess1">event remaining</label>
+  <input type="text" class="form-control" id="tache" aria-describedby="helpBlock2">
+    <input type="text" class="form-control" id="time" aria-describedby="helpBlock2">
+    
+    <button type="submit" class="btn btn-default" ng-click="timeRemain()">Submit</button>
+</div>
+    <h1 id="compteur"></h1>
+    
+    
+    
+    <!--<script type="text/javascript">
+        document.getElementById("bnt").on('click', function() {
+            
+        var a = document.getElementById("time");
+        console.log(a);
+		var timeLeft = 5;
+		var compteur= document.getElementById('compteur')
+		var intervalID = setInterval(function() { 
+		compteur.innerHTML = "il vous reste (" + --timeLeft + "s)";
+        }, 1000);
+        var timerID = setTimeout(function() { 
+		clearInterval(intervalID);
+		compteur.innerHTML = "terminer";
+		
+
+		}, 6000);});
+	</script>-->
+    
+
+</html>

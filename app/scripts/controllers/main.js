@@ -382,6 +382,29 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 	 
       
 })
+.controller('remainController',function($scope, $resource){
+    var x = document.getElementById("myAudio"); 
+function playAudio() { 
+    x.play(); 
+} 
+     $scope.timeRemain = function(){
+    var timeLeft= document.getElementById('time');
+    var tache = document.getElementById('tache');
+		var compteur= document.getElementById('compteur');
+		var intervalID = setInterval(function() { 
+		compteur.innerHTML = tache.value+" expire dans (" + --timeLeft.value + "s)";
+        }, 1000);
+        var timerID = setTimeout(function() { 
+		clearInterval(intervalID);
+          
+		compteur.innerHTML = tache.value+" terminer";
+            compteur.style.color="red";
+		playAudio();
+
+		}, 1000+(timeLeft.value*1000));};
+	 
+      
+})
  .controller('teamController',function($scope, $resource,$routeParams){
     
 	
@@ -635,7 +658,7 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
         
 })
 
-.controller('calendarController',function($scope, $resource, $http,$route){
+.controller('calendarController',function($scope, $resource, $http,$route,$rootScope){
     jQuery(function($) {
 
 /* initialize the external events
@@ -744,6 +767,7 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
         }).error(function(data) {
             console.error("error in posting");
         })
+                    console.log($rootScope.currentuser);
     $route.reload();
 			// is the "remove after drop" checkbox checked?
 			if ($('#drop-remove').is(':checked')) {
@@ -779,6 +803,7 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
         }).error(function(data) {
             console.error("error in posting");
         })
+                    console.log($rootScope.currentuser);
    $route.reload();
 				}
 			});
@@ -832,6 +857,7 @@ console.log(abbb);
          var up=$resource('http://127.0.0.1:3000/calendar/:id/:title/:start/:end/:className', {}, {
       query: {method:'PUT', params:{id:value[k]._id,title:abbb,start:value[k].start,end:c,className:value[k].className}, isArray:false}});
                     console.log(abbb);
+                    console.log($rootScope.currentuser);
 	  up.query();
            console.log('ok');
                 }
@@ -861,7 +887,7 @@ console.log(abbb);
          var del=$resource('http://127.0.0.1:3000/calendar/:id', {}, {
       query: {method:'DELETE', params:{id:value[j]._id}, isArray:false}});
 	  del.query();
-           
+           console.log($rootScope.currentuser);
                 }
                 };
                 
