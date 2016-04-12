@@ -119,11 +119,16 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 	
 	
 	// post
+    
     $scope.add = function(ad,a){
+        if($scope.formData.familyid){
+    $scope.formData.fid= $scope.formData.familyname+" Family";
+    }
 	$http.post('http://127.0.0.1:3000/register',$scope.formData).
         success(function(data) {
             $rootScope.currentuser=data;
-        //$location.path( "/login" );
+        
+        $location.path( "/todo" );
         
         }).error(function(data) {
         $scope.error = "An error has occured please try again!";

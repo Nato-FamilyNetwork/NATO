@@ -121,14 +121,7 @@
 
 				<div ng-show="currentuser">
 				<ul class="nav nav-list">
-					<li class="active hover">
-						<a href="#/">
-							<i class="menu-icon fa fa-tachometer"></i>
-							<span class="menu-text"> Dashboard </span>
-						</a>
-
-						<b class="arrow"></b>
-					</li>
+					
 
 					<li class="open hover">
 						<a href="#" class="dropdown-toggle">
@@ -147,18 +140,18 @@
 							 
 
 							<li class="hover">
-								<a href="#/tv">
+								<a href="#/programs">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Tv
+									TV station schedule
 								</a>
 
 								<b class="arrow"></b>
 							</li>
 
 							<li class="hover">
-								<a href="#/radio">
+								<a href="#/news">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Radio
+									News from newspapers
 								</a>
 
 								<b class="arrow"></b>
@@ -167,12 +160,19 @@
 							<li class="hover">
 								<a href="#/actu">
 									<i class="menu-icon fa fa-caret-right"></i>
-								    News
+								    News facebook
 								</a>
 
 								<b class="arrow"></b>
 							</li>
+<li class="hover">
+								<a href="#/twitts">
+									<i class="menu-icon fa fa-caret-right"></i>
+								    My twitter feed
+								</a>
 
+								<b class="arrow"></b>
+							</li>
 							 
 
 						 </ul>
@@ -286,7 +286,7 @@
 					
 					<li class="hover">
 						<a href="#/comparator" target="">
-							<i class="menu-icon fa fa-file-o"></i>
+							<i class="menu-icon fa fa-euro"></i>
 
 							<span class="menu-text">
 								Price Comparator
@@ -299,41 +299,20 @@
 
 							<b class="arrow fa fa-angle-down"></b>
 						</a>
-                        <!--
-						<b class="arrow"></b>
-
-						<ul class="submenu">
-							<li class="hover">
-								<a href="faq.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									FAQ
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							 
-						</ul>!-->
+                        
 					</li>
+                    
                     <li class="hover">
-						<a href="#/programs" >
-							<i class="menu-icon fa fa-tag"></i>
-							<span class="menu-text"> TV Programs Schedule </span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
-                    </li>
-                    <li class="hover">
-						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-tag"></i>
-							<span class="menu-text"> More Pages </span>
+						<a href="#/all">
+							<i class="menu-icon fa fa-user"></i>
+							<span class="menu-text"> Add members to my family </span>
 
 							<b class="arrow fa fa-angle-down"></b>
 						</a>
                         
 					</li>
                       <li class="hover">
-						<a href="#" id="chat2"> <i class="menu-icon fa fa-envelope"></i><span class="menu-text"> Conversation </span> </a>
+						<a href="#" id="chat2"> <i class="menu-icon fa fa-comment"></i><span class="menu-text"> Conversation </span> </a>
                         
 					</li>
 
@@ -392,12 +371,10 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 
+                
                 <li>
-                
-                
-                
-                </li>
-                <li>
+                    
+                    
                     <video controls poster="images/jfm2.jpg">
     <source src="http://streaming2.toutech.net:8000/jawharafm">
         </source>
@@ -567,7 +544,7 @@
            
         } );
         
-       
+       $("#message").val("");
       
 
    // jQuery methods go here...
