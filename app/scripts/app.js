@@ -97,11 +97,18 @@
       })
      .when('/mapLocalisation', {
         templateUrl: 'views/mapLocalisation.html',
+        controller: 'localisationController'
         
       })
     .when('/mapTrace', {
         templateUrl: 'views/mapTrace.html',
         controller: 'mapTraceController'
+        
+        
+      })
+    .when('/reminder', {
+        templateUrl: 'views/reminder.html',
+        controller: 'remainController'
         
         
       })

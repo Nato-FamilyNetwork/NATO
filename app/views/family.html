@@ -1,13 +1,9 @@
-
-
-
-
-	<div ng-show="currentuser.familyid">	 	
+<div ng-show="currentuser.familyid">	 	
 <div ng-repeat="p in fbs|filter:currentuser.familyname">
     																		<div class="col-xs-6 col-sm-3 pricing-box" style="max-height:502px">
     										<div class="widget-box widget-color-orange">
     											<div class="widget-header" style="max-height:10px">
-    												<h5 class="widget-title bigger lighter">{{m.titre}}</h5>
+    												<h5 class="widget-title bigger lighter">{{p.familyname}}</h5>
     											</div>
 
     											<div class="widget-body">
@@ -19,10 +15,7 @@
     															<i class="ace-icon fa fa-check green"></i>
     															Name:{{p.name}}
     														</li>
-                                                            <li>
-    															<i class="ace-icon fa fa-check green"></i>
-    															Family Name:{{p.familyname}}
-    														</li>
+                                                            
                                                             
 
     													 

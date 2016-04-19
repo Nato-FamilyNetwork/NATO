@@ -919,8 +919,9 @@ console.log(abbb);
 
 
 })
-	
-  .controller('remainController',function($scope, $resource){
+	})
+    
+    .controller('remainController',function($scope, $resource){
     var x = document.getElementById("myAudio"); 
 function playAudio() { 
     x.play(); 
@@ -942,7 +943,13 @@ function playAudio() {
 		}, 1000+(timeLeft.value*1000));};
 	 
       
-})    
 });
+
+    
+    
+    
+    
+      
+
 
 

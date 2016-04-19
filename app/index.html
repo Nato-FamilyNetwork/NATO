@@ -290,7 +290,7 @@
 					</li>
 
 					
-					<li class="open hover">
+							<li class="open hover">
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-file-o"></i>
 							<span class="menu-text">
@@ -341,20 +341,20 @@
 	 
 
 					</li>
-                    
-                    <li ng-show="currentuser.familyid" class="hover">
-						<a href="#/all">
-							<i class="menu-icon fa fa-user"></i>
-							<span class="menu-text"> Add members to my family </span>
+<li class="hover">
+						<a href="#/reminder">
+							<i class="menu-icon fa fa-tag"></i>
+							<span class="menu-text"> Reminder </span>
 
 							<b class="arrow fa fa-angle-down"></b>
 						</a>
                         
 					</li>
-                    <li class="hover">
-						<a href="#/reminder">
-							<i class="menu-icon fa fa-tag"></i>
-							<span class="menu-text"> Reminder </span>
+                    
+                    <li ng-show="currentuser.familyid" class="hover">
+						<a href="#/all">
+							<i class="menu-icon fa fa-user"></i>
+							<span class="menu-text"> Add members to my family </span>
 
 							<b class="arrow fa fa-angle-down"></b>
 						</a>
@@ -813,16 +813,16 @@ if (annyang) {
  
   var commands = {
     'news': function() {
-      document.location.href="http://127.0.0.1:5399/app/index.html#/news"
+      document.location.href="http://127.0.0.1:3746/app/index.html#/news"
     },
       'twitter': function() {
-      document.location.href="http://127.0.0.1:5399/app/index.html#/twitts"
+      document.location.href="http://127.0.0.1:3746/app/index.html#/twitts"
     },
-      'price comparator': function() {
-      document.location.href="http://127.0.0.1:5399/app/index.html#/comparator"
+      'disconnect': function() {
+      document.location.href="http://127.0.0.1:3746/app/index.html#/logout"
     },
       'map': function() {
-      document.location.href="http://127.0.0.1:5399/app/index.html#/mapLocalisationr"
+      document.location.href="http://127.0.0.1:3746/app/index.html#/mapLocalisationr"
     }
       
       
