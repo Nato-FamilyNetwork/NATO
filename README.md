@@ -1,12 +1,16 @@
-#NATO TEAM 2015-2016
+# Family Network Project
 
-1) git init
-2) git add . (pour tout ajouter)
-   git add nom_fichier_changé
-3) git remote add origin git@github.com:Nato-FamilyNetwork/NATO.git
-4) git commit -m 'Description des changements'
+### Installation
 
-5) git push -u origin master
-    
-cloner) git clone git@github.com:Nato-FamilyNetwork/NATO.git
-charger les changements) git pull origin master
+
+```sh
+$ git clone git@github.com:Nato-FamilyNetwork/NATO.git
+$ cd NATO
+```
+##### Open project in Brackets, go to index.html and run.
+
+***
+
+
+**Free Software, Hell Yeah!**
+**Nato Team 2015-2016**
