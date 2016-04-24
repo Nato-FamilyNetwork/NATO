@@ -12,10 +12,10 @@
     <body class="well">
         <div id="container">
 
-              <div > <h3>To Do List</h3> </div>
+              <div > <h3>{{'tt' | translate}}</h3> </div>
 
             <div class="task-list task-container" id="pending">
-                <h3>To Do</h3>
+                <h3>{{'td' | translate}}</h3>
          
                 <div   ng-repeat="x in todo">
                  
@@ -24,7 +24,7 @@
                     <div class="task-date">{{x.date}}</div>
                     <div class="task-description" >{{x.description}}</div>
                       
-                         <div> <span class="label " ><a ng-href="#/todo/{{x._id}}" ng-click="update()"  style="color:white">move to doing   </a> </span></div>
+                         <div> <span class="label " ><a ng-href="#/todo/{{x._id}}" ng-click="update()"  style="color:white">{{'mtd' | translate}}   </a> </span></div>
                             
                 </div>
                    
@@ -33,7 +33,7 @@
             </div>
 
             <div class="task-list task-container" id="inProgress">
-                <h3>Doing</h3>
+                <h3>{{'doi' | translate}}</h3>
                 
                  <div   ng-repeat="x in doing">
                  
@@ -42,7 +42,7 @@
                     <div class="task-date">{{x.date}}</div>
                     <div class="task-description">{{x.description}}</div>
                          
-                         <div> <span class="label label-success arrowed" > <a ng-href="#/todo2/{{x._id}}" ng-click="update()"  style="color:white">move to done   </a></span></div>
+                         <div> <span class="label label-success arrowed" > <a ng-href="#/todo2/{{x._id}}" ng-click="update()"  style="color:white">{{'mtdd' | translate}}   </a></span></div>
                 </div>
                     
                
@@ -50,7 +50,7 @@
             </div>
 
             <div class="task-list task-container" id="completed">
-                <h3>Done</h3>
+                <h3>{{'don' | translate}}</h3>
                  <div   ng-repeat="x in done">
                  
                      <div class="todo-task"  >
@@ -60,7 +60,7 @@
                         
                          
                          
-                         <div>  <span class=" label label-danger arrowed-in " ><a ng-href="#/tododelete/{{x._id}}" style="color:white"> clean  </a></span> </div>
+                         <div>  <span class=" label label-danger arrowed-in " ><a ng-href="#/tododelete/{{x._id}}" style="color:white"> {{'clr' | translate}}  </a></span> </div>
                 </div>
                     
                
