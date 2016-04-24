@@ -15,6 +15,7 @@
     'ngRoute',
 	'familyNetworkAppc',
 	'familyNetworkApp.services',
+      'pascalprecht.translate'
     
    
     
@@ -29,6 +30,49 @@
        
     }
 ]);
+
+app.config(function ($translateProvider) {
+  $translateProvider.translations('en', {
+    TITLE: 'Welcome',
+    Entert : 'Entertainment',
+    weather: 'Weather in Tunis, Tunisia',
+    curr: 'current',
+    tod: 'To Do List',
+    foot: 'Football',
+    plz: 'Please Enter Your Information',
+    enr: 'I want to register',
+    lg: 'Login',
+    BUTTON_LANG_EN: 'english',
+    BUTTON_LANG_DE: 'german'
+  });
+  $translateProvider.translations('de', {
+    TITLE: 'Wilkommen',
+    Entert : 'Unterhaltung',
+    weather: 'Wetter in Tunis, Tunesien',
+    curr: 'Strom',
+    tod: 'Aufgabenliste',
+    foot: 'Fußball',
+    plz: 'Bitte geben Sie Ihre Informationen',
+    enr: 'Ich möchte mich registrieren',
+    lg: 'Anmeldung',
+    BUTTON_LANG_EN: 'englisch',
+    BUTTON_LANG_DE: 'deutsch'
+  });
+    $translateProvider.translations('fr', {
+    TITLE: 'Bienvenue',
+    Entert : 'Divertissement',
+    weather: 'Météo à Tunis, Tunisie',
+    curr: 'Maintenant',
+    tod: 'liste de choses à faire',
+    foot: 'Foot',
+    plz: 'Sil vous plaît Entrez vos informations',
+    enr: 'Je veux menregistrer',
+    lg: 'Se connecter',
+    BUTTON_LANG_EN: 'Anglais',
+    BUTTON_LANG_DE: 'Allemand'
+  });
+  $translateProvider.preferredLanguage('de');
+});
   
 
 

@@ -943,7 +943,18 @@ function playAudio() {
 		}, 1000+(timeLeft.value*1000));};
 	 
       
+})
+
+
+
+.controller('BigCtrl', function ($translate, $scope) {
+ 
+  $scope.changeLanguage = function (langKey) {
+    $translate.use(langKey);
+  };
+ 
 });
+
 
     
     

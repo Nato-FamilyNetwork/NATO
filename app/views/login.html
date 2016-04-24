@@ -35,16 +35,16 @@
 		<![endif]-->
 	</head>
 
-	<body class="login-layout">
-		<div class="main-container">
-			<div class="main-content">
+	<body  >
+		<div style="background-image: url('http://127.0.0.1:6688/app/images/mandher.jpg'); height: 721px;"  class="main-container">
+			<div class="main-content" style="overflow: hidden;">
 				<div class="row">
 					<div class="col-sm-10 col-sm-offset-1">
 						<div class="login-container">
 							<div class="center">
 								<h1>
 									<i class="ace-icon fa fa-leaf green"></i>
-									<span class="red">Welcome</span>
+									<span class="red">{{ 'TITLE' | translate }}</span>
 									<span class="blue" id="id-text2">to FamilyNetwork</span>
 								</h1>
 							
@@ -58,7 +58,7 @@
 										<div class="widget-main">
 											<h4 class="header blue lighter bigger">
 												<i class="ace-icon fa fa-coffee green"></i>
-												Please Enter Your Information
+												{{ 'plz' | translate }}
 											</h4>
                                             <div ng-show="error" class="alert alert-danger">
  <strong>{{error}}</strong>
@@ -89,7 +89,7 @@
 
 														<button type="submit" ng-click="login()" type="button" class="width-35 pull-right btn btn-sm btn-primary">
 															<i class="ace-icon fa fa-key"></i>
-															<span class="bigger-110">Login</span>
+															<span class="bigger-110">{{ 'lg' | translate }}</span>
 														</button>
 													</div>
 
@@ -104,9 +104,7 @@
 											
 
 											<div>
-												<a href="index.html#/register" data-target="#signup-box" class="user-signup-link">
-													I want to register
-													<i class="ace-icon fa fa-arrow-right"></i>
+												<a href="index.html#/register" data-target="#signup-box" class="user-signup-link">{{ 'enr' | translate }}<i class="ace-icon fa fa-arrow-right"></i>
 												</a>
 											</div>
 										</div>
