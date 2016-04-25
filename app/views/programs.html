@@ -9,16 +9,16 @@
 <label for="rech">Search a program</label><input type="text" name="rech" ng-model="rech"/>
     
 
-<div ng-repeat="aa in fbs">
+
 
                             <div class="col-xs-12 col-sm-6 widget-container-col ui-sortable" style="width: 100%;">
 										<div class="widget-box widget-color-blue" style="background-color:#438EB9;">
 											<!-- #section:custom/widget-box.options -->
 											<div class="widget-header">
 												<h5 class="widget-title bigger lighter">
-													<i class="ace-icon fa fa-table"></i>
-													{{aa.chaine.nom}}
-												</h5>
+													<i class="ace-icon fa fa-television"></i>
+												Nessma TV	
+                                                </h5>
 
 												 
 											</div>
@@ -48,11 +48,196 @@
                                                            
    
 
-															<tr ng-repeat="a in aa.program|filter:rech">
-																<td class="">{{a.heur}}</td>
+															<tr  ng-repeat="aa in nessma |filter:rech" >
+																<td class="">{{aa.program.heur}}</td>
 
 																<td>
-																	<p>{{a.contenue}}</p>
+																	<p>{{aa.program.contenue}}</p>
+																</td>
+
+																 
+															</tr>
+                                                             
+                                                            
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+
+
+
+
+<div class="col-xs-12 col-sm-6 widget-container-col ui-sortable" style="width: 100%;">
+										<div class="widget-box widget-color-blue" style="background-color:#438EB9;">
+											<!-- #section:custom/widget-box.options -->
+											<div class="widget-header">
+												<h5 class="widget-title bigger lighter">
+													<i class="ace-icon fa fa-television"></i>
+												Hannibal TV	
+                                                </h5>
+
+												 
+											</div>
+
+											<!-- /section:custom/widget-box.options -->
+											<div class="widget-body">
+												<div class="widget-main no-padding">
+													<table class="table table-striped table-bordered table-hover">
+														<thead class="thin-border-bottom">
+															<tr>
+																<th>
+ 																	<center>Time</center>
+																</th>
+
+																<th>
+                                                                    <center>
+                                                                        Program
+																	</center>
+																	
+																</th>
+ 															</tr>
+														</thead>
+
+														<tbody>
+                                                       
+
+                                                           
+   
+
+															<tr  ng-repeat="bb in hannibal |filter:rech" >
+																<td class="">{{bb.program.heur}}</td>
+
+																<td>
+																	<p>{{bb.program.contenue}}</p>
+																</td>
+
+																 
+															</tr>
+                                                             
+                                                            
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+
+
+
+<div class="col-xs-12 col-sm-6 widget-container-col ui-sortable" style="width: 100%;">
+										<div class="widget-box widget-color-blue" style="background-color:#438EB9;">
+											<!-- #section:custom/widget-box.options -->
+											<div class="widget-header">
+												<h5 class="widget-title bigger lighter">
+													<i class="ace-icon fa fa-television"></i>
+												Wataniya 1 TV	
+                                                </h5>
+
+												 
+											</div>
+
+											<!-- /section:custom/widget-box.options -->
+											<div class="widget-body">
+												<div class="widget-main no-padding">
+													<table class="table table-striped table-bordered table-hover">
+														<thead class="thin-border-bottom">
+															<tr>
+																<th>
+ 																	<center>Time</center>
+																</th>
+
+																<th>
+                                                                    <center>
+                                                                        Program
+																	</center>
+																	
+																</th>
+ 															</tr>
+														</thead>
+
+														<tbody>
+                                                       
+
+                                                           
+   
+
+															<tr  ng-repeat="cc in wat |filter:rech" >
+																<td class="">{{cc.program.heur}}</td>
+
+																<td>
+																	<p>{{cc.program.contenue}}</p>
+																</td>
+
+																 
+															</tr>
+                                                             
+                                                            
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-xs-12 col-sm-6 widget-container-col ui-sortable" style="width: 100%;">
+										<div class="widget-box widget-color-blue" style="background-color:#438EB9;">
+											<!-- #section:custom/widget-box.options -->
+											<div class="widget-header">
+												<h5 class="widget-title bigger lighter">
+													<i class="ace-icon fa fa-television"></i>
+												Wataniya 2 TV	
+                                                </h5>
+
+												 
+											</div>
+
+											<!-- /section:custom/widget-box.options -->
+											<div class="widget-body">
+												<div class="widget-main no-padding">
+													<table class="table table-striped table-bordered table-hover">
+														<thead class="thin-border-bottom">
+															<tr>
+																<th>
+ 																	<center>Time</center>
+																</th>
+
+																<th>
+                                                                    <center>
+                                                                        Program
+																	</center>
+																	
+																</th>
+ 															</tr>
+														</thead>
+
+														<tbody>
+                                                       
+
+                                                           
+   
+
+															<tr  ng-repeat="dd in watt |filter:rech" >
+																<td class="">{{dd.program.heur}}</td>
+
+																<td>
+																	<p>{{dd.program.contenue}}</p>
 																</td>
 
 																 

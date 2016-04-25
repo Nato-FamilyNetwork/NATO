@@ -13,12 +13,33 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 	
 	
 	
-	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/schedule');
+	var allness=$resource('http://natofamilynetwork.herokuapp.com/schedule/nessma');
     //getAll
 	
-    $scope.fbs=allfbs.query();
+    $scope.nessma=allness.query();
+    
+    
+    
+    var allhann=$resource('http://natofamilynetwork.herokuapp.com/schedule/hannibal');
+    //getAll
 	
-    console.log($scope.fbs);
+    $scope.hannibal=allhann.query();
+    
+    
+    
+    var allwat=$resource('http://natofamilynetwork.herokuapp.com/schedule/wataniya1');
+    //getAll
+	
+    $scope.wat=allwat.query();
+    
+    
+    
+    var allwatt=$resource('http://natofamilynetwork.herokuapp.com/schedule/wataniya2');
+    //getAll
+	
+    $scope.watt=allwatt.query();
+	
+    
       
 
 }) .controller('TodoCtrl', function($scope, $resource) {
