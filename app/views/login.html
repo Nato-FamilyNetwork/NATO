@@ -36,7 +36,7 @@
 	</head>
 
 	<body  >
-		<div style="background-image: url('http://127.0.0.1:6688/app/images/mandher.jpg'); height: 721px;"  class="main-container">
+		<div style="background-image: url('./images/mandher.jpg'); height: 721px;"  class="main-container">
 			<div class="main-content" style="overflow: hidden;">
 				<div class="row">
 					<div class="col-sm-10 col-sm-offset-1">
@@ -45,7 +45,7 @@
 								<h1>
 									<i class="ace-icon fa fa-leaf green"></i>
 									<span class="red">{{ 'TITLE' | translate }}</span>
-									<span class="blue" id="id-text2">to FamilyNetwork</span>
+									<span class="blue" id="id-text2">{{ 'a' | translate}} FamilyNetwork</span>
 								</h1>
 							
 							</div>
@@ -70,14 +70,14 @@
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input ng-model="user.username" id="nom" type="text" class="form-control" placeholder="Username" />
+															<input ng-model="user.username" id="nom" type="text" class="form-control" placeholder="{{'pseud' | translate }}" />
 															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input ng-model="user.password" id="adress" type="password" class="form-control" placeholder="Password" />
+															<input ng-model="user.password" id="adress" type="password" class="form-control" placeholder="{{'pw' | translate }}" />
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>

@@ -5,7 +5,7 @@
 		<meta charset="utf-8" />
 		<title>Full Calendar - Ace Admin</title>
 
-		<meta name="description" content="with draggable and editable events" />
+		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
 		<!-- bootstrap & fontawesome -->
@@ -63,10 +63,10 @@
 						
 						<div class="page-header">
 							<h1>
-								Full Calendar
+								{{'cl' | translate}}
 								<small>
 									<i class="ace-icon fa fa-angle-double-right"></i>
-									with draggable and editable events
+									{{'cldesc' | translate}}
 								</small>
 							</h1>
 						</div><!-- /.page-header -->
@@ -87,7 +87,7 @@
 									<div class="col-sm-3">
 										<div class="widget-box transparent">
 											<div class="widget-header">
-												<h4>Draggable events</h4>
+												<h4>{{'dragg' | translate}}</h4>
 											</div>
 
 											<div class="widget-body">
@@ -95,42 +95,42 @@
 													<div id="external-events">
 														<div class="external-event label-grey" data-class="label-grey">
 															<i class="ace-icon fa fa-arrows"></i>
-															My Event 1
+															{{'evt' | translate}} 1
 														</div>
 
 														<div class="external-event label-success" data-class="label-success">
 															<i class="ace-icon fa fa-arrows"></i>
-															My Event 2
+															{{'evt' | translate}} 2
 														</div>
 
 														<div class="external-event label-danger" data-class="label-danger">
 															<i class="ace-icon fa fa-arrows"></i>
-															My Event 3
+															{{'evt' | translate}} 3
 														</div>
 
 														<div class="external-event label-purple" data-class="label-purple">
 															<i class="ace-icon fa fa-arrows"></i>
-															My Event 4
+															{{'evt' | translate}} 4
 														</div>
 
 														<div class="external-event label-yellow" data-class="label-yellow">
 															<i class="ace-icon fa fa-arrows"></i>
-															My Event 5
+															{{'evt' | translate}} 5
 														</div>
 
 														<div class="external-event label-pink" data-class="label-pink">
 															<i class="ace-icon fa fa-arrows"></i>
-															My Event 6
+															{{'evt' | translate}} 6
 														</div>
 
 														<div class="external-event label-info" data-class="label-info">
 															<i class="ace-icon fa fa-arrows"></i>
-															My Event 7
+															{{'evt' | translate}} 7
 														</div>
 
 														<label>
 															<input type="checkbox" class="ace ace-checkbox" id="drop-remove" />
-															<span class="lbl"> Remove after drop</span>
+															<span class="lbl"> {{'rad' | translate}}</span>
 														</label>
 													</div>
 												</div>
@@ -146,35 +146,7 @@
 				</div>
 			</div><!-- /.main-content -->
 
-			<div class="footer">
-				<div class="footer-inner">
-					<!-- #section:basics/footer -->
-					<div class="footer-content">
-						<span class="bigger-120">
-							<span class="blue bolder">Ace</span>
-							Application &copy; 2013-2014
-						</span>
-
-						&nbsp; &nbsp;
-						<span class="action-buttons">
-							<a href="#">
-								<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-							</a>
-
-							<a href="#">
-								<i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
-							</a>
-
-							<a href="#">
-								<i class="ace-icon fa fa-rss-square orange bigger-150"></i>
-							</a>
-						</span>
-					</div>
-
-					<!-- /section:basics/footer -->
-				</div>
-			</div>
-
+		
 			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
 				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
 			</a>

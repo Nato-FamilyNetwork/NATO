@@ -132,7 +132,18 @@
 				<div ng-show="currentuser">
 				<ul class="nav nav-list">
 					
+<li class="hover">
+						<a href="#/me">
+							<i class="menu-icon fa fa-list"></i>
+							<span class="menu-text"> My Profil </span>
 
+							<b class="arrow fa fa-home"></b>
+						</a>
+
+						
+					</li>
+                    
+                    
 					<li class="open hover">
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-desktop"></i>
@@ -452,7 +463,7 @@
 
         <!-- Page Content -->
         
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">{{'togg' | translate}}</a>
                    
         <!-- /#page-content-wrapper -->
 
@@ -464,7 +475,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
       <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script  src="http://127.0.0.1:300/socket.io/socket.io.js"></script>
+   <script src="https://natofamilynetwork.herokuapp.com/socket.io/socket.io.js"></script>
              <style>
             #pp{
                 
@@ -573,7 +584,7 @@
         $('#msgtpl').remove();
              var hh ="";
     
-    var socket = io.connect('http://127.0.0.1:300/');
+    var socket = io.connect('https://natofamilynetwork.herokuapp.com/');
     
     
   
@@ -777,7 +788,7 @@
             <script type="text/javascript" src="../lib2/Bootstrap/bootstrap.min.js"></script>
             <script type="text/javascript" src="../lib2/jQuery/jquery.ui.min.js"></script>
      
-            <script  src="http://127.0.0.1:300/socket.io/socket.io.js"></script>
+            <script src="https://natofamilynetwork.herokuapp.com/socket.io/socket.io.js"></script>
       <script  src="scripts/js/client.js"></script>
             
     

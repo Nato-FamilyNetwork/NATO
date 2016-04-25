@@ -1,7 +1,7 @@
 var app = angular.module('todo.fac', ["ngResource"]);
 
                        app.factory('todoget',function($resource) {
-             return $resource('http://127.0.0.1:3000/todo');
+             return $resource('natofamilynetwork.herokuapp.com/todo');
     });
 
 
@@ -10,7 +10,7 @@ app.factory('todoFactory3', function($resource){
        resource : function()
         {
         
-return $resource('http://localhost:3000/todo/f/:id',{ id: '@_id' }, {
+return $resource('http://natofamilynetwork.herokuapp.com/todo/f/:id',{ id: '@_id' }, {
     update: {
       method: 'PUT' ,isArray:false// this method issues a PUT request
     }
@@ -23,18 +23,18 @@ return $resource('http://localhost:3000/todo/f/:id',{ id: '@_id' }, {
 });
 
 app.factory('todoFactory', function($resource) {
-  return $resource('http://localhost:3000/todo/:id',{ id: '@_id' }, {update: {method: 'PUT'}});
+  return $resource('http://natofamilynetwork.herokuapp.com/todo/:id',{ id: '@_id' }, {update: {method: 'PUT'}});
 });
 app.factory('tododoneFactory', function($resource) {
-  return $resource('http://localhost:3000/todo/done/:id',{ id: '@_id' }, {update: {method: 'PUT'}});
+  return $resource('http://natofamilynetwork.herokuapp.com/todo/done/:id',{ id: '@_id' }, {update: {method: 'PUT'}});
 });
 app.factory('Deletetodo', function ($resource) {
-    return $resource('http://localhost:3000/todo/:id');
+    return $resource('http://natofamilynetwork.herokuapp.com/todo/:id');
    
    
 });
 app.factory('DeletetodoAll', function ($resource) {
-    return $resource('http://localhost:3000/todo/all/:id');
+    return $resource('http://natofamilynetwork.herokuapp.com/todo/all/:id');
    
    
 });

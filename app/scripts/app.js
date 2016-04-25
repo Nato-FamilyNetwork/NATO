@@ -34,6 +34,7 @@
 app.config(function ($translateProvider) {
   $translateProvider.translations('en', {
     TITLE: 'Welcome',
+    a : 'to',
     Entert : 'Entertainment',
     weather: 'Weather in Tunis, Tunisia',
     curr: 'Currently',
@@ -56,11 +57,27 @@ app.config(function ($translateProvider) {
     doi: 'Doing',
     don: 'Done',
     conv: 'Conversation',
+    togg: 'Radio Stations',
+    tach: 'Add a task',
+    desc: 'Description',
+    ttl: 'Title',
+    dat: 'Date',
+      pseud : 'username',
+      pw: 'password',
+      cldesc: 'with draggable and editable events',
+      auj: 'Today',
+      mth: 'Month',
+      wk: 'Week',
+      dy: 'Day',
+      dragg: 'Draggable events',
+      evt: 'My Event',
+      evt: 'Remove after drop',
     BUTTON_LANG_EN: 'english',
     BUTTON_LANG_DE: 'german'
   });
   $translateProvider.translations('de', {
     TITLE: 'Wilkommen',
+    a : 'zum',
     Entert : 'Unterhaltung',
     weather: 'Wetter in Tunis, Tunesien',
     curr: 'Strom',
@@ -83,11 +100,27 @@ app.config(function ($translateProvider) {
     doi: 'Tun',
     don: 'Erledigt',
     conv: 'Konversation',
+    togg: 'Radio Stationen',
+    tach: 'fügen Sie eine neue Aufgabe',
+    desc: 'Beschreibung',
+    ttl: 'Titel',
+    dat: 'Datum',
+      pseud: 'Benutzername',
+      pw: 'Passwort',
+      cldesc: 'mit ziehbar und bearbeitbare Ereignisse',
+      auj: 'Heute',
+      mth: 'Monat',
+      wk: 'Woche',
+      dy: 'Tag',
+      dragg: 'Ziehbar Veranstaltungen',
+      evt: 'Meine Veranstaltung',
+      rad: 'Entfernen, nachdem Tropfen',
     BUTTON_LANG_EN: 'englisch',
     BUTTON_LANG_DE: 'deutsch'
   });
     $translateProvider.translations('fr', {
     TITLE: 'Bienvenue',
+    a : 'à',
     Entert : 'Divertissement',
     weather: 'Météo à Tunis, Tunisie',
     curr: 'Maintenant',
@@ -110,6 +143,21 @@ app.config(function ($translateProvider) {
     doi: 'En train de faire',
     don: 'Fait',
     conv: 'Conversation',
+    togg: 'Stations Radio',
+    tach: 'Ajouter une tache',
+    desc: 'Description',
+    ttl: 'Titre',
+    dat: 'Date',
+    pseud: 'nom d\'utilisateur',
+    pw: 'mot de passe',
+    cldesc: 'avec des événements déplaçables et modifiables',
+    auj: 'Aujourd\'hui',
+        mth: 'Mois',
+      wk: 'Semaine',
+      dy: 'Jour',
+        dragg: 'Evénements déplaçables',
+        evt: 'Mon Evénement',
+        rad: 'Retirer après dépôt',
     BUTTON_LANG_EN: 'Anglais',
     BUTTON_LANG_DE: 'Allemand'
   });
@@ -216,6 +264,7 @@ app.config(function ($translateProvider) {
       })
     .when('/galery', {
         templateUrl: 'views/galery.html',
+        controller: 'TwitterController'
         
         
       })
@@ -292,6 +341,11 @@ app.config(function ($translateProvider) {
 	  .when('/twitts', {
         templateUrl: 'views/twitter.html',
         controller:'TwitterController'
+        
+      })
+    .when('/me', {
+        templateUrl: 'views/me.html'
+        
         
       })
       .otherwise({

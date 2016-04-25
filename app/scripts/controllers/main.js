@@ -13,7 +13,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 	
 	
 	
-	var allfbs=$resource('http://127.0.0.1:3000/schedule');
+	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/schedule');
     //getAll
 	
     $scope.fbs=allfbs.query();
@@ -23,7 +23,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 
 }) .controller('TodoCtrl', function($scope, $resource) {
     
-    var todoget =  $resource('http://127.0.0.1:3000/todo');
+    var todoget =  $resource('http://natofamilynetwork.herokuapp.com/todo');
     $scope.todos = todoget.query();
         
         
@@ -71,6 +71,18 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         $('#getTimelineButton, #signOut').show();
         $scope.refreshTimeline();
     }
+    
+    
+    $scope.inst = function() {
+    twitterService.connectInstagram();
+    twitterService.getMyImg().then(function(data) {
+            $scope.instas = data.data;
+        console.log(data.data.images);
+        });
+       
+    }
+    
+    
 
 })
 .controller('facebookListController',function($scope, $resource){
@@ -78,7 +90,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 	
 	
 	
-	var allfbs=$resource('http://127.0.0.1:3000/final/fbs');
+	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/final/fbs');
     //getAll
 	
     $scope.fbs=allfbs.get();
@@ -91,7 +103,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 	
 	
 	
-	var allfbs=$resource('http://127.0.0.1:3000/news/tounsya');
+	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/news/tounsya');
     //getAll
 	
     $scope.medianews=allfbs.query();
@@ -99,13 +111,6 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
     console.log($scope.medianews);
     
     
-    
-    var allchourouk=$resource('http://127.0.0.1:3000/news/chourouk');
-    //getAll
-	
-    $scope.chourouk=allchourouk.query();
-	
-    console.log($scope.chourouk);
     
     
     
@@ -124,7 +129,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         if($scope.formData.familyid){
     $scope.formData.fid= $scope.formData.familyname+" Family";
     }
-	$http.post('http://127.0.0.1:3000/register',$scope.formData).
+	$http.post('http://natofamilynetwork.herokuapp.com/register',$scope.formData).
         success(function(data) {
             $rootScope.currentuser=data;
         
@@ -142,7 +147,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 	
 	// post
     $scope.login = function(){
-	$http.post('http://127.0.0.1:3000/login',$scope.user).
+	$http.post('http://natofamilynetwork.herokuapp.com/login',$scope.user).
         success(function(data) {
             console.log("connected successfully");
         $rootScope.currentuser = data;
@@ -165,7 +170,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 
 .controller('familyListController',function($rootScope,$resource, $scope, $http, $routeParams, $route){
     
-    var allfbs=$resource('http://127.0.0.1:3000/login/all');
+    var allfbs=$resource('http://natofamilynetwork.herokuapp.com/login/all');
     //getAll
 	
     $scope.fbs=allfbs.query();
@@ -174,7 +179,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
     
     
     $scope.addF = function(idd) {
-         var hj=$resource('http://127.0.0.1:3000/login/add/:id/:fid', {}, {
+         var hj=$resource('http://natofamilynetwork.herokuapp.com/login/add/:id/:fid', {}, {
       query: {method:'PUT', params:{id:idd,fid:$rootScope.currentuser.familyid}, isArray:false}});
 	  hj.query();
     $route.reload();
@@ -272,7 +277,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 	
 	
 	
-	$http.get('http://127.0.0.1:3000/login/logout').
+	$http.get('http://natofamilynetwork.herokuapp.com/login/logout').
         success(function(data) {
             console.log("loggingout");
         $location.path('/login');
@@ -295,7 +300,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 	
 	
 	
-	var allfbs=$resource('http://127.0.0.1:3000/pcs');
+	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/pcs');
     //getAll
 	
     $scope.pcs=allfbs.query();
@@ -309,7 +314,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 	
 	
 	
-	var allfbs=$resource('http://127.0.0.1:3000/imprimantes');
+	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/imprimantes');
     //getAll
 	
     $scope.imprimantes=allfbs.query();
@@ -326,7 +331,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 	
 	
 	
-	var allfbs=$resource('http://127.0.0.1:3000/tablettes');
+	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/tablettes');
     //getAll
 	
     $scope.tablettes=allfbs.query();
@@ -344,9 +349,9 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
      
        
 
-    var done =  $resource('http://127.0.0.1:3000/todo/'+$rootScope.currentuser._id+'/3');
-    var todo =  $resource('http://127.0.0.1:3000/todo/'+$rootScope.currentuser._id+'/1');
-    var doing =  $resource('http://127.0.0.1:3000/todo/'+$rootScope.currentuser._id+'/2');
+    var done =  $resource('http://natofamilynetwork.herokuapp.com/todo/'+$rootScope.currentuser._id+'/3');
+    var todo =  $resource('http://natofamilynetwork.herokuapp.com/todo/'+$rootScope.currentuser._id+'/1');
+    var doing =  $resource('http://natofamilynetwork.herokuapp.com/todo/'+$rootScope.currentuser._id+'/2');
     
     
     
@@ -358,7 +363,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
          
 
 
-	 	var AddTodo = $resource('http://127.0.0.1:3000/todo');
+	 	var AddTodo = $resource('http://natofamilynetwork.herokuapp.com/todo');
         var todo = new AddTodo;
 	 	 todo.titre = t;
          todo.description=ds;
@@ -386,7 +391,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 
 .controller('leagueController',function($scope, $resource){
 
-	var allfbs=$resource('http://127.0.0.1:3000/league');
+	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/league');
     //getAll
 	
     $scope.league=allfbs.query();
@@ -404,7 +409,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 
 .controller('needsController',function($scope, $resource){
 
-	var allfbs=$resource('http://127.0.0.1:3000/needs');
+	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/needs');
     //getAll
 	
     $scope.needs=allfbs.query();
@@ -420,7 +425,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 	
 	
 	//console.log($routeParams.param);
-	var allfbs=$resource('http://127.0.0.1:3000/league/'+$routeParams.param);
+	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/league/'+$routeParams.param);
     //getAll
 
 	
@@ -433,13 +438,13 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 	
 	
 	console.log($routeParams.param);
-	var allfbs=$resource('http://127.0.0.1:3000/league/'+$routeParams.test+'/'+$routeParams.param);
+	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/league/'+$routeParams.test+'/'+$routeParams.param);
 
     //getAll
 	
     $scope.information=allfbs.query();
 	 
-    var hj=$resource('http://127.0.0.1:3000/login/update/:user/:league/:team', {}, {
+    var hj=$resource('http://natofamilynetwork.herokuapp.com/login/update/:user/:league/:team', {}, {
       query: {method:'PUT', params:{user:$rootScope.currentuser._id,league:$routeParams.test,team:$routeParams.param}, isArray:false}});
 	  hj.query();
     
@@ -526,7 +531,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 
 
 
-	var map=$resource('http://127.0.0.1:3000/map/afficher');
+	var map=$resource('http://natofamilynetwork.herokuapp.com/map/afficher');
     //getAll
     $scope.trace=map.query();
     $scope.trace.$promise.then(function(value) {
@@ -651,7 +656,7 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
             //creating marker
             var marker = new google.maps.Marker({map: map, position: coords});
             
-	$http.post('http://127.0.0.1:3000/map/addmap',$scope.formData).
+	$http.post('http://natofamilynetwork.herokuapp.com/map/addmap',$scope.formData).
         success(function(data) {
             console.log("posted successfully");
         }).error(function(data) {
@@ -706,7 +711,7 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
 	var m = date.getMonth();
 	var y = date.getFullYear();
         var aa=new Array;   
-        var cal=$resource('http://127.0.0.1:3000/calendar/');
+        var cal=$resource('http://natofamilynetwork.herokuapp.com/calendar/');
         //getAll
         $scope.calendar=cal.query();
         $scope.calendar.$promise.then(function(value) {
@@ -772,7 +777,7 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
             var end = null;
             var className = [$extraEventClass];
 			$scope.formEvent={title,start,end,className };
-                    $http.post('http://127.0.0.1:3000/calendar/addEvent',$scope.formEvent).
+                    $http.post('http://natofamilynetwork.herokuapp.com/calendar/addEvent',$scope.formEvent).
         success(function(data) {
             console.log("posted successfully");
         }).error(function(data) {
@@ -807,7 +812,7 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
 					);
                     
                     $scope.formEvent={title,start,end,className };
-                    $http.post('http://127.0.0.1:3000/calendar/addEvent',$scope.formEvent).
+                    $http.post('http://natofamilynetwork.herokuapp.com/calendar/addEvent',$scope.formEvent).
         success(function(data) {
             console.log("posted successfully");
         }).error(function(data) {
@@ -863,7 +868,7 @@ console.log(abbb);
                     c="null";
                     }
                     console.log(abbb);
-         var up=$resource('http://127.0.0.1:3000/calendar/:id/:title/:start/:end/:className', {}, {
+         var up=$resource('http://natofamilynetwork.herokuapp.com/calendar/:id/:title/:start/:end/:className', {}, {
       query: {method:'PUT', params:{id:value[k]._id,title:abbb,start:value[k].start,end:c,className:value[k].className}, isArray:false}});
                     console.log(abbb);
 	  up.query();
@@ -892,7 +897,7 @@ console.log(abbb);
                 if((calEvent.className == value[j].className) &&(calEvent.title==value[j].title)){
                 
                    
-         var del=$resource('http://127.0.0.1:3000/calendar/:id', {}, {
+         var del=$resource('http://natofamilynetwork.herokuapp.com/calendar/:id', {}, {
       query: {method:'DELETE', params:{id:value[j]._id}, isArray:false}});
 	  del.query();
            

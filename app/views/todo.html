@@ -69,11 +69,11 @@
             </div>
 
             <div class="task-list">
-                <h3>Add a task</h3>
+                <h3>{{ 'tach' | translate}}</h3>
                 <form method="post" id="todo-form">
-                    <input type="text" placeholder="Title" required   ng-model="t" />
-                    <textarea placeholder="Description" required  ng-model="ds"></textarea>
-                    <input type="text" id="datepicker" required placeholder="Due Date (dd/mm/yyyy)"  ng-model="d"/>
+                    <input type="text" placeholder="{{'ttl' | translate }}" required   ng-model="t" />
+                    <textarea placeholder="{{'desc' | translate }}" required  ng-model="ds"></textarea>
+                    <input type="text" id="datepicker" required placeholder="{{'dat' | translate }} (dd/mm/yyyy)"  ng-model="d"/>
                     <input type="submit" style="color: white; background-color: #2E64FE;" value="Add Task" ng-click="add(t,ds,d)"     />
                 </form>
 
