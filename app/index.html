@@ -11,6 +11,18 @@
 	<link rel="stylesheet" href="styles/css/fonts/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="styles/css/bootstrap.css">
 	<link rel="stylesheet" href="styles/css/xenon-core.css">
+      
+     
+	
+
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="styles/ace-part2.css" />
+		<![endif]-->
+		<link rel="stylesheet" href="styles/css/ace-rtl.css" />
+
+      
+      
 	<link rel="stylesheet" href="styles/css/simple-sidebar.css">
 	<link rel="stylesheet" href="styles/css/xenon-forms.css">
 	<link rel="stylesheet" href="styles/css/xenon-components.css">
@@ -19,10 +31,13 @@
 	<link rel="stylesheet" href="styles/css/custom.css">
      <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
       <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-      
+      <script type="text/javascript" src="../assets/js/highslide/highslide.js"></script>
       	<!-- page specific plugin styles -->
 		<link rel="stylesheet" href="../assets/css/jquery-ui.custom.css" />
 		<link rel="stylesheet" href="../assets/css/jquery.gritter.css" />
+      
+      
+<link rel="stylesheet" type="text/css" href="../assets/js/highslide/highslide.css" />
       
       
 	<link rel="stylesheet" href="styles/css/angular-chart.css">
@@ -48,6 +63,23 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+      
+      
+      <script type="text/javascript">
+//<![CDATA[
+hs.registerOverlay({
+	html: '<div class="closebutton" onclick="return hs.close(this)" title="Close"></div>',
+	position: 'top right',
+	fade: 2 // fading the semi-transparent overlay looks bad in IE
+});
+
+
+hs.graphicsDir = '../assets/js/highslide/graphics/';
+hs.wrapperClassName = 'borderless';
+//]]>
+</script>
+      
+      
     <!-- endbuild -->
   </head>
   <body class="no-skin" ng-app="familyNetworkApp">
@@ -426,27 +458,7 @@
 						
 
 						<div class="row">
-							<div class="col-xs-12">
-								<!-- PAGE CONTENT BEGINS -->
-								<div class="alert alert-info visible-sm visible-xs">
-									<button type="button" class="close" data-dismiss="alert">
-										<i class="ace-icon fa fa-times"></i>
-									</button>
-									Please note that
-									<span class="blue bolder">top menu style</span>
-									is visible only in devices larger than
-									<span class="blue bolder">991px</span>
-									which you can change using CSS builder tool.
-								</div>
-
-								<div class="well well-sm visible-sm visible-xs">
-									Top menu can become any of the 3 mobile view menu styles:
-									<em>default</em>
-,
-									<em>collapsible</em>
-									or
-									<em>minimized</em>.
-								</div>
+							
 
 								
     <div ng-show="currentuser" id="wrapper">
@@ -461,19 +473,18 @@
                     
                     <video controls poster="images/jfm2.jpg">
     <source src="http://streaming2.toutech.net:8000/jawharafm">
-        </source>
     </video>
                 </li>
                 <li>
                     <video controls poster="images/ifm2.png">
     <source src="http://5.135.138.182:8000/direct">
-        </source>
+        
     </video>
                 </li>
                 <li>
                     <video controls poster="images/mosalive.png">
     <source src="http://radio.mosaiquefm.net:8000/mosalive">
-        </source>
+        
     </video>
                 </li>
                 
@@ -554,11 +565,7 @@
 																</div>
 																<div class="text" >{{message}} </div>
 
-																<div class="tools">
-																	<a href="#" class="btn btn-minier btn-info">
-																		<i class="icon-only ace-icon fa fa-share"></i>
-																	</a>
-																</div>
+																
 															</div>
 														</div>
                                                             
@@ -694,7 +701,7 @@
 							</div><!-- /.col -->
 						</div><!-- /.row -->
 					</div><!-- /.page-content -->
-				</div>
+				
 			</div><!-- /.main-content -->
 
 			
@@ -702,6 +709,7 @@
 			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
 				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
 			</a>
+
 		</div><!-- /.main-container -->
       
 		<!-- basic scripts -->

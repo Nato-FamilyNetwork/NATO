@@ -1,48 +1,41 @@
-		<div class="page-content">
+<div class="page-content">
 						<!-- #section:settings.box -->
 						<div class="col-xs-12"> <button class="btn btn-primary" ng-click="inst()">Get my Instagram pics</button> </div>
-            
-
 						<!-- /section:settings.box -->
 						<div class="page-header">
 							<h1>
 								Gallery
-								<small>
-									<i class="ace-icon fa fa-angle-double-right"></i>
-									View What your family share!
-								</small>
 							</h1>
-                            
 						</div><!-- /.page-header -->
-
 						<div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
 								<div>
 									<ul class="ace-thumbnails clearfix">
 										<!-- #section:pages/gallery -->
-                                        
 										<li ng-repeat ="i in instas" >
-											<a href="{{i.images.standard_resolution.url}}" title="Photo Title" data-rel="colorbox">
-												<img width="150" height="150" alt="150x150" src="{{i.images.thumbnail.url}}" />
+											<a href="{{i.images.standard_resolution.url}}" class="highslide" title="Photo from instagram" data-rel="colorbox" onclick="return hs.expand(this)">
+												<img width="150" height="150" alt="150x150" src="{{i.images.thumbnail.url}}" title="Click to enlarge" />
 											</a>
-
 											<div class="tags">
 												<span ng-repeat="tag in i.tags" class="label-holder">
 													<span class="label label-info">{{tag}}</span>
 												</span>
 											</div>
-
-											
 										</li>
-
 									</ul>
-									
-									
-									
-									
 								</div><!-- PAGE CONTENT ENDS -->
 							</div><!-- /.col -->
 						</div><!-- /.row -->
 					</div><!-- /.page-content -->
-			
+<script type="text/javascript">
+//<![CDATA[
+hs.registerOverlay({
+	html: '<div class="closebutton" onclick="return hs.close(this)" title="Close"></div>',
+	position: 'top right',
+	fade: 2 // fading the semi-transparent overlay looks bad in IE
+});
+hs.graphicsDir = '../assets/js/highslide/graphics/';
+hs.wrapperClassName = 'borderless';
+//]]>
+</script>
