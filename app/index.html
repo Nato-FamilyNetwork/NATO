@@ -100,8 +100,17 @@
 				</div>
 
 				<!-- #section:basics/navbar.dropdown -->
+                
+                
+                
 				<div ng-show="currentuser" class="navbar-buttons navbar-header pull-right  collapse navbar-collapse" role="navigation">
-					<ul class="nav ace-nav">
+                   
+                    
+					<ul class="nav ace-nav" >
+                        <li class="dropdown-footer">
+									<p style="color:white" class="notifi" ng-show="currentuser">   </p>
+								</li>
+                         
                         <li class="transparent">
                             <a ng-click="changeLanguage('fr')"  ><img  class="flag flag-fr"/></a>
                         </li>
@@ -405,6 +414,12 @@
                          <br/>
                          <br/>
                          <br/>
+                         
+                                                  <div >
+                         
+                           
+                         
+                         </div>
                     </div>
 					<div class="page-content" style="padding-top: 0; padding: 0;">
 						
@@ -658,7 +673,18 @@
     </script>
                                  
                                     
-                                    
+                   <script>
+         var socket = io.connect('https://natofamilynetwork.herokuapp.com/');
+                    
+                    
+        socket.on('notification', function(n){
+             var nid = $("#chatid").val();
+            if(nid == n.id){
+            $('.notifi').prepend('<li>'+ n.text+' ' + n.date.toString() + '</li><span style="color:red"> 1 </span>');
+            }
+           
+        });
+    </script>                         
                                     
                                     
 									
