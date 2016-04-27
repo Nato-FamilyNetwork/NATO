@@ -548,7 +548,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 
 
 
-	var map=$resource('http://127.0.0.1:3000/map/afficher/'+$rootScope.currentuser._id);
+	var map=$resource('http://natofamilynetwork.herokuapp.com/map/afficher/'+$rootScope.currentuser._id);
     //getAll
     $scope.trace=map.query();
     $scope.trace.$promise.then(function(value) {
@@ -674,7 +674,7 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
             //creating marker
             var marker = new google.maps.Marker({map: map, position: coords});
             
-	$http.post('http://127.0.0.1:3000/map/addmap',$scope.formData).
+	$http.post('http://natofamilynetwork.herokuapp.com/map/addmap',$scope.formData).
         success(function(data) {
             console.log("posted successfully");
         }).error(function(data) {
@@ -729,7 +729,7 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
 	var m = date.getMonth();
 	var y = date.getFullYear();
         var aa=new Array;  
-        var cal=$resource('http://127.0.0.1:3000/calendar/'+$rootScope.currentuser.familyid);
+        var cal=$resource('http://natofamilynetwork.herokuapp.com/calendar/'+$rootScope.currentuser.familyid);
         //getAll
         $scope.calendar=cal.query();
         $scope.calendar.$promise.then(function(value) {
@@ -796,7 +796,7 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
             var className = [$extraEventClass];
             var familyFK = $rootScope.currentuser.familyid;
 			$scope.formEvent={title,start,end,className,familyFK };
-                    $http.post('http://127.0.0.1:3000/calendar/addEvent',$scope.formEvent).
+                    $http.post('http://natofamilynetwork.herokuapp.com/calendar/addEvent',$scope.formEvent).
         success(function(data) {
             console.log("posted successfully");
         }).error(function(data) {
@@ -831,7 +831,7 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
 					);
                     var familyFK = $rootScope.currentuser.familyid;
                     $scope.formEvent={title,start,end,className,familyFK };
-                    $http.post('http://127.0.0.1:3000/calendar/addEvent',$scope.formEvent).
+                    $http.post('http://natofamilynetwork.herokuapp.com/calendar/addEvent',$scope.formEvent).
         success(function(data) {
             console.log("posted successfully");
         }).error(function(data) {
@@ -887,7 +887,7 @@ console.log(abbb);
                     c="null";
                     }
                     console.log(abbb);
-         var up=$resource('http://127.0.0.1:3000/calendar/:id/:title/:start/:end/:className', {}, {
+         var up=$resource('http://natofamilynetwork.herokuapp.com/calendar/:id/:title/:start/:end/:className', {}, {
       query: {method:'PUT', params:{id:value[k]._id,title:abbb,start:value[k].start,end:c,className:value[k].className}, isArray:false}});
                     console.log(abbb);
 	  up.query();
@@ -916,7 +916,7 @@ console.log(abbb);
                 if((calEvent.className == value[j].className) &&(calEvent.title==value[j].title)){
                 
                    
-         var del=$resource('http://127.0.0.1:3000/calendar/:id', {}, {
+         var del=$resource('http://natofamilynetwork.herokuapp.com/calendar/:id', {}, {
       query: {method:'DELETE', params:{id:value[j]._id}, isArray:false}});
 	  del.query();
            
@@ -963,7 +963,7 @@ function playAudio() {
 		compteur.innerHTML = tache.value+" terminer";
             compteur.style.color="red";
 		playAudio();
-            var message =  $resource('http://127.0.0.1:3000/sms/send/'+tache.value);
+            var message =  $resource('http://natofamilynetwork.herokuapp.com/sms/send/'+tache.value);
           $scope.envoie = message.query();
            
 
