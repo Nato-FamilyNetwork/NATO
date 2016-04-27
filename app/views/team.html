@@ -15,13 +15,15 @@ Choose A Team								</small>
 						<div class="row">
 							<div class="col-xs-12" id="24">
 								<!-- PAGE CONTENT BEGINS -->
-                                <div ng-repeat="m in team">
+                                
+                                <div ng-repeat="m in team.Teams">
+                                    
                                 <div class="col-xs-6 col-sm-3 pricing-box">
-                                         <a ng-href="#/{{hh.param}}/{{m.Link}}" title="Photo Title" data-rel="colorbox">
-                    <img  alt="150x150" src="{{m.logo}}" id="{{m.link}}" />
-                    {{m.League}}
+                                         <a ng-href="#/league/{{m.link}}" title="Photo Title" data-rel="colorbox">
+                    {{m.name}}
+                               
 											</a>
-                                       
+                                        
                                 </div>
                             </div>
 								<div>

@@ -1,80 +1,7 @@
  <div class="row">
-									<div class="col-xs-12 col-sm-6 widget-container-col ui-sortable">
-										<!-- #section:custom/widget-box -->
-										<div class="widget-box ui-sortable-handle">
-											<div class="widget-header">
-												<h5 class="widget-title">Last Matche Played on {{information[0].LatestResultDate}}</h5>
+									 
 
-												<!-- #section:custom/widget-box.toolbar -->
-												<div class="widget-toolbar">
-													<div class="widget-menu">
-														<a href="#" data-action="settings" data-toggle="dropdown">
-															<i class="ace-icon fa fa-bars"></i>
-														</a>
-
-														<ul class="dropdown-menu dropdown-menu-right dropdown-light-blue dropdown-caret dropdown-closer">
-															<li>
-																<a data-toggle="tab" href="#dropdown1">Option#1</a>
-															</li>
-
-															<li>
-																<a data-toggle="tab" href="#dropdown2">Option#2</a>
-															</li>
-														</ul>
-													</div>
-
-													<a href="#" data-action="fullscreen" class="orange2">
-														<i class="ace-icon fa fa-expand"></i>
-													</a>
-
-													<a href="#" data-action="reload">
-														<i class="ace-icon fa fa-refresh"></i>
-													</a>
-
-													<a href="#" data-action="collapse">
-														<i class="ace-icon fa fa-chevron-up"></i>
-													</a>
-
-													<a href="#" data-action="close">
-														<i class="ace-icon fa fa-times"></i>
-													</a>
-												</div>
-
-												<!-- /section:custom/widget-box.toolbar -->
-											</div>
-
-											<div class="widget-body">
-												<div class="widget-main">
-                                                    <div ng-repeat="m in information[2]">
-                                                        <div ng-repeat="x in m">
-                                                            <p class="alert alert-info">
-                                                              <img src="
-                                                        {{x.HomeImage? x.HomeImage:x.NextGameHomeImage}}
-                                                                              "> 
-                                                        {{x.HomeTeam}}
-                                                                    <a href="#">{{x.Score ? x.Score:x.NextGameDate+' '+x.NextGameHour}}</a>{{x.AwayTeam}}
-                                                                    <img src="
-                                                        {{x.AwayImage}}
-                                                                              "> 
-                                                                    
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    
-													<p class="alert alert-info">
-                                                        <img src="{{information[0].HomeImage}}">
-	{{information[0].HomeTeam}} {{information[0].score}} {{information[0].AwayTeam}}
-                                                        <img src="{{information[0].AwayImage}}">
-													</p>
-													 
-												</div>
-											</div>
-										</div>
-
-										<!-- /section:custom/widget-box -->
-									</div>
-
-									<div class="col-xs-12 col-sm-6 widget-container-col ui-sortable" style="min-height: 263px;">
+									<div class="col-xs-12 col-sm-12 widget-container-col ui-sortable" style="min-height: 263px;">
 										<div class="widget-box widget-color-orange" style="opacity: 1; z-index: 0;">
 											<!-- #section:custom/widget-box.options -->
 											<div class="widget-header">
@@ -106,16 +33,14 @@
 
 														<tbody>
 														  
- 	<tr ng-repeat="m in information">
+ 	<tr ng-repeat="m in information.matches">
 																<td class="">
-                                                                    <img src="
-                                                        {{m.HomeImage? m.HomeImage:m.NextGameHomeImage}}
-                                                                              "><br>
-                                                        {{m.HomeTeam? m.HomeTeam:m.NextGameHomeTeam}}
+                                                                    <br>
+                                                        {{m.GameHomeTeam}}
                                                                 </td>
 
 																<td>
-																	<a href="#">{{m.score ? m.score:m.NextGameDate+'  '+m.NextGameHour}}</a>
+																	<a href="#">{{m.GameResult}}<br>{{m.GameDate}}</a>
 																</td>
 
 																<td class="hidden-480">
@@ -123,7 +48,7 @@
                                     <img src="
                                                         {{m.AwayImage? m.AwayImage:m.NextGameAwayImage}}
                                                                               ">
-                                   <br> {{m.AwayTeam? m.AwayTeam:m.NextGameAwayTeam}}
+                                   <br> {{m.GameAwayTeam}}
                                                                     </span>
 																</td>
 															</tr>

@@ -1,68 +1,276 @@
 
-<div ng-repeat="n in medianews">
-    
-   <h3>{{n.titre}}</h3> <br/><img width="230" src="{{n.image}}" /><br/>
-    <a href="{{n.lien}}" target="_blank">Check it out</a>
-    
-
-</div>
 
 
 
-	<div class="col-sm-6">
-										<!-- #section:elements.tab -->
-										<div class="tabbable">
-											<ul class="nav nav-tabs" id="myTab">
-												<li class="active">
-													<a data-toggle="tab" href="#home">
-														<i class="green ace-icon fa fa-home bigger-120"></i>
-														Home
-													</a>
-												</li>
+ <div class="row">
+									<div class="col-xs-12 col-sm-6 widget-container-col ui-sortable">
+										<!-- #section:custom/widget-box -->
+										<div class="widget-box ui-sortable-handle">
+											<div class="widget-header">
+												<h5 class="widget-title">{{'neww' | translate}}</h5>
 
-												<li>
-													<a data-toggle="tab" href="#messages">
-														Messages
-														<span class="badge badge-danger">4</span>
-													</a>
-												</li>
+												<!-- #section:custom/widget-box.toolbar -->
+												<div class="widget-toolbar">
+													<div class="widget-menu">
+														<a href="#" data-action="settings" data-toggle="dropdown">
+															<i class="ace-icon fa fa-bars"></i>
+														</a>
 
-												<li class="dropdown">
-													<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-														Dropdown &nbsp;
-														<i class="ace-icon fa fa-caret-down bigger-110 width-auto"></i>
+														<ul class="dropdown-menu dropdown-menu-right dropdown-light-blue dropdown-caret dropdown-closer">
+															<li>
+																<a data-toggle="tab" href="#dropdown1">Option#1</a>
+															</li>
+
+															<li>
+																<a data-toggle="tab" href="#dropdown2">Option#2</a>
+															</li>
+														</ul>
+													</div>
+
+													<a href="#" data-action="fullscreen" class="orange2">
+														<i class="ace-icon fa fa-expand"></i>
 													</a>
 
-													<ul class="dropdown-menu dropdown-info">
-														<li>
-															<a data-toggle="tab" href="#dropdown1">@fat</a>
-														</li>
+													<a href="#" data-action="reload">
+														<i class="ace-icon fa fa-refresh"></i>
+													</a>
 
-														<li>
-															<a data-toggle="tab" href="#dropdown2">@mdo</a>
-														</li>
-													</ul>
-												</li>
-											</ul>
+													<a href="#" data-action="collapse">
+														<i class="ace-icon fa fa-chevron-up"></i>
+													</a>
 
-											<div class="tab-content">
-												<div id="home" class="tab-pane fade in active">
-													<p>Raw denim you probably haven't heard of them jean shorts Austin.</p>
+													<a href="#" data-action="close">
+														<i class="ace-icon fa fa-times"></i>
+													</a>
 												</div>
 
-												<div id="messages" class="tab-pane fade">
-													<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
-												</div>
+												<!-- /section:custom/widget-box.toolbar -->
+											</div>
 
-												<div id="dropdown1" class="tab-pane fade">
-													<p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade.</p>
-												</div>
 
-												<div id="dropdown2" class="tab-pane fade">
-													<p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin.</p>
+											<div class="widget-body">
+												<div class="widget-main">
+                                                    <div ng-repeat="n in medianews | filter:{ category:'world' }">
+                                                        
+                                                        <div>
+                                                            
+                                                             <a href="{{n.lien}}" target="_blank">
+                                                                 {{n.titre}} at {{n.date}}
+                                                        </a>
+                                                                    
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    
+													
+													 
 												</div>
 											</div>
 										</div>
 
-										<!-- /section:elements.tab -->
-									</div><!-- /.col -->
+										<!-- /section:custom/widget-box -->
+									</div>
+		<div class="col-xs-12 col-sm-6 widget-container-col ui-sortable">
+										<!-- #section:custom/widget-box -->
+										<div class="widget-box ui-sortable-handle">
+											<div class="widget-header">
+												<h5 class="widget-title">{{'newe' | translate}}</h5>
+
+												<!-- #section:custom/widget-box.toolbar -->
+												<div class="widget-toolbar">
+													<div class="widget-menu">
+														<a href="#" data-action="settings" data-toggle="dropdown">
+															<i class="ace-icon fa fa-bars"></i>
+														</a>
+
+														<ul class="dropdown-menu dropdown-menu-right dropdown-light-blue dropdown-caret dropdown-closer">
+															<li>
+																<a data-toggle="tab" href="#dropdown1">Option#1</a>
+															</li>
+
+															<li>
+																<a data-toggle="tab" href="#dropdown2">Option#2</a>
+															</li>
+														</ul>
+													</div>
+
+													<a href="#" data-action="fullscreen" class="orange2">
+														<i class="ace-icon fa fa-expand"></i>
+													</a>
+
+													<a href="#" data-action="reload">
+														<i class="ace-icon fa fa-refresh"></i>
+													</a>
+
+													<a href="#" data-action="collapse">
+														<i class="ace-icon fa fa-chevron-up"></i>
+													</a>
+
+													<a href="#" data-action="close">
+														<i class="ace-icon fa fa-times"></i>
+													</a>
+												</div>
+
+												<!-- /section:custom/widget-box.toolbar -->
+											</div>
+
+
+											<div class="widget-body">
+												<div class="widget-main">
+                                                    <div ng-repeat="n in medianews | filter:{ category:'events' }">
+                                                        
+                                                        <div>
+                                                            
+                                                             <a href="{{n.lien}}" target="_blank">
+                                                                 {{n.titre}}
+                                                        </a>
+                                                                    
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    
+													
+													 
+												</div>
+											</div>
+										</div>
+
+										<!-- /section:custom/widget-box -->
+									</div>
+
+			<div class="col-xs-12 col-sm-6 widget-container-col ui-sortable">
+										<!-- #section:custom/widget-box -->
+										<div class="widget-box ui-sortable-handle">
+											<div class="widget-header">
+												<h5 class="widget-title">{{'newt' | translate}}</h5>
+
+												<!-- #section:custom/widget-box.toolbar -->
+												<div class="widget-toolbar">
+													<div class="widget-menu">
+														<a href="#" data-action="settings" data-toggle="dropdown">
+															<i class="ace-icon fa fa-bars"></i>
+														</a>
+
+														<ul class="dropdown-menu dropdown-menu-right dropdown-light-blue dropdown-caret dropdown-closer">
+															<li>
+																<a data-toggle="tab" href="#dropdown1">Option#1</a>
+															</li>
+
+															<li>
+																<a data-toggle="tab" href="#dropdown2">Option#2</a>
+															</li>
+														</ul>
+													</div>
+
+													<a href="#" data-action="fullscreen" class="orange2">
+														<i class="ace-icon fa fa-expand"></i>
+													</a>
+
+													<a href="#" data-action="reload">
+														<i class="ace-icon fa fa-refresh"></i>
+													</a>
+
+													<a href="#" data-action="collapse">
+														<i class="ace-icon fa fa-chevron-up"></i>
+													</a>
+
+													<a href="#" data-action="close">
+														<i class="ace-icon fa fa-times"></i>
+													</a>
+												</div>
+
+												<!-- /section:custom/widget-box.toolbar -->
+											</div>
+
+
+											<div class="widget-body">
+												<div class="widget-main">
+                                                    <div ng-repeat="n in medianews | filter:{ category:'tunisie' }">
+                                                        
+                                                        <div>
+                                                            
+                                                             <a href="{{n.lien}}" target="_blank">
+                                                                 {{n.titre}}
+                                                        </a>
+                                                                    
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    
+													
+													 
+												</div>
+											</div>
+										</div>
+
+										<!-- /section:custom/widget-box -->
+									</div>
+								<div class="col-xs-12 col-sm-6 widget-container-col ui-sortable">
+										<!-- #section:custom/widget-box -->
+										<div class="widget-box ui-sortable-handle">
+											<div class="widget-header">
+												<h5 class="widget-title">{{'newp' | translate}}</h5>
+
+												<!-- #section:custom/widget-box.toolbar -->
+												<div class="widget-toolbar">
+													<div class="widget-menu">
+														<a href="#" data-action="settings" data-toggle="dropdown">
+															<i class="ace-icon fa fa-bars"></i>
+														</a>
+
+														<ul class="dropdown-menu dropdown-menu-right dropdown-light-blue dropdown-caret dropdown-closer">
+															<li>
+																<a data-toggle="tab" href="#dropdown1">Option#1</a>
+															</li>
+
+															<li>
+																<a data-toggle="tab" href="#dropdown2">Option#2</a>
+															</li>
+														</ul>
+													</div>
+
+													<a href="#" data-action="fullscreen" class="orange2">
+														<i class="ace-icon fa fa-expand"></i>
+													</a>
+
+													<a href="#" data-action="reload">
+														<i class="ace-icon fa fa-refresh"></i>
+													</a>
+
+													<a href="#" data-action="collapse">
+														<i class="ace-icon fa fa-chevron-up"></i>
+													</a>
+
+													<a href="#" data-action="close">
+														<i class="ace-icon fa fa-times"></i>
+													</a>
+												</div>
+
+												<!-- /section:custom/widget-box.toolbar -->
+											</div>
+
+
+											<div class="widget-body">
+												<div class="widget-main">
+                                                    <div ng-repeat="n in medianews | filter:{ category:'politics' }">
+                                                        
+                                                        <div>
+                                                            
+                                                             <a href="{{n.lien}}" target="_blank">
+                                                                 {{n.titre}}
+                                                        </a>
+                                                                    
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    
+													
+													 
+												</div>
+											</div>
+										</div>
+
+										<!-- /section:custom/widget-box -->
+									</div>
+
+								</div>

@@ -26,10 +26,12 @@
     '$compileProvider',
     function( $compileProvider )
     {   
-        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension):/);
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file):/);
        
     }
 ]);
+
+
 
 app.config(function ($translateProvider) {
   $translateProvider.translations('en', {
@@ -71,7 +73,12 @@ app.config(function ($translateProvider) {
       dy: 'Day',
       dragg: 'Draggable events',
       evt: 'My Event',
-      evt: 'Remove after drop',
+      rad: 'Remove after drop',
+      myp: 'My Profile',
+      newt: 'Tunisia news from L\'Economiste',
+      neww: 'World news from L\'Economiste',
+      newe: 'Events in Tunisia from L\'Economiste',
+      newp: 'Political news from L\'Economiste',
     BUTTON_LANG_EN: 'english',
     BUTTON_LANG_DE: 'german'
   });
@@ -115,6 +122,11 @@ app.config(function ($translateProvider) {
       dragg: 'Ziehbar Veranstaltungen',
       evt: 'Meine Veranstaltung',
       rad: 'Entfernen, nachdem Tropfen',
+      myp: 'Mein Profil',
+      newt: 'Tunesien Nachrichten von L\'Economiste',
+      neww: 'Weltnachrichten L\'Economiste',
+      newe: 'Veranstaltungen in Tunesien von L\'Economiste',
+      newp: 'Politische Nachrichten in Tunesien L\'Economiste',
     BUTTON_LANG_EN: 'englisch',
     BUTTON_LANG_DE: 'deutsch'
   });
@@ -158,6 +170,11 @@ app.config(function ($translateProvider) {
         dragg: 'Evénements déplaçables',
         evt: 'Mon Evénement',
         rad: 'Retirer après dépôt',
+        myp: 'Mon Profil',
+        newt: 'Actu de la Tunisie de L\'Economiste',
+      neww: 'Actu monde de L\'Economiste',
+      newe: 'Evenements en Tunisie de L\'Economiste',
+      newp: 'Politique en Tunisie de L\'Economiste',
     BUTTON_LANG_EN: 'Anglais',
     BUTTON_LANG_DE: 'Allemand'
   });
@@ -292,13 +309,13 @@ app.config(function ($translateProvider) {
         
         
       })
-    .when('/team/:param', {
+    .when('/league/team/:param2/:param3/:param4/:param5', {
         templateUrl: 'views/team.html',
         controller: 'teamController'
         
         
       })
-    .when('/:test/:param', {
+    .when('/league/team/:test/:param', {
         templateUrl: 'views/information.html',
         controller: 'informationController'
         

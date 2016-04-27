@@ -173,7 +173,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
             console.log("connected successfully");
         $rootScope.currentuser = data;
         
-        $location.path( "/todo" );
+        $location.path( "/me" );
     }).error(function(data) {
         $scope.error = "Error in connecting please try again!";
             console.error("error in connecting");
@@ -440,30 +440,26 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
       
 })
 
-
- .controller('teamController',function($scope, $resource,$routeParams){
+.controller('teamController',function($scope, $resource,$routeParams){
     
 	
 	
 	//console.log($routeParams.param);
-	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/league/'+$routeParams.param);
+	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/league/team/'+$routeParams.param2+'/'+$routeParams.param3+'/'+$routeParams.param4+'/'+$routeParams.param5);
     //getAll
-
 	
-    $scope.team=allfbs.query();
+    $scope.team=allfbs.get();
      $scope.hh=$routeParams;
 })
-
 .controller('informationController',function($scope, $resource,$routeParams,$rootScope){
     
 	
 	
 	console.log($routeParams.param);
-	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/league/'+$routeParams.test+'/'+$routeParams.param);
-
+	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/league/team/'+$routeParams.test+'/'+$routeParams.param);
     //getAll
 	
-    $scope.information=allfbs.query();
+    $scope.information=allfbs.get();
 	 
     var hj=$resource('http://natofamilynetwork.herokuapp.com/login/update/:user/:league/:team', {}, {
       query: {method:'PUT', params:{user:$rootScope.currentuser._id,league:$routeParams.test,team:$routeParams.param}, isArray:false}});
