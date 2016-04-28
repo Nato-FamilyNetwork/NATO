@@ -15,7 +15,8 @@
     'ngRoute',
 	'familyNetworkAppc',
 	'familyNetworkApp.services',
-      'pascalprecht.translate'
+      'pascalprecht.translate',
+      'ngStorage'
     
    
     
@@ -361,7 +362,8 @@ app.config(function ($translateProvider) {
         
       })
     .when('/me', {
-        templateUrl: 'views/me.html'
+        templateUrl: 'views/me.html',
+        controller:'MeineController'
         
         
       })
