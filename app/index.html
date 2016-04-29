@@ -662,7 +662,7 @@ hs.wrapperClassName = 'borderless';
 														<div class="form-actions">
 															<div class="input-group">
 																<input placeholder="Type your message here ..." class="form-control" name="message" type="text" id="message">
-                                                                <input type="hidden"  id="username" value="{{currentuser.username}}" />
+                                                                <input type="hidden"  id="username2" value="{{currentuser.username}}" />
      
                                                                     <input type="hidden"  id="chatid" value="{{currentuser._id}}" />
                                                                 <input type="hidden"  id="fid" value="{{currentuser.familyid}}" />
@@ -683,7 +683,7 @@ hs.wrapperClassName = 'borderless';
             </div> 
      <script src="mustache2/mustache.js"></script>
 <script>
-    
+     var nnn=0;
     (function ($) {
         
     
@@ -702,7 +702,7 @@ hs.wrapperClassName = 'borderless';
         socket.emit('login', {
          
             message  : $("#message").val(),
-            username  : $("#username").val(),
+            username  : $("#username2").val(),
             date  : $("#date").val(),
              id  : $("#chatid").val(),
              fid  : $("#fid").val()
@@ -724,9 +724,17 @@ hs.wrapperClassName = 'borderless';
         
         socket.on('newusers', function(me){
                 var ffid = $("#fid").val();
+             var uuid=$("#chatid").val();
          
             
             if(me.fid == ffid){
+                console.log(me.fid);
+                
+                  if(me.id !=uuid){
+                        nnn++;
+                         $('.notifi').prepend('<li style="color:red">'+ nnn+ '</li>');
+                    }
+                
                  $('#messages').append('<div class="itemdiv dialogdiv">'+Mustache.render(tmp,me)+'<div>');
             }
                  
