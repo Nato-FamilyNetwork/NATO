@@ -252,6 +252,11 @@ app.config(function ($translateProvider) {
         controller: 'localisationController'
         
       })
+      .when('/neeed', {
+        templateUrl: 'views/neeed.html',
+       controller:'needController'
+        
+      })
     .when('/mapTrace', {
         templateUrl: 'views/mapTrace.html',
         controller: 'mapTraceController'
