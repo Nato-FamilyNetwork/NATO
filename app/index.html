@@ -351,6 +351,57 @@ hs.wrapperClassName = 'borderless';
 					</li>
                     
                     
+                    
+                    
+                    
+                    
+                         
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-desktop"></i>
+							<span class="menu-text">
+ Online members
+							</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul ng-controller="OnlineController" class="submenu">
+							 
+							 
+
+							<li  ng-repeat="o in ons|filter: currentuser.familyid" class="">
+								<a>
+									
+                                    <i class="ace-icon fa fa-circle light-green"></i>
+									{{o.name}} {{o.familyname}}
+									 
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							
+							 
+
+						 </ul>
+
+	 
+
+					</li>
+            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
 					<li class="">
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-desktop"></i>
@@ -618,8 +669,8 @@ hs.wrapperClassName = 'borderless';
                                     <div class="col-xs-8" ng-view=""></div>
                                     
                                    
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+   
+    
       <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
    <script src="https://natofamilynetwork.herokuapp.com/socket.io/socket.io.js"></script>
              

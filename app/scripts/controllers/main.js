@@ -207,7 +207,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         })
     }
 })
- .controller('loginController',function($rootScope,$sessionStorage,$localStorage, $scope, $http, $location){
+ .controller('loginController',function($resource,$rootScope,$sessionStorage,$localStorage, $scope, $http, $location){
     
 	
     
@@ -215,6 +215,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
             $location.path( "/me" );
         }
 	
@@ -230,6 +231,16 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         $localStorage.loggedin = true;
         $rootScope.currentuser = $localStorage.currentuser;
         console.log($localStorage.currentuser);
+        
+        
+        
+        var hj=$resource('http://natofamilynetwork.herokuapp.com/login/online/:id/', {}, {
+      query: {method:'PUT', params:{id:$localStorage.currentuser._id}, isArray:false}});
+	  hj.query();
+        
+        var onlines=$resource('http://natofamilynetwork.herokuapp.com/login/all/online/');
+    
+        $rootScope.ons=onlines.query();
         
         $location.path( "/me" );
     }).error(function(data) {
@@ -362,6 +373,10 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
     
 	if($localStorage.loggedin)
         {
+            var hj=$resource('http://natofamilynetwork.herokuapp.com/login/offline/:id/', {}, {
+      query: {method:'PUT', params:{id:$localStorage.currentuser._id}, isArray:false}});
+	  hj.query();
+            
            $http.get('http://natofamilynetwork.herokuapp.com/login/logout').
         success(function(data) {
             console.log("loggingout");
@@ -1159,8 +1174,16 @@ function playAudio() {
       
 })
 
+   
+.controller('OnlineController', function ($rootScope,$resource,$translate, $scope) {
+ 
+   
+  var onlines=$resource('http://natofamilynetwork.herokuapp.com/login/all/online/');
     
+        $rootScope.ons=onlines.query();
 
+ 
+})
 
 .controller('BigCtrl', function ($rootScope,$translate, $scope) {
  
@@ -1229,6 +1252,7 @@ function playAudio() {
     }
         
 });
+
 
 
 
