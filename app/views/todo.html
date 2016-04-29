@@ -10,6 +10,7 @@
     </head>
 
     <body class="well">
+        
         <div id="container">
 
               <div class="col-sm-10" > <h3>{{'tt' | translate}}</h3> </div>
@@ -72,7 +73,7 @@
                 <form method="post" id="todo-form">
                     <input class="form-control" type="text" placeholder="{{'ttl' | translate }}" required   ng-model="t" />
                     <textarea class="form-control" placeholder="{{'desc' | translate }}" required  ng-model="ds"></textarea>
-                    <input type="text" class="form-control"  id="datepicker" required placeholder="{{'dat' | translate }} (dd/mm/yyyy)"  ng-model="d"/>
+                    <input type="date" class="form-control date-picker"  id="datepicker" required placeholder="{{'dat' | translate }} (dd/mm/yyyy)" data-date-format="dd-mm-yyyy"  ng-model="d"/>
                     <input type="submit" class="btn btn-primary btn-block" value="Add Task" ng-click="add(t,ds,d)"     />
                      <a class="btn btn-danger btn-block" ng-href="#/tododeleteall"  onclick="todo.clear();" >   Clear Data  </a>
                 </form>

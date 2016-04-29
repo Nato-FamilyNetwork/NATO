@@ -1,35 +1,39 @@
-<div ng-show="currentuser.familyid">	 	
+<div ng-show="currentuser.familyid">	
+    <div class="alert alert-block alert-info">
+									<button type="button" class="close" data-dismiss="alert">
+										<i class="ace-icon fa fa-times"></i>
+									</button>
+
+									<i class="ace-icon fa fa-check green"></i>
+
+									Here you can add members to your family!!!!!!!!!
+			</div>
 <div ng-repeat="p in fbs|filter:currentuser.familyname">
-    																		<div class="col-xs-6 col-sm-3 pricing-box" style="max-height:502px">
-    										<div class="widget-box widget-color-orange">
-    											<div class="widget-header" style="max-height:10px">
-    												<h5 class="widget-title bigger lighter">{{p.familyname}}</h5>
-    											</div>
+    
+    
+    <div class="clearfix">
+																<div class="itemdiv memberdiv">
+																	<div class="user">
+																		<img alt="Bob Doe's avatar" src="../assets/avatars/user.jpg">
+																	</div>
 
-    											<div class="widget-body">
-    												<div class="widget-main">
-    													<ul class="list-unstyled spaced2">
-    														
+																	<div   class="body">
+																		<div class="name">
+																			<a href="#">{{p.name}} {{p.familyname}}</a>
+																		</div>
 
-    														<li>
-    															<i class="ace-icon fa fa-check green"></i>
-    															Name:{{p.name}}
-    														</li>
-                                                            
-                                                            
+																		
 
-    													 
-    													</ul>
+																		<div>
+																			<button class="label label-primary label-sm" ng-click="addF(p._id)">Add to Family</button>
 
-    													<hr />
-    													
-    												</div>
+																			
+																		</div>
+																	</div>
+																</div>
 
-    												<div>
-    													<button class="btn btn-primary" ng-click="addF(p._id)">Add to Family</button>
-    												</div>
-    											</div>
-    										</div>
-    									</div>
-     </div>
+														
+														
+															</div>
+    																	</div>
 </div>

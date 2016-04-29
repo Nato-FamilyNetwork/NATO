@@ -34,20 +34,17 @@
 											<div class="hr hr12 dotted"></div>
 
 											<!-- #section:custom/extra.grid -->
-											<div class="clearfix">
-												<div class="grid2">
-													<span class="bigger-175 blue">25</span>
-
-													<br />
-													Followers
-												</div>
-
-												<div class="grid2">
-													<span class="bigger-175 blue">12</span>
-
-													<br />
-													Following
-												</div>
+											<div ng-repeat="m in myprod" class="clearfix">
+                                                <h4>
+                                                <i class="ace-icon fa fa-star orange"></i>
+                                                    {{m.titre}}
+                                                    </h4>
+												<img src="{{m.photo}}"  /> 
+                                           <br/>
+                                                <span class="label label-primary arrowed arrowed-right">
+                                             <h4 style="margin-top:-1px;">{{m.prix}}</h4>
+                                                </span>
+                                                
 											</div>
 
 											<!-- /section:custom/extra.grid -->
@@ -100,27 +97,64 @@
 												
 
 											<!-- /section:pages/profile.info -->
-											<div class="space-20"></div>
+											
 
 								
 											<div class="hr hr2 hr-double"></div>
 
-											<div class="space-6"></div>
+											
 
 											<div class="center">
-												<button type="button" class="btn btn-sm btn-primary btn-white btn-round">
-													<i class="ace-icon fa fa-rss bigger-150 middle orange2"></i>
-													<span class="bigger-110">View more activities</span>
+												
+                                                	<div  id="member-tab" class="tab-pane active">
+                                                        <div class="alert alert-block alert-info">
+									<button type="button" class="close" data-dismiss="alert">
+										<i class="ace-icon fa fa-times"></i>
+									</button>
 
-													<i class="icon-on-right ace-icon fa fa-arrow-right"></i>
-												</button>
+									<i class="ace-icon fa fa-check green"></i>
+
+									Hedhi 3ayeltek bouk,5ouk,jed bouk, din weldik!
+			</div>
+															<!-- #section:pages/dashboard.members -->
+															<div class="clearfix">
+																<div ng-repeat="p in fbs" class="itemdiv memberdiv">
+																	<div class="user">
+																		<img alt="Bob Doe's avatar" src="../assets/avatars/user.jpg">
+																	</div>
+
+																	<div   class="body">
+																		<div class="name">
+																			<a href="#">{{p.name}} {{p.familyname}}</a>
+																		</div>
+
+																		
+
+																		<div>
+																			<span class="label label-success label-sm">ONLINE</span>
+
+																			
+																		</div>
+																	</div>
+																</div>
+
+														
+														
+															</div>
+
+															
+ 
+
+
+															<!-- /section:pages/dashboard.members -->
+														</div><!-- /.#member-tab -->
 											</div>
 										</div>
 									</div>
 								</div>
 
 							
-					
+				
 		
 			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
 				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>

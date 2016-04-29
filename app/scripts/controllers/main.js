@@ -1159,7 +1159,7 @@ function playAudio() {
   };
  
 })
-.controller('MeineController', function ($rootScope,$translate,$localStorage, $scope) {
+.controller('MeineController', function ($resource,$rootScope,$translate,$localStorage, $scope) {
  
   if($localStorage.loggedin)
         {
@@ -1167,7 +1167,20 @@ function playAudio() {
             $rootScope.loggedin=$localStorage.loggedin;
             
         }
+    
+     var allfbs=$resource('http://natofamilynetwork.herokuapp.com/login/my/'+$localStorage.currentuser.familyid);
+    //getAll
+	
+    $scope.fbs=allfbs.query();
+  var x = $scope.fbs;
+    
+   // $scope.randomtest = x[Math.floor(Math.random()* x.length)];.
  
+    
+    var myprod=$resource('https://natofamilynetwork.herokuapp.com/needs/promote');
+    
+    $scope.myprod=myprod.query();
+    
 });
 
 
