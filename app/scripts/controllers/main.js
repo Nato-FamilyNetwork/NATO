@@ -593,23 +593,23 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
             
         }
     
- var id = $routeParams.id
-  $scope.todo = todoFactory.query({id: id})
+ var id = $routeParams.id;
+  $scope.todo = todoFactory.query({id: id});
    
-    console.log("haha1");
-    $scope.action = "Update"
+    
+
    
     
        
     todoFactory.update({id: id}, $scope.todo, function() {
           $scope.todo.status="2";
       $location.path( "/todo" )
-       console.log("haha2");
+   
     })
   
 	
    
-     console.log("haha3");
+    
     
   
 
@@ -624,23 +624,22 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
             
         }
     
- var id = $routeParams.id
-  $scope.todo = tododoneFactory.query({id: id})
+ var id = $routeParams.id;
+  $scope.todo = tododoneFactory.query({id: id});
    
-    console.log("haha1");
-    $scope.action = "Update"
+   
    
     
        
     tododoneFactory.update({id: id}, $scope.todo, function() {
          
       $location.path( "/todo" )
-       console.log("haha2");
+       
     })
   
 	
    
-     console.log("haha3");
+    
     
   
 
