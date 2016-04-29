@@ -1181,7 +1181,43 @@ function playAudio() {
     
     $scope.myprod=myprod.query();
     
+})
+
+.controller('needController',function($rootScope,$scope, $http,$resource){
+    $scope.needs = function(){
+    var carrefour = new google.maps.LatLng(36.86663, 10.297448);
+    var need = $resource('https://natofamilynetwork.herokuapp.com/map/need/'+$rootScope.currentuser.familyid);
+    var distance = new Array;
+    var name = new Array;
+     $scope.needs=need.query();
+    $scope.needs.$promise.then(function(value) {
+         for(var i=0 ;i<value.length; i++){
+        var position = new google.maps.LatLng(value[i].attitude, value[i].longitude);
+          var distanceKm = google.maps.geometry.spherical.computeDistanceBetween(carrefour, position);
+ distanceKm = distanceKm/1000;
+        distance.push(distanceKm);
+             name.push(value[i].name);
+         }
+        var lastPosition=distance[0];
+        console.log(lastPosition);
+        var lastName=name[0];
+        for(var i=0 ;i<name.length; i++){
+            if(distance[i]<lastPosition){
+            lastPosition=distance[i];
+                lastName=name[i];
+            }
+        }
+        console.log(lastPosition);
+        console.log(lastName);
+         var message =  $resource('https://natofamilynetwork.herokuapp.com/sms/send/'+needs.value);
+          $scope.envoie = message.query();
+        
+        
+    })
+    }
+        
 });
+
 
 
     
