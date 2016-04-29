@@ -193,6 +193,18 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         $scope.error = "An error has occured please try again!";
             console.error("error in posting");
         })
+         var title = "date creation";
+            var start = new Date();
+            var end = null;
+            var className = 'label-info';
+            var familyFK = $scope.formData.fid;
+			$scope.formEvent={title,start,end,className,familyFK };
+                    $http.post('http://natofamilynetwork.herokuapp.com/calendar/addEvent',$scope.formEvent).
+        success(function(data) {
+            console.log("posted successfully");
+        }).error(function(data) {
+            console.error("error in posting");
+        })
     }
 })
  .controller('loginController',function($rootScope,$sessionStorage,$localStorage, $scope, $http, $location){
