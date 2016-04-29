@@ -854,7 +854,7 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
         
 })
 
-.controller('calendarController',function($rootScope,$scope, $resource, $http,$route){
+.controller('calendarController',function($localStorage,$rootScope,$scope, $resource, $http,$route){
     
     if($localStorage.loggedin)
         {
