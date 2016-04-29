@@ -13363,9 +13363,7 @@ li.item-default {
   width: calc(100% - 24px);
   margin: 0 auto;
 }
-.profile-info-row {
-  display: table-row;
-}
+
 .profile-info-name {
   text-align: right;
   padding: 6px 10px 6px 4px;

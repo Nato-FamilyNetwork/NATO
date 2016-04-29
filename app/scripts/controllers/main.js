@@ -1138,8 +1138,8 @@ function playAudio() {
 		compteur.innerHTML = tache.value+" terminer";
             compteur.style.color="red";
 		playAudio();
-            var message =  $resource('http://natofamilynetwork.herokuapp.com/sms/send/'+tache.value);
-          $scope.envoie = message.query();
+            //var message =  $resource('http://natofamilynetwork.herokuapp.com/sms/send/'+tache.value);
+        //  $scope.envoie = message.query();
            
 
 		}, 1000+(timeLeft.value*1000));};

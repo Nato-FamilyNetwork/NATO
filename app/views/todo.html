@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>AngelPrime to-do List</title>
+        
 
         
         <link rel="stylesheet" href="../lib2/jQuery/jquery.ui.min.css" />
@@ -12,48 +12,130 @@
     <body class="well">
         <div id="container">
 
-              <div > <h3>{{'tt' | translate}}</h3> </div>
+              <div class="col-sm-10" > <h3>{{'tt' | translate}}</h3> </div>
+            
+            
+            
+            
+            <div class="col-xs-10" ng-controller="remainController">
+                <div class="alert alert-block alert-info">
+									<button type="button" class="close" data-dismiss="alert">
+										<i class="ace-icon fa fa-times"></i>
+									</button>
 
-            <div class="task-list task-container" id="pending">
-                <h3>{{'td' | translate}}</h3>
+									<i class="ace-icon fa fa-check green"></i>
+
+									Here is your event reminder
+									
+	you can use it to remind you like to taffi el gaz after 3 minutes.
+			</div>
+                <div class="widget-box">
+                    <div class="widget-header" style="
+    text-align: center"><h5>Reminder</h5> </div>
+    <p id="resultat"></p>
+    <audio id="myAudio">
+  <source src="http://www.memoclic.com/medias/sons-wav/1/335.wav" type="audio/wav">
+  <source src="http://www.memoclic.com/medias/sons-wav/1/335.mp3" type="audio/mpeg">
+</audio>
+                <div class="widget-body">
+<form class="form-group">
+  
+  <input type="text" placeholder="Event To remind" class="form-control" id="tache" aria-describedby="helpBlock2">
+
+    <input type="number" placeholder="Time to remind" class="form-control" id="time" aria-describedby="helpBlock2">
+    
+    <button type="submit" class="btn btn-primary btn-block" ng-click="timeRemain()">Submit</button>
+</form>
+                    </div>
+    <h1 id="compteur"></h1>
+    
+    </div>
+                </div>
+            
+            <div class="col-xs-10">
+            <div class="hr hr32 hr-dotted"></div>
+            </div>
+            <div class="col-xs-10">
+                <div class="alert alert-block alert-info">
+									<button type="button" class="close" data-dismiss="alert">
+										<i class="ace-icon fa fa-times"></i>
+									</button>
+
+									<i class="ace-icon fa fa-check green"></i>
+
+									Here is your ToDo list you can use it to add planifications of some tasks like nrivez math ghodwa.
+			</div>
+                <div class="widget-box">
+               <div class="widget-header" style="
+    text-align: center"><h4 class="widget-title">{{'tach' | translate}}</h4></div>
+                <div class="widget-body">
+                <form method="post" id="todo-form">
+                    <input class="form-control" type="text" placeholder="{{'ttl' | translate }}" required   ng-model="t" />
+                    <textarea class="form-control" placeholder="{{'desc' | translate }}" required  ng-model="ds"></textarea>
+                    <input type="text" class="form-control"  id="datepicker" required placeholder="{{'dat' | translate }} (dd/mm/yyyy)"  ng-model="d"/>
+                    <input type="submit" class="btn btn-primary btn-block" value="Add Task" ng-click="add(t,ds,d)"     />
+                     <a class="btn btn-danger btn-block" ng-href="#/tododeleteall"  onclick="todo.clear();" >   Clear Data  </a>
+                </form>
+                   
+</div>
+     
+            </div>
+            </div>
+            
+            
+            
+            
+        
+            
+
+            <div class=" col-sm-3 widget-box ui-sortable-handle" id="pending" style="margin-left:50px;">
+                <div class="widget-header" style="
+    text-align: center"><h5 class="widget-title">{{'td' | translate}}</h5></div>
          
-                <div   ng-repeat="x in todo">
+                <div class="widget-body"   ng-repeat="x in todo">
                  
-                     <div class="todo-task"  >
+                     <div class="widget-main"  >
+                         <div class="alert alert-warning">
                     <div class="task-header">{{x.titre}}</div>
                     <div class="task-date">{{x.date}}</div>
                     <div class="task-description" >{{x.description}}</div>
                       
                          <div> <span class="label " ><a ng-href="#/todo/{{x._id}}" ng-click="update()"  style="color:white">{{'mtd' | translate}}   </a> </span></div>
-                            
+                        </div>    
                 </div>
                    
                
                 </div>    
             </div>
 
-            <div class="task-list task-container" id="inProgress">
-                <h3>{{'doi' | translate}}</h3>
+            <div class=" col-sm-3 widget-box ui-sortable-handle" id="inProgress">
+                <div class="widget-header" style="
+    text-align: center"><h5 class="widget-title">{{'doi' | translate}}</h5></div>
                 
-                 <div   ng-repeat="x in doing">
-                 
-                     <div class="todo-task"  draggable=true>
+                 <div class="widget-body"  ng-repeat="x in doing">
+                 <div class="widget-main"  >
+                         <div class="alert alert-success">
+                     
                      <div class="task-header">{{x.titre}}</div>
                     <div class="task-date">{{x.date}}</div>
                     <div class="task-description">{{x.description}}</div>
                          
                          <div> <span class="label label-success arrowed" > <a ng-href="#/todo2/{{x._id}}" ng-click="update()"  style="color:white">{{'mtdd' | translate}}   </a></span></div>
+                             
                 </div>
                     
                
                 </div>   
             </div>
+            </div>
 
-            <div class="task-list task-container" id="completed">
-                <h3>{{'don' | translate}}</h3>
-                 <div   ng-repeat="x in done">
-                 
-                     <div class="todo-task"  >
+            <div class=" col-sm-3 widget-box ui-sortable-handle" id="completed">
+                <div class="widget-header" style="
+    text-align: center"><h5 class="widget-title">{{'don' | translate}}</h5></div>
+                 <div class="widget-body"   ng-repeat="x in done">
+                 <div class="widget-main"  >
+                         <div class="alert alert-info">
+                    
                    <div class="task-header">{{x.titre}}</div>
                     <div class="task-date">{{x.date}}</div>
                     <div class="task-description">{{x.description}}</div>
@@ -61,32 +143,16 @@
                          
                          
                          <div>  <span class=" label label-danger arrowed-in " ><a ng-href="#/tododelete/{{x._id}}" style="color:white"> {{'clr' | translate}}  </a></span> </div>
+                             
                 </div>
                     
                
                 </div>   
                 
             </div>
-
-            <div class="task-list">
-                <h3>{{ 'tach' | translate}}</h3>
-                <form method="post" id="todo-form">
-                    <input type="text" placeholder="{{'ttl' | translate }}" required   ng-model="t" />
-                    <textarea placeholder="{{'desc' | translate }}" required  ng-model="ds"></textarea>
-                    <input type="text" id="datepicker" required placeholder="{{'dat' | translate }} (dd/mm/yyyy)"  ng-model="d"/>
-                    <input type="submit" style="color: white; background-color: #2E64FE;" value="Add Task" ng-click="add(t,ds,d)"     />
-                </form>
-
-                
-                <a ng-href="#/tododeleteall"  >  <input type="submit" style="color: white; background-color: #2E64FE;" value="Clear Data" onclick="todo.clear();" /></a>
-                
-                
-                
-
-                <div id="delete-div">
-                    Drag Here to Delete
-                </div>
             </div>
+
+            
 
             <div style="clear:both;"></div>
             

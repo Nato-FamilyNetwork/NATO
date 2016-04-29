@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="styles/css/fonts/linecons/css/linecons.css">
 	<link rel="stylesheet" href="styles/css/fonts/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="styles/css/bootstrap.css">
-	<link rel="stylesheet" href="styles/css/xenon-core.css">
+	
       
      
 	
@@ -24,9 +24,7 @@
       
       
 	<link rel="stylesheet" href="styles/css/simple-sidebar.css">
-	<link rel="stylesheet" href="styles/css/xenon-forms.css">
-	<link rel="stylesheet" href="styles/css/xenon-components.css">
-	<link rel="stylesheet" href="styles/css/xenon-skins.css">
+	
 	<link rel="stylesheet" href="styles/flags.css">
 	<link rel="stylesheet" href="styles/css/custom.css">
      <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
@@ -46,7 +44,7 @@
       
       
       
-    <link rel="stylesheet" href="styles/bootstrap.css" />
+    
 		<link rel="stylesheet" href="styles/font-awesome.css" />
 
 		<!-- page specific plugin styles -->
@@ -82,7 +80,7 @@ hs.wrapperClassName = 'borderless';
       
     <!-- endbuild -->
   </head>
-  <body class="no-skin" ng-app="familyNetworkApp">
+  <body style="overflow-x:hidden;" class="no-skin" ng-app="familyNetworkApp">
   
       
       
@@ -179,76 +177,7 @@ hs.wrapperClassName = 'borderless';
 				<div ng-show="currentuser">
 				<ul class="nav nav-list">
 					
-<li class="hover">
-						<a href="#/me">
-							<i class="menu-icon fa fa-list"></i>
-							<span class="menu-text">{{ 'myp' | translate}} </span>
 
-							<b class="arrow fa fa-home"></b>
-						</a>
-
-						
-					</li>
-                    
-                    
-					<li class="open hover">
-						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-desktop"></i>
-							<span class="menu-text">
-								{{ 'Entert' | translate }}
-							</span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
-
-						<b class="arrow"></b>
-
-						<ul class="submenu">
-							 
-							 
-
-							<li class="hover">
-								<a href="#/programs">
-									<i class="menu-icon fa fa-caret-right"></i>
-									TV station schedule
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="hover">
-								<a href="#/news">
-									<i class="menu-icon fa fa-caret-right"></i>
-									News from newspapers
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="hover">
-								<a href="#/actu">
-									<i class="menu-icon fa fa-caret-right"></i>
-								    News facebook
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-<li class="hover">
-								<a href="#/twitts">
-									<i class="menu-icon fa fa-caret-right"></i>
-								    My twitter feed
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-							 
-
-						 </ul>
-
-	 
-
-					</li>
 
 					<li class="hover">
 						<a href="#/todo">
@@ -263,27 +192,10 @@ hs.wrapperClassName = 'borderless';
 
 					
 
-					<li class="hover">
-						<a href="#/league">
-							<i class="menu-icon fa fa-list-alt"></i>
-							<span class="menu-text"> {{ 'foot' | translate }} </span>
-						</a>
-
-						<b class="arrow"></b>
-					</li>
-                
-                <li class="hover">
-						<a href="#/needs">
-							<i class="menu-icon fa fa-list-alt"></i>
-							<span class="menu-text"> Needs </span>
-						</a>
-
-						<b class="arrow"></b>
-					</li>
-                
+					
                     <li class="open hover">
 						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon glyphicon glyphicon-map-marker"></i>
+							<i class="menu-icon fa fa-map-o"></i>
 							<span class="menu-text">
 								{{'mp' | translate}}
 							</span>
@@ -341,77 +253,7 @@ hs.wrapperClassName = 'borderless';
 						<b class="arrow"></b>
 					</li>
 
-					<li class="hover">
-						<a href="#/galery">
-							<i class="menu-icon fa fa-picture-o"></i>
-							<span class="menu-text"> Gallery </span>
-						</a>
-
-						<b class="arrow"></b>
-					</li>
-
-					
-							<li class="open hover">
-						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-file-o"></i>
-							<span class="menu-text">
-								{{'pricec' | translate}}
-							</span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
-
-						<b class="arrow"></b>
-
-						<ul class="submenu">
-							 
-							 
-
-							<li class="hover">
-								<a href="#/comparator">
-									<i class="menu-icon fa fa-caret-right"></i>
-									PCs
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="hover">
-								<a href="#/imprimante">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Printers
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="hover">
-								<a href="#/tablette">
-									<i class="menu-icon fa fa-caret-right"></i>
-								    Tablets
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-
-							 
-
-						 </ul>
-
-	 
-
-					</li>
-<li class="hover">
-						<a href="#/reminder">
-							<i class="menu-icon fa fa-tag"></i>
-							<span class="menu-text"> {{'rp' | translate}} </span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
-                        
-					</li>
-                    
+				    
                     <li ng-show="currentuser.familyid" class="hover">
 						<a href="#/all">
 							<i class="menu-icon fa fa-user"></i>
@@ -437,22 +279,7 @@ hs.wrapperClassName = 'borderless';
 			<!-- /section:basics/sidebar.horizontal -->
 			<div class="main-content">
 				<div  class="main-content-inner">
-                     <div ng-show="currentuser" id="weatherplz" ng-controller="WeatherCtrl">
-                    <h2>{{ 'weather' | translate }}</h2>
-    <weather-icon cloudiness="{{ weather.clouds }}"></weather-icon>
-    <h4>{{ 'curr' | translate }} {{ weather.temp.current | temp:2 }}</h4>
-    min: {{ weather.temp.min | temp }}, max: {{ weather.temp.max | temp }}
-                         <br/>
-                         <br/>
-                         <br/>
-                         <br/>
-                         
-                                                  <div >
-                         
-                           
-                         
-                         </div>
-                    </div>
+                     
 					<div class="page-content" style="padding-top: 0; padding: 0;">
 						
 						
@@ -460,10 +287,248 @@ hs.wrapperClassName = 'borderless';
 						<div class="row">
 							
 
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
 								
-    <div ng-show="currentuser" id="wrapper">
+     <div class="col-xs-2" ng-show="currentuser" >
+         <div id="sidebar" class="sidebar                  responsive" data-sidebar="true" data-sidebar-scroll="true" data-sidebar-hover="true" style="width:209px;">
+				<script type="text/javascript">
+					try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+				</script>
 
-        <!-- Sidebar -->
+				
+<div ng-show="currentuser" id="weatherplz" ng-controller="WeatherCtrl">
+                    <h2>{{ 'weather' | translate }}</h2>
+    <weather-icon cloudiness="{{ weather.clouds }}"></weather-icon>
+    <h4>{{ 'curr' | translate }} {{ weather.temp.current | temp:2 }}</h4>
+    min: {{ weather.temp.min | temp }}, max: {{ weather.temp.max | temp }}
+                         
+                                                  <div >
+                         
+                           
+                         
+                         </div>
+                    </div>
+				<ul class="nav nav-list" style="top: 0px;">
+					<li class="">
+						<a href="#/me">
+							<i class="menu-icon fa fa-list"></i>
+							<span class="menu-text">{{ 'myp' | translate}} </span>
+
+							<b class="arrow fa fa-home"></b>
+						</a>
+
+						
+					</li>
+                    
+                    
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-desktop"></i>
+							<span class="menu-text">
+								{{ 'Entert' | translate }}
+							</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							 
+							 
+
+							<li class="">
+								<a href="#/programs">
+									<i class="menu-icon fa fa-caret-right"></i>
+									TV station schedule
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="#/news">
+									<i class="menu-icon fa fa-caret-right"></i>
+									News from newspapers
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="#/actu">
+									<i class="menu-icon fa fa-caret-right"></i>
+								    News facebook
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+<li class="">
+								<a href="#/twitts">
+									<i class="menu-icon fa fa-caret-right"></i>
+								    My twitter feed
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							 
+
+						 </ul>
+
+	 
+
+					</li>
+					<li class="">
+						<a href="#/league">
+							<i class="menu-icon fa fa-futbol-o"></i>
+							<span class="menu-text"> {{ 'foot' | translate }} </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+                
+                <li class="">
+						<a href="#/needs">
+							<i class="menu-icon fa fa-list-alt"></i>
+							<span class="menu-text"> Needs </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+                	<li class="">
+						<a href="#/galery">
+							<i class="menu-icon fa fa-picture-o"></i>
+							<span class="menu-text"> Gallery </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+
+					
+							<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-usd"></i>
+							<span class="menu-text">
+								{{'pricec' | translate}}
+							</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class=""></b>
+
+						<ul class="submenu">
+							 
+							 
+
+							<li class="">
+								<a href="#/comparator">
+									<i class="menu-icon fa fa-caret-right"></i>
+									PCs
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="#/imprimante">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Printers
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="#/tablette">
+									<i class="menu-icon fa fa-caret-right"></i>
+								    Tablets
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+
+							 
+
+						 </ul>
+
+	 
+
+					</li>
+<li class="">
+						<a href="#/reminder">
+							<i class="menu-icon fa fa-bell"></i>
+							<span class="menu-text"> {{'rp' | translate}} </span>
+
+							
+						</a>
+                        
+					</li>
+                    <li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-usd"></i>
+							<span class="menu-text">
+								RADIOUN
+							</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class=""></b>
+
+						<ul style="margin-left:17px" class="submenu">
+							  
+							 
+<li>
+                    
+                    
+                    <video controls poster="images/jfm2.jpg">
+    <source src="http://streaming2.toutech.net:8000/jawharafm">
+    </video>
+                </li>
+                <li>
+                    <video controls poster="images/ifm2.png">
+    <source src="http://5.135.138.182:8000/direct">
+        
+    </video>
+                </li>
+                <li>
+                    <video controls poster="images/mosalive.png">
+    <source src="http://radio.mosaiquefm.net:8000/mosalive">
+        
+    </video>
+                </li>
+							
+
+
+							 
+
+						 </ul>
+
+	 
+
+					</li>
+                    
+                
+				</ul><!-- /.nav-list -->
+
+				
+			</div>
+         
+        <!-- 
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 
@@ -490,44 +555,60 @@ hs.wrapperClassName = 'borderless';
                 
                 
             </ul>
-        </div>
+         </div>
+         -->
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
         
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">{{'togg' | translate}}</a>
+                        <!--<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">{{'togg' | translate}}</a>-->
                    
         <!-- /#page-content-wrapper -->
 
-    </div>
-								<div class="center">
-                                    <div ng-view=""></div>
+    </div> 
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+								<div class="">
+                                    <div class="col-xs-8" ng-view=""></div>
                                     
                                    
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
       <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
    <script src="https://natofamilynetwork.herokuapp.com/socket.io/socket.io.js"></script>
-             <style>
-            #pp{
-                
-                position: relative;
-                
-                bottom: 0px; 
-                width: 350px;
-                margin-left:990px;
-                position:fixed;
-            }
-        
-        
-        
-        
-        </style>
+             
           
-        <div ng-show="currentuser" class="row" id="pp">  
+        <div  ng-show="currentuser" class="col-xs-2" id="pp">  
      
         
-    	<div  class="widget-body" >
+    	<div style="position:fixed; z-index:100;"  class="widget-body" >
 												<div class="widget-main no-padding">
 												
 										<div class="widget-box">
@@ -542,11 +623,9 @@ hs.wrapperClassName = 'borderless';
 											<div class="widget-body">
                     <div class="widget-main no-padding">
 													
-     <div class="dialogs ace-scroll">
-             <div style="display: block; height: 300px;" class="scroll-track scroll-active">
-             <div style="height: 233px; top: 0px;" class="scroll-bar"></div>
-         </div>
-            <div style="max-height: 300px;" class="scroll-content">
+     <div class="">
+             
+            <div style="min-height:400px; max-height:400px; overflow-x:hidden; overflow-y: scroll;" class="">
                                                        
                                                            <div  id="messages"></div>
 														<div class="itemdiv dialogdiv" id="msgtpl"    >
@@ -825,7 +904,7 @@ hs.wrapperClassName = 'borderless';
 		<script src="scripts/docs/js/language/javascript.js"></script>
      
      
-            <script type="text/javascript" src="../lib2/Bootstrap/bootstrap.min.js"></script>
+          
             <script type="text/javascript" src="../lib2/jQuery/jquery.ui.min.js"></script>
      
             <script src="https://natofamilynetwork.herokuapp.com/socket.io/socket.io.js"></script>
@@ -871,7 +950,7 @@ hs.wrapperClassName = 'borderless';
 		<script src="../assets/js/spin.js"></script>
 
 		<!-- ace scripts -->
-		<script src="../assets/js/ace/elements.scroller.js"></script>
+		
 		<script src="../assets/js/ace/elements.colorpicker.js"></script>
 		<script src="../assets/js/ace/elements.fileinput.js"></script>
 		<script src="../assets/js/ace/elements.typeahead.js"></script>
@@ -929,6 +1008,45 @@ if (annyang) {
     });
     </script>
         <!-- endbuild -->
+      
+      <script>
+      
+      $('.nav').on('click', 'li', function(){
+    $('.nav li').removeClass('active');
+    $(this).addClass('active');
+});
+      </script>
+      
+      
+      <div class="footer" style="margin-top:65px;">
+				<div class="footer-inner">
+					<!-- #section:basics/footer -->
+					<div class="footer-content">
+						<span class="bigger-120">
+							<span class="blue bolder">Ace</span>
+							Application © 2013-2014
+						</span>
+
+						&nbsp; &nbsp;
+						<span class="action-buttons">
+							<a href="#">
+								<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+							</a>
+
+							<a href="#">
+								<i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
+							</a>
+
+							<a href="#">
+								<i class="ace-icon fa fa-rss-square orange bigger-150"></i>
+							</a>
+						</span>
+					</div>
+
+					<!-- /section:basics/footer -->
+				</div>
+			</div>
+      
       
 </body>
 </html>
