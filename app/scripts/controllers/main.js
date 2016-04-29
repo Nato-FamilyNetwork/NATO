@@ -458,7 +458,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         }
     
     console.log("salut"+$rootScope.currentuser._id);
-    $location.path( "/todo" );
+    
      
        
 
@@ -480,7 +480,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         var todo = new AddTodo;
 	 	 todo.titre = t;
          todo.description=ds;
-         todo.date=da;
+         todo.date=da.toLocaleDateString();
          todo.userFK=$rootScope.currentuser._id;
          todo.status="1";
         
@@ -489,13 +489,12 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 	 	todo.$save();
       
          
-       console.log("haha2Added");
-        $location.path( "/refreche" );
-         
+   
+            $route.reload();
          
          
 	 }
-         $location.path( "/todo" );
+        
   
 
 })

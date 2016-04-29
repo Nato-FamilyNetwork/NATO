@@ -73,7 +73,7 @@
                 <form method="post" id="todo-form">
                     <input type="text" placeholder="{{'ttl' | translate }}" required   ng-model="t" />
                     <textarea placeholder="{{'desc' | translate }}" required  ng-model="ds"></textarea>
-                    <input type="text" id="datepicker" required placeholder="{{'dat' | translate }} (dd/mm/yyyy)"  ng-model="d"/>
+                    <input type="date" id="datepicker" required placeholder="{{'dat' | translate }} (dd/mm/yyyy)"  ng-model="d"/>
                     <input type="submit" style="color: white; background-color: #2E64FE;" value="Add Task" ng-click="add(t,ds,d)"     />
                 </form>
 
