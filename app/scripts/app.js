@@ -372,6 +372,9 @@ app.config(function ($translateProvider) {
         
         
       })
+    .when('/pending', {
+        templateUrl: 'views/pending.html',   
+      })
       .otherwise({
         redirectTo: '/login'
       });

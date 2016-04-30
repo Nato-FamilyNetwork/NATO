@@ -62,12 +62,18 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
   
 
 })
-.controller('TwitterController', function($rootScope,$localStorage,$scope, $q, twitterService) {
+.controller('TwitterController', function($location,$rootScope,$localStorage,$scope, $q, twitterService) {
 
-    if($localStorage.loggedin)
+    if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin)
+        {
+            
+            $location.path("/pending");
             
         }
     
@@ -126,10 +132,16 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 })
 .controller('facebookListController',function($rootScope,$localStorage,$scope, $resource){
     
-	if($localStorage.loggedin)
+	if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
             
         }
 	
@@ -145,10 +157,16 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 .controller('newsListController',function($rootScope,$localStorage,$scope, $resource){
     
 	
-	if($localStorage.loggedin)
+	if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
             
         }
 	
@@ -176,6 +194,13 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
             $location.path( "/me" );
+        }
+    
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
+            
         }
 	// post
     
@@ -211,7 +236,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
     
 	
     
-	if($localStorage.loggedin)
+	if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
@@ -242,7 +267,13 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
     
         $rootScope.ons=onlines.query();
         
-        $location.path( "/me" );
+        if($localStorage.currentuser.familyid){
+            $location.path( "/me" );
+        }else{
+            
+            $location.path( "/pending" );
+        }
+        
     }).error(function(data) {
         $scope.error = "Error in connecting please try again!";
             console.error("error in connecting");
@@ -260,7 +291,12 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 
 
 .controller('familyListController',function($location,$localStorage,$rootScope,$resource, $scope, $http, $routeParams, $route){
-    if($localStorage.loggedin)
+    
+    
+    
+    
+    
+    if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
@@ -280,10 +316,20 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
     }
             
         }
-    else {
-        
-        $location.path("/");
-    }
+    
+    
+
+    if($localStorage.loggedin)
+        {
+            
+            $location.path("/pending");
+            
+        }
+    
+    if(! $localStorage.loggedin)
+        {
+            $location.path("/");
+        }
     
    
     
@@ -414,10 +460,16 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
       .controller('comparatorController',function($rootScope,$localStorage,$scope, $resource){
     
 	
-	if($localStorage.loggedin)
+	if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
             
         }
 	
@@ -432,11 +484,16 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 
 })
     .controller('imprimantesController',function($rootScope,$localStorage,$scope, $resource){
-    
-	if($localStorage.loggedin)
+    if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
             
         }
 	
@@ -455,10 +512,16 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 
  .controller('tabletteController',function($rootScope,$localStorage,$scope, $resource){
     
-	if($localStorage.loggedin)
+	if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
             
         }
 	
@@ -471,10 +534,16 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
       
 })
     .controller('refrecheCtrl', function($rootScope,$localStorage,$location, $route) {
-    if($localStorage.loggedin)
+    if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
             
         }
     $route.reload(); 
@@ -483,10 +552,16 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
     
 })
     .controller('userTodo', function($localStorage,$rootScope,$scope, $resource, $location, $route) {
-    if($localStorage.loggedin)
+    if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
             
         }
     
@@ -535,10 +610,16 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 
 
 .controller('leagueController',function($rootScope,$localStorage,$scope, $resource){
-    if($localStorage.loggedin)
+    if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
             
         }
 
@@ -559,10 +640,16 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 
 
 .controller('needsController',function($rootScope,$localStorage,$scope, $resource){
-    if($localStorage.loggedin)
+    if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
             
         }
 
@@ -589,10 +676,16 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 })
 
 .controller('teamController',function($rootScope,$localStorage,$scope, $resource,$routeParams){
-    if($localStorage.loggedin)
+    if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
             
         }
     
@@ -606,10 +699,16 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
      $scope.hh=$routeParams;
 })
 .controller('informationController',function($localStorage,$scope, $resource,$routeParams,$rootScope){
-    if($localStorage.loggedin)
+    if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
             
         }
     
@@ -630,10 +729,16 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 
 .controller("updateTodoCtrl",function($rootScope,$localStorage,$scope,$routeParams,$resource,todoFactory,$location){
     
-    if($localStorage.loggedin)
+    if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
             
         }
     
@@ -661,10 +766,16 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 })
     .controller("updateTodoneTodoCtrl",function($rootScope,$localStorage,$scope,$routeParams,$resource,tododoneFactory,$location){
     
-    if($localStorage.loggedin)
+   if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
             
         }
     
@@ -691,10 +802,16 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 })
 .controller('deleteTodoCtrl', function($rootScope,$localStorage, $routeParams, Deletetodo,$location, $route) {
    
-    if($localStorage.loggedin)
+    if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
             
         }
     
@@ -706,10 +823,16 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 })
 .controller('deleteAllTodoCtrl', function($localStorage,$rootScope,DeletetodoAll,$location, $route) {
       
-   if($localStorage.loggedin)
+   if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
             
         }
     
@@ -721,10 +844,16 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 
 
 .controller('chatCtrl', function($localStorage,$scope,$rootScope) {
-    if($localStorage.loggedin)
+    if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
             
         }
     
@@ -738,10 +867,16 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 
 .controller('mapTraceController',function($localStorage,$rootScope,$scope, $resource){
 
-if($localStorage.loggedin)
+if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
             
         }
 
@@ -827,10 +962,16 @@ flightPath.setMap(map);
 })
 .controller('localisationController',function($localStorage,$rootScope,$scope, $http){
     
-    if($localStorage.loggedin)
+   if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
             
         }
     
@@ -1159,10 +1300,16 @@ console.log(abbb);
 	})
     
     .controller('remainController',function($rootScope,$localStorage,$scope, $resource){
-    if($localStorage.loggedin)
+    if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
             
         }
     
@@ -1214,10 +1361,16 @@ function playAudio() {
 })
 .controller('MeineController', function ($resource,$rootScope,$translate,$localStorage, $scope) {
  
-  if($localStorage.loggedin)
+  if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
             
         }
     
@@ -1265,6 +1418,8 @@ function playAudio() {
         }
         console.log(lastPosition);
         console.log(lastName);
+        
+        $scope.to = lastName;
       
          var message =  $resource('https://natofamilynetwork.herokuapp.com/sms/send/'+msg);
         $scope.envoie = message.query();
