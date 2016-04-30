@@ -457,9 +457,23 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 
 .controller('foodsController',function($scope, $http,$resource,$routeParams,$rootScope){
     
-	 
+	if($localStorage.loggedin && $localStorage.currentuser.familyid)
+        {
+            $rootScope.currentuser=$localStorage.currentuser;
+            $rootScope.loggedin=$localStorage.loggedin;
+            
+        }
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
+        {
+            
+            $location.path("/pending");
+            
+        } 
+    
+    
+    
 	//var allfbs=$resource('http://127.0.0.1:3000/league/'+$routeParams.test+'/'+$routeParams.param);
-	var allfbs=$resource('http://127.0.0.1:3000/foods/');
+	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/foods/');
 
     //getAll
 	 
@@ -472,7 +486,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
           var json = { nom:""};
           json.nom="hello";
           
-	$http.post('http://127.0.0.1:3000/foods',$scope.food).
+	$http.post('http://natofamilynetwork.herokuapp.com/foods',$scope.food).
         success(function(data) {
            // $rootScope.currentuser=data;
         $scope.foods=allfbs.query();
@@ -490,7 +504,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
     {
         var x=idd;
         var y=$scope.nom;
-          var up=$resource('http://127.0.0.1:3000/foods/:id/:msg', {}, {
+          var up=$resource('http://natofamilynetwork.herokuapp.com/foods/:id/:msg', {}, {
       query: {method:'PUT', params:{id:x,msg:y}, isArray:false}});
         console.log($scope.nom);
                   
