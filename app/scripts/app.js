@@ -375,6 +375,12 @@ app.config(function ($translateProvider) {
     .when('/pending', {
         templateUrl: 'views/pending.html',   
       })
+       .when('/foods', {
+        templateUrl: 'views/suggestion.html',
+        controller: 'foodsController'
+        
+        
+      })
       .otherwise({
         redirectTo: '/login'
       });
