@@ -70,13 +70,18 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
             $rootScope.loggedin=$localStorage.loggedin;
             
         }
-    if($localStorage.loggedin)
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
         {
             
             $location.path("/pending");
             
         }
-    
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
+            
+        }
     $scope.tweets; //tableau twitts
     
     twitterService.initialize();
@@ -144,6 +149,12 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
             $location.path("/pending");
             
         }
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
+            
+        }
 	
 	
 	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/final/fbs');
@@ -169,6 +180,12 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
             $location.path("/pending");
             
         }
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
+            
+        }
 	
 	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/news/tounsya');
     //getAll
@@ -189,17 +206,22 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
   .controller('registerController',function($rootScope,$localStorage,$scope, $http, $route, $location){
     
 	
-	if($localStorage.loggedin)
+	if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
-            $location.path( "/me" );
+            
         }
-    
     if($localStorage.loggedin && !$localStorage.currentuser.familyid)
         {
             
             $location.path("/pending");
+            
+        }
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
             
         }
 	// post
@@ -539,6 +561,12 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
             $location.path("/pending");
             
         }
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
+            
+        }
 	
 	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/pcs');
     //getAll
@@ -561,6 +589,12 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         {
             
             $location.path("/pending");
+            
+        }
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
             
         }
 	
@@ -591,6 +625,12 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
             $location.path("/pending");
             
         }
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
+            
+        }
 	
 	
 	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/tablettes');
@@ -613,6 +653,14 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
             $location.path("/pending");
             
         }
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
+            
+        }
+    
+    
     $route.reload(); 
         $location.path( "/todo" );
     
@@ -629,6 +677,12 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         {
             
             $location.path("/pending");
+            
+        }
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
             
         }
     
@@ -689,6 +743,12 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
             $location.path("/pending");
             
         }
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
+            
+        }
 
 	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/league');
     //getAll
@@ -717,6 +777,12 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         {
             
             $location.path("/pending");
+            
+        }
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
             
         }
 
@@ -755,7 +821,12 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
             $location.path("/pending");
             
         }
-    
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
+            
+        }
 	
 	
 	//console.log($routeParams.param);
@@ -776,6 +847,12 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         {
             
             $location.path("/pending");
+            
+        }
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
             
         }
     
@@ -808,6 +885,12 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
             $location.path("/pending");
             
         }
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
+            
+        }
     
  var id = $routeParams.id;
   $scope.todo = todoFactory.query({id: id});
@@ -833,7 +916,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 })
     .controller("updateTodoneTodoCtrl",function($rootScope,$localStorage,$scope,$routeParams,$resource,tododoneFactory,$location){
     
-   if($localStorage.loggedin && $localStorage.currentuser.familyid)
+  if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
@@ -843,6 +926,12 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         {
             
             $location.path("/pending");
+            
+        }
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
             
         }
     
@@ -869,7 +958,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 })
 .controller('deleteTodoCtrl', function($rootScope,$localStorage, $routeParams, Deletetodo,$location, $route) {
    
-    if($localStorage.loggedin && $localStorage.currentuser.familyid)
+   if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
@@ -881,7 +970,12 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
             $location.path("/pending");
             
         }
-    
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
+            
+        }
     Deletetodo.delete({id: $routeParams.id} ,$location.path( "/todo" ));
     $route.reload(); 
     
@@ -900,6 +994,12 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         {
             
             $location.path("/pending");
+            
+        }
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
             
         }
     
@@ -923,6 +1023,12 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
             $location.path("/pending");
             
         }
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
+            
+        }
     
        $scope.chatid = $rootScope.currentuser._id;
         $scope.chatusername = $rootScope.currentuser.username;
@@ -944,6 +1050,12 @@ if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             
             $location.path("/pending");
+            
+        }
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
             
         }
 
@@ -1029,7 +1141,7 @@ flightPath.setMap(map);
 })
 .controller('localisationController',function($localStorage,$rootScope,$scope, $http){
     
-   if($localStorage.loggedin && $localStorage.currentuser.familyid)
+  if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
@@ -1039,6 +1151,12 @@ flightPath.setMap(map);
         {
             
             $location.path("/pending");
+            
+        }
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
             
         }
     
@@ -1367,7 +1485,7 @@ console.log(abbb);
 	})
     
     .controller('remainController',function($rootScope,$localStorage,$scope, $resource){
-    if($localStorage.loggedin && $localStorage.currentuser.familyid)
+   if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
@@ -1377,6 +1495,12 @@ console.log(abbb);
         {
             
             $location.path("/pending");
+            
+        }
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
             
         }
     
@@ -1440,6 +1564,12 @@ function playAudio() {
             $location.path("/pending");
             
         }
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
+            
+        }
     
      var allfbs=$resource('http://natofamilynetwork.herokuapp.com/login/my/'+$localStorage.currentuser.familyid);
     //getAll
@@ -1494,6 +1624,9 @@ function playAudio() {
         
     })
     }
+    
+    if($localStorage.panier)
+        {
      var chaine = "";
         
         for(var i=0;i<$localStorage.panier.length;i++)
@@ -1504,6 +1637,7 @@ function playAudio() {
         var msg = " From : "+$localStorage.currentuser.username+"\n"+chaine;
         $scope.kadhia = chaine;
         console.log(msg);
+          }
         
 });
 
