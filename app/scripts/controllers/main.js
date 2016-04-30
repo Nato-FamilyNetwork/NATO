@@ -389,6 +389,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         
        // $rootScope.loggedin=false;
         delete $localStorage.currentuser;
+               delete $localStorage.panier;
         $localStorage.loggedin=false;
         $rootScope.currentuser = undefined;
         
@@ -569,6 +570,18 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
     //getAll
 	
     $scope.needs=allfbs.query();
+    
+     var x = new Array();
+    $scope.addtocart = function(a,b) {
+        
+       
+        
+        x.push({a,b});
+        
+        $localStorage.panier=x;
+        console.log($localStorage.panier.length);
+        
+    }
     
    
 	 
@@ -1223,7 +1236,10 @@ function playAudio() {
     
 })
 
-.controller('needController',function($rootScope,$scope, $http,$resource){
+.controller('needController',function($localStorage,$rootScope,$scope, $http,$resource){
+     
+    
+    
     $scope.needs = function(){
     var carrefour = new google.maps.LatLng(36.86663, 10.297448);
     var need = $resource('https://natofamilynetwork.herokuapp.com/map/need/'+$rootScope.currentuser.familyid);
@@ -1249,12 +1265,23 @@ function playAudio() {
         }
         console.log(lastPosition);
         console.log(lastName);
-         var message =  $resource('https://natofamilynetwork.herokuapp.com/sms/send/'+needs.value);
-          $scope.envoie = message.query();
+      
+         var message =  $resource('https://natofamilynetwork.herokuapp.com/sms/send/'+msg);
+        $scope.envoie = message.query();
         
         
     })
     }
+     var chaine = "";
+        
+        for(var i=0;i<$localStorage.panier.length;i++)
+            {
+                chaine=chaine+"Item : \n"+$localStorage.panier[i].a+"\n Price : \n"+ $localStorage.panier[i].b+"\n"; 
+            }
+        
+        var msg = " From : "+$localStorage.currentuser.username+"\n"+chaine;
+        $scope.kadhia = chaine;
+        console.log(msg);
         
 });
 
