@@ -673,7 +673,17 @@ hs.wrapperClassName = 'borderless';
                             
                             
 								<div class="">
-                                    <div class="col-xs-8" ng-view=""></div>
+                                    
+                                    
+                                    
+                                    <div ng-if="currentuser.familyid">
+    <div class="col-xs-8" ng-view=""></div>
+</div>
+<div ng-if="! currentuser.familyid">
+    <div class="" ng-view=""></div>
+</div>
+                                    
+                                  
                                     
                                    
    
