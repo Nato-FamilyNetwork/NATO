@@ -455,7 +455,55 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 
 
 
+.controller('foodsController',function($scope, $http,$resource,$routeParams,$rootScope){
+    
+	 
+	//var allfbs=$resource('http://127.0.0.1:3000/league/'+$routeParams.test+'/'+$routeParams.param);
+	var allfbs=$resource('http://127.0.0.1:3000/foods/');
 
+    //getAll
+	 
+    $scope.foods=allfbs.query();
+   // console.log($scope.foods);
+	 
+    
+     $scope.add = function(){
+          
+          var json = { nom:""};
+          json.nom="hello";
+          
+	$http.post('http://127.0.0.1:3000/foods',$scope.food).
+        success(function(data) {
+           // $rootScope.currentuser=data;
+        $scope.foods=allfbs.query();
+        
+          
+        //$location.path( "/login" );
+        
+        }).error(function(data) {
+        $scope.error = "An error has occured please try again!";
+            console.error("error in posting");
+        })
+    }
+     
+    $scope.update= function(idd,nom)
+    {
+        var x=idd;
+        var y=$scope.nom;
+          var up=$resource('http://127.0.0.1:3000/foods/:id/:msg', {}, {
+      query: {method:'PUT', params:{id:x,msg:y}, isArray:false}});
+        console.log($scope.nom);
+                  
+	  up.query();
+    
+    }
+    
+   /* var hj=$resource('http://127.0.0.1:3000/login/update/:user/:league/:team', {}, {
+      query: {method:'PUT', params:{user:$rootScope.currentuser._id,league:$routeParams.test,team:$routeParams.param}, isArray:false}});
+	  hj.query();*/
+    
+      
+})
 
       .controller('comparatorController',function($rootScope,$localStorage,$scope, $resource){
     
