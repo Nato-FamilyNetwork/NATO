@@ -455,7 +455,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 
 
 
-.controller('foodsController',function($scope, $http,$resource,$routeParams,$rootScope){
+.controller('foodsController',function($localStorage,$scope, $http,$resource,$routeParams,$rootScope){
     
 	if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
@@ -469,7 +469,12 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
             $location.path("/pending");
             
         } 
-    
+    if(!$localStorage.loggedin )
+        {
+            
+            $location.path("/");
+            
+        } 
     
     
 	//var allfbs=$resource('http://127.0.0.1:3000/league/'+$routeParams.test+'/'+$routeParams.param);
@@ -486,7 +491,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
           var json = { nom:""};
           json.nom="hello";
           
-	$http.post('http://natofamilynetwork.herokuapp.com/foods',$scope.food).
+	$http.post('http://natofamilynetwork.herokuapp.com/foods/',$scope.food).
         success(function(data) {
            // $rootScope.currentuser=data;
         $scope.foods=allfbs.query();
@@ -495,7 +500,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         //$location.path( "/login" );
         
         }).error(function(data) {
-        $scope.error = "An error has occured please try again!";
+     
             console.error("error in posting");
         })
     }
@@ -509,7 +514,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         console.log($scope.nom);
                   
 	  up.query();
-    
+    $scope.foods=allfbs.query();
     }
     
    /* var hj=$resource('http://127.0.0.1:3000/login/update/:user/:league/:team', {}, {
@@ -726,7 +731,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
        
         
         x.push({a,b});
-        
+        alert(a+" ajouté!");
         $localStorage.panier=x;
         console.log($localStorage.panier.length);
         
