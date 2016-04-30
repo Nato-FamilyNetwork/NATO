@@ -259,15 +259,12 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 })
 
 
-.controller('familyListController',function($localStorage,$rootScope,$resource, $scope, $http, $routeParams, $route){
+.controller('familyListController',function($location,$localStorage,$rootScope,$resource, $scope, $http, $routeParams, $route){
     if($localStorage.loggedin)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
-            
-        }
-    
-    var allfbs=$resource('http://natofamilynetwork.herokuapp.com/login/all');
+             var allfbs=$resource('http://natofamilynetwork.herokuapp.com/login/all');
     //getAll
 	
     $scope.fbs=allfbs.query();
@@ -281,6 +278,14 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 	  hj.query();
     $route.reload();
     }
+            
+        }
+    else {
+        
+        $location.path("/");
+    }
+    
+   
     
     
 })
