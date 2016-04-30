@@ -52,7 +52,7 @@ app.config(function ($translateProvider) {
     cl: 'My Calendar',
     rp: 'My Reminder',
     myf: 'Add members to my family',
-    tt: 'ToDo List',
+    tt: 'Things to do',
     mtd: 'Move to doing',
     mtdd: 'Move to done',
     clr: 'Clear',

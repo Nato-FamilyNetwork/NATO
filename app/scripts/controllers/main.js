@@ -179,7 +179,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         }
 	// post
     
-    $scope.add = function(ad,a){
+    $scope.add = function(){
         if($scope.formData.familyid){
     $scope.formData.fid= $scope.formData.familyname+" Family";
     }
