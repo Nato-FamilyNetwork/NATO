@@ -210,6 +210,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
+            $location.path("/me");
             
         }
     if($localStorage.loggedin && !$localStorage.currentuser.familyid)
@@ -218,13 +219,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
             $location.path("/pending");
             
         }
-    if(!$localStorage.loggedin)
-        {
-            
-            $location.path("/");
-            
-        }
-	// post
+   
     
     $scope.add = function(){
         if($scope.formData.familyid){
