@@ -229,7 +229,10 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
     }
 	$http.post('http://natofamilynetwork.herokuapp.com/register',$scope.formData).
         success(function(data) {
-            $rootScope.currentuser=data;
+            $localStorage.currentuser=data;
+            $rootScope.currentuser=$localStorage.currentuser;
+        $localStorage.loggedin=true;
+        
         
         $location.path( "/todo" );
         
@@ -338,16 +341,17 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
     
     
 
-    if($localStorage.loggedin)
+    if($localStorage.loggedin && !$localStorage.currentuser.familyid)
         {
             
             $location.path("/pending");
             
         }
-    
-    if(! $localStorage.loggedin)
+    if(!$localStorage.loggedin)
         {
+            
             $location.path("/");
+            
         }
     
    
