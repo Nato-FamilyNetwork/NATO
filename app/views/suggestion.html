@@ -78,8 +78,8 @@
 															<div class="widget-body" style="display: block;">
 																<div class="widget-main">
 																	{{ff.nom}}?
-																	<input type="hidden" ng-model="id1" value="{{f._id}}">
-																	<input type="hidden" ng-model="id2" value="{{ff._id}}">
+																	<input type="hidden" ng-model="f._id" >
+																	<input type="hidden"  ng-model="ff._id">
 																	
 																	<div class="space-6"></div>
 
@@ -91,7 +91,7 @@
 
 																		<!-- #section:custom/extra.action-buttons -->
 																		<div class="pull-right action-buttons">
-																			<a href="#" ng-click="vote(id1,id2,1)">
+																			<a href="#" ng-click="vote(ff._id,f._id,1)">
 																				<i class="ace-icon fa fa-heart red bigger-125"></i>
 																			</a>
 

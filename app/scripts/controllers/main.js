@@ -570,11 +570,12 @@ $scope.aa= role.options[ role.selectedIndex ].value;
     
     $scope.vote= function(id1,id2,note)
     { 
-          var up=$resource('http://natofamilynetwork.herokuapp.com/foods/update/:id1/:id2/:note', {}, {
-      query: {method:'PUT', params:{id1:id1,id2:id2,note:note}, isArray:false}});
+        console.log(id1,id2,note);
+      //    var up=$resource('http://natofamilynetwork.herokuapp.com/foods/update/:id1/:id2/:note', {}, {
+     // query: {method:'PUT', params:{id1:id1,id2:id2,note:note}, isArray:false}});
                   
-	  up.query();
-    $scope.foods=allfbs.query();
+	 // up.query();
+   
     }
     
    /* var hj=$resource('http://127.0.0.1:3000/login/update/:user/:league/:team', {}, {
