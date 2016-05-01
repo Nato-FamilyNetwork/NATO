@@ -590,7 +590,7 @@ $scope.aa= role.options[ role.selectedIndex ].value;
    /* var hj=$resource('http://127.0.0.1:3000/login/update/:user/:league/:team', {}, {
       query: {method:'PUT', params:{user:$rootScope.currentuser._id,league:$routeParams.test,team:$routeParams.param}, isArray:false}});
 	  hj.query();*/
-    
+    $route.reload();
       
 })
 
