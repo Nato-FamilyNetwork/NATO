@@ -298,7 +298,9 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
         
         if($localStorage.currentuser.familyid){
             $location.path( "/me" );
-        }else{
+        }
+        
+        if($localStorage.loggedin && !$localStorage.currentuser.familyid){
             
             $location.path( "/pending" );
         }
