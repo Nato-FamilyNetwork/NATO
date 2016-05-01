@@ -229,6 +229,8 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
     $scope.add = function(){
         if($scope.formData.familyid){
     $scope.formData.fid= $scope.formData.familyname+" Family";
+            $scope.formData.admin = "True";
+            $scope.formData.role = "Father";
     }
 	$http.post('http://natofamilynetwork.herokuapp.com/register',$scope.formData).
         success(function(data) {
