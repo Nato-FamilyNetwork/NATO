@@ -543,7 +543,7 @@ $scope.aa= role.options[ role.selectedIndex ].value;
             
           var json = { nom:""};
           json.nom="hello";
-          console.log($scoop.food.userId);
+          console.log($scoop.food.mx);
 	$http.post('http://natofamilynetwork.herokuapp.com/foods/',$scope.food).
         success(function(data) {
            // $rootScope.currentuser=data;
