@@ -1097,19 +1097,43 @@ if($localStorage.loggedin && $localStorage.currentuser.familyid)
             
         }
 
-	var map=$resource('http://natofamilynetwork.herokuapp.com/map/afficher/'+$rootScope.currentuser._id);
+	var map=$resource('http://natofamilynetwork.herokuapp.com/map/affiche/'+$rootScope.currentuser.familyid);
     //getAll
     $scope.trace=map.query();
     $scope.trace.$promise.then(function(value) {
-        var t = new Array;
-        var b = new Array;
+        console.log('ok');
+        var tFather = new Array;
+        var tMother = new Array;
+        var tSon = new Array;
+        var tDaughter = new Array;
         var c = new Array;
-        var b = new Array;
+        var mother = new Array;
+        var daughter = new Array;
+        var father = new Array;
+        var son = new Array;
         var count;
         var country;
         var state;
         var city;
 		var x=new google.maps.LatLng(34.7406,10.7603);
+        var j ;
+        console.log(value[1].role);
+        for(j=0;j<value.length;j++){
+            if(value[j].role=="Mother"){
+                mother.push(value[j]);
+                
+            }
+            if(value[j].role=="Father"){
+                father.push(value[j]);
+                console.log(value[j])
+            }
+            if(value[j].role=="Son"){
+                son.push(value[j]);
+            }
+            if(value[j].role=="Daughter"){
+                daughter.push(value[j]);
+            }
+        }
 /*function initialize()
 {*/
 var mapProp = {
@@ -1118,56 +1142,56 @@ var mapProp = {
   mapTypeId:google.maps.MapTypeId.ROADMAP
   };
   
-var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-    for(var i=0 ;i<value.length; i++){
-        t.push(new google.maps.LatLng (parseFloat(value[i].attitude),parseFloat(value[i].longitude)));
-        b.push(value[i].date);
-        var geocoder;
-geocoder = new google.maps.Geocoder();
-var latlng = new google.maps.LatLng(value[i].attitude, value[i].longitude);
-    
-geocoder.geocode(
-    {'latLng': latlng}, 
-    function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-                if (results[0]) {
-                    var add= results[0].formatted_address ;
-                    var  valuee=add.split(",");
+var mapFather=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    for(var i=0 ;i<father.length; i++){
+        tFather.push(new google.maps.LatLng (parseFloat(father[i].attitude),parseFloat(father[i].longitude)));
+       
+       }
+    for(var i=0 ;i<mother.length; i++){
+        tMother.push(new google.maps.LatLng (parseFloat(mother[i].attitude),parseFloat(mother[i].longitude)));
+       
+       }
+        for(var i=0 ;i<daughter.length; i++){
+        tDaughter.push(new google.maps.LatLng (parseFloat(daughter[i].attitude),parseFloat(daughter[i].longitude)));
+       
+       }
+    for(var i=0 ;i<son.length; i++){
+        tSon.push(new google.maps.LatLng (parseFloat(son[i].attitude),parseFloat(son[i].longitude)));
 
-                    count=valuee.length;
-                   /* country=value[count-1];*/
-                    state=valuee[count-2];
-                   /* city=value[count-3];*/
-                    c.push(state);
-                    
-                    /*alert("city name is: " + state);*/
-                }
-                else  {
-                    alert("address not found");
-                }
-        }
-         else {
-            alert("Geocoder failed due to: " + status);
-        }
-        var total = new Array;
-        for (i = 0; i < c.length; i++) {
-            total.push(c[i]+' '+b[i]+'</br>');
-        }
-        document.getElementById("chemin").innerHTML =  total.join("");}
-          
-);}
+       }
     
-    console.log(value);
 
     
 var flightPath=new google.maps.Polyline({
-  path:t,
+  path:tFather,
   strokeColor:"#0000FF",
   strokeOpacity:0.8,
-  strokeWeight:2
+  strokeWeight:5
   });
+var flightPath1=new google.maps.Polyline({
+  path:tMother,
+  strokeColor:"#FF0000",
+  strokeOpacity:0.8,
+  strokeWeight:5
+  });
+var flightPath2=new google.maps.Polyline({
+  path:tSon,
+  strokeColor:"#72ab88",
+  strokeOpacity:0.8,
+  strokeWeight:5
+  });
+        var flightPath3=new google.maps.Polyline({
+  path:tDaughter,
+  strokeColor:"#800080",
+  strokeOpacity:0.8,
+  strokeWeight:6
+  });
+       
 
-flightPath.setMap(map);
+flightPath.setMap(mapFather);
+flightPath1.setMap(mapFather);
+flightPath2.setMap(mapFather);
+        flightPath3.setMap(mapFather);
 /*}*/
 
 /*google.maps.event.addDomListener(window, 'load', initialize);*/
@@ -1228,7 +1252,9 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
             document.getElementById("date").value = today;*/
             var date = today;
             var userFK=$rootScope.currentuser._id;
-            $scope.formData ={mylat,mylong,date,userFK };
+            var family=$rootScope.currentuser.familyid;
+            var role=$rootScope.currentuser.role;
+            $scope.formData ={role,mylat,mylong,date,family,userFK };
             
             /*google api ready latitude and longitude*/
             var coords = new google.maps.LatLng(mylat, mylong);
