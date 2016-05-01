@@ -497,10 +497,7 @@ $scope.aa= role.options[ role.selectedIndex ].value;
         }
 	
 	
-	else{
-        
-        $location.path('/login');
-    }
+	
     
    
 
@@ -509,7 +506,7 @@ $scope.aa= role.options[ role.selectedIndex ].value;
 
 
 
-.controller('foodsController',function($localStorage,$scope, $http,$resource,$routeParams,$rootScope,$root){
+.controller('foodsController',function($localStorage,$scope, $http,$resource,$routeParams,$rootScope,$route){
      console.log("jvkhbkbqkjsdbhb qskdbqsbdlb");
 	if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
@@ -571,11 +568,11 @@ $scope.aa= role.options[ role.selectedIndex ].value;
         var hh=$rootScope.currentuser.username;
           var up=$resource('http://natofamilynetwork.herokuapp.com/foods/:id/:msg/:z', {}, {
       query: {method:'PUT', params:{id:x,msg:y,z:hh}, isArray:false}});
-        console.log($rootScope.currentuser.username);
-        console.log(hh);
+        
                   
 	  up.query();
-    $scope.foods=allfbs.query(); 
+     
+       $route.reload(); 
     }
     
     $scope.vote= function(id1,id2,note)
@@ -583,8 +580,10 @@ $scope.aa= role.options[ role.selectedIndex ].value;
         console.log(id1,id2,note);
           var up=$resource('http://natofamilynetwork.herokuapp.com/foods/update/:id1/:id2/:note', {}, {
     query: {method:'PUT', params:{id1:id1,id2:id2,note:$localStorage.currentuser.name}, isArray:false}});
-                 up.query(); 
+                 up.query();
+   $route.reload(); 
     }
+    
     
    /* var hj=$resource('http://127.0.0.1:3000/login/update/:user/:league/:team', {}, {
       query: {method:'PUT', params:{user:$rootScope.currentuser._id,league:$routeParams.test,team:$routeParams.param}, isArray:false}});
@@ -1126,7 +1125,7 @@ if($localStorage.loggedin && $localStorage.currentuser.familyid)
         var city;
 		var x=new google.maps.LatLng(34.7406,10.7603);
         var j ;
-        
+        console.log(value[1].role);
         for(j=0;j<value.length;j++){
             if(value[j].role=="Mother"){
                 mother.push(value[j]);
@@ -1263,8 +1262,7 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
             var userFK=$rootScope.currentuser._id;
             var family=$rootScope.currentuser.familyid;
             var role=$rootScope.currentuser.role;
-            var name=$rootScope.currentuser.username;
-            $scope.formData ={role,mylat,mylong,date,name,family,userFK };
+            $scope.formData ={role,mylat,mylong,date,family,userFK };
             
             /*google api ready latitude and longitude*/
             var coords = new google.maps.LatLng(mylat, mylong);
@@ -1693,8 +1691,8 @@ function playAudio() {
         
         $scope.to = lastName;
       
-        /* var message =  $resource('https://natofamilynetwork.herokuapp.com/sms/send/'+msg);
-        $scope.envoie = message.query();*/
+         var message =  $resource('https://natofamilynetwork.herokuapp.com/sms/send/'+msg);
+        $scope.envoie = message.query();
         
         
     })
@@ -1714,16 +1712,4 @@ function playAudio() {
         console.log(msg);
           }
         
-});
-
-
-
-
-    
-    
-    
-    
-      
-
-
-
+}); 
