@@ -507,7 +507,7 @@ $scope.aa= role.options[ role.selectedIndex ].value;
 
 
 .controller('foodsController',function($localStorage,$scope, $http,$resource,$routeParams,$rootScope){
-    
+     console.log("jvkhbkbqkjsdbhb qskdbqsbdlb");
 	if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
