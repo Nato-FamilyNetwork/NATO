@@ -572,7 +572,7 @@ $scope.aa= role.options[ role.selectedIndex ].value;
     { 
         console.log(id1,id2,note);
           var up=$resource('http://natofamilynetwork.herokuapp.com/foods/update/:id1/:id2/:note', {}, {
-    query: {method:'PUT', params:{id1:id1,id2:id2,note:note}, isArray:false}});
+    query: {method:'PUT', params:{id1:id1,id2:id2,note:note.toSting()}, isArray:false}});
                  up.query();
    
     }
