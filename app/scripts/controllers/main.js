@@ -1484,6 +1484,7 @@ console.log(abbb);
 })
 	})
     
+    
     .controller('remainController',function($rootScope,$localStorage,$scope, $resource){
    if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
