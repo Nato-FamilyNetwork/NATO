@@ -544,7 +544,7 @@ $scope.aa= role.options[ role.selectedIndex ].value;
              var contenue=$scope.food.contenue;
              var mx=$rootScope.currentuser.name;
              var family=$rootScope.currentuser.familyid;
-          $scope.food={title,contenue,mx};
+          $scope.food={title,contenue,mx,family};
                  
          
          
