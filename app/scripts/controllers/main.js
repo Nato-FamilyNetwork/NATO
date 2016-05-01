@@ -1138,7 +1138,7 @@ if($localStorage.loggedin && $localStorage.currentuser.familyid)
 {*/
 var mapProp = {
   center:x,
-  zoom:7,
+  zoom:6,
   mapTypeId:google.maps.MapTypeId.ROADMAP
   };
   
