@@ -22,7 +22,21 @@
 																			<a href="#">{{p.name}} {{p.familyname}}</a>
 																		</div>
 
-																		
+																		<div>
+                                                                        <select id="{{ 'aa'+ p._id }}">
+                                                                            <option value="Son">
+                                                                            Son
+                                                                            </option>
+                                                                            <option value="Mother">
+                                                                            Mother
+                                                                            </option>
+                                                                            <option value="Daughter">
+                                                                            Daughter
+                                                                            </option>
+                                                                            
+                                                                            </select>
+                                                                        
+                                                                        </div>
 
 																		<div>
 																			<button class="label label-primary label-sm" ng-click="addF(p._id)">Add to Family</button>

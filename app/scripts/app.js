@@ -16,7 +16,8 @@
 	'familyNetworkAppc',
 	'familyNetworkApp.services',
       'pascalprecht.translate',
-      'ngStorage'
+      'ngStorage',
+      'flow'
     
    
     

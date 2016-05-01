@@ -338,9 +338,19 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
     
     
     $scope.addF = function(idd) {
-         var hj=$resource('http://natofamilynetwork.herokuapp.com/login/add/:id/:fid', {}, {
-      query: {method:'PUT', params:{id:idd,fid:$rootScope.currentuser.familyid}, isArray:false}});
+         
+        
+      var role = document.getElementById( "aa"+idd );
+$scope.aa= role.options[ role.selectedIndex ].value;
+        
+        console.log($scope.aa);
+        
+        
+        var hj=$resource('http://natofamilynetwork.herokuapp.com/login/add/:id/:fid/:role', {}, {
+      query: {method:'PUT', params:{id:idd,fid:$rootScope.currentuser.familyid,role:$scope.aa}, isArray:false}});
 	  hj.query();
+
+
     $scope.fbs=allfbs.query();
     $route.reload();
     
