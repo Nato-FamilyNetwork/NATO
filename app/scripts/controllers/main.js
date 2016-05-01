@@ -497,7 +497,10 @@ $scope.aa= role.options[ role.selectedIndex ].value;
         }
 	
 	
-	
+	else{
+        
+        $location.path('/login');
+    }
     
    
 

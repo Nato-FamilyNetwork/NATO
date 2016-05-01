@@ -9,8 +9,8 @@
 							<div class="center">
 								<h1>
 									<i class="ace-icon fa fa-leaf green"></i>
-									<span class="red">Welcome</span>
-									<span class="blue" id="id-text2">to FamilyNetwork</span>
+									<span class="red">{{'TITLE' | translate}}</span>
+									<span class="blue" id="id-text2">{{'a' | translate}} FamilyNetwork</span>
 								</h1>
 							
 							</div>
@@ -23,7 +23,7 @@
 										<div class="widget-main">
 											<h4 class="header blue lighter bigger">
 												<i class="ace-icon fa fa-coffee green"></i>
-												Please Enter Your Information
+												{{'plz' | translate}}
 											</h4>
                                             <div ng-show="error" class="alert alert-danger">
  <strong>{{error}}</strong>
@@ -35,20 +35,26 @@
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input ng-model="formData.username" id="nom" type="text" class="form-control" placeholder="Username" />
+															<input ng-model="formData.username" id="nom" type="text" class="form-control" placeholder="{{'pseud' | translate}}" />
 															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input ng-model="formData.password" id="pass" type="password" class="form-control" placeholder="Password" />
+															<input ng-model="formData.password" id="pass" type="password" class="form-control" placeholder="{{'pw' | translate}}" />
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>
                                                     <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input ng-model="formData.name" id="name" type="text" class="form-control" placeholder="Name" />
+															<input ng-model="formData.familyname" id="fn" type="text" class="form-control" placeholder="{{'wk' | translate}}" />
+															<i class="ace-icon fa fa-user"></i>
+														</span>
+													</label>
+                                                    <label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input ng-model="formData.name" id="name" type="text" class="form-control" placeholder="{{'mth' | translate}}" />
 															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>
@@ -59,24 +65,20 @@
 														</span>
 													</label>
                                                     
-                                                    <label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input ng-model="formData.familyname" id="fn" type="text" class="form-control" placeholder="Family name" />
-															<i class="ace-icon fa fa-user"></i>
-														</span>
-													</label>
+                                                    
                                                     
                                                     
                                                   <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input ng-model="formData.birth" id="birth" type="date" class="form-control" placeholder="Birth date" />
+															<input ng-model="formData.birth" id="birth" type="date" class="form-control" placeholder="{{'fdate' | translate}}" />
 															<i class="ace-icon fa fa-list-alt"></i>
 														</span>
-													</label> 
-                                                    <label class="block clearfix">I am the family Administrator
+													</label>
+                                                    
+                                                    <label class="block clearfix"> {{'fadmin' | translate}}
 														<span class="block input-icon input-icon-right">
                                                            
-															<input ng-model="formData.familyid" id="fid" type="checkbox" class="form-control" />
+															<input ng-model="formData.familyid" id="fid" type="checkbox"  />
 															<i class="ace-icon fa fa-list-alt"></i>
 														</span>
 													</label>
@@ -89,9 +91,9 @@
 													<div class="clearfix">
 														
 
-														<button type="submit" ng-click="add()" type="button" class="width-35 pull-right btn btn-sm btn-primary">
+														<button type="submit" ng-click="add()" type="button" class="width-55 pull-center  btn btn-sm btn-primary">
 															<i class="ace-icon fa fa-key"></i>
-															<span class="bigger-110">Register</span>
+															<span class="bigger-110">{{'freg' | translate}}</span>
 														</button>
 													</div>
 
@@ -107,7 +109,7 @@
 
 											<div>
 												<a href="#/login" data-target="#signup-box" class="user-signup-link">
-													Back to login
+													{{'fback' | translate}}
 													<i class="ace-icon fa fa-arrow-right"></i>
 												</a>
 											</div>
