@@ -566,8 +566,8 @@ $scope.aa= role.options[ role.selectedIndex ].value;
     {
         var x=idd;
         var y=$scope.nom;
-          var up=$resource('http://natofamilynetwork.herokuapp.com/foods/:id/:msg', {}, {
-      query: {method:'PUT', params:{id:x,msg:y}, isArray:false}});
+          var up=$resource('http://natofamilynetwork.herokuapp.com/foods/:id/:msg/:z', {}, {
+      query: {method:'PUT', params:{id:x,msg:y,z:$rootScope.currentuser.name}, isArray:false}});
         console.log($scope.nom);
                   
 	  up.query();
