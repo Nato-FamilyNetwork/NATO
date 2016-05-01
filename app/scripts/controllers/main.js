@@ -571,10 +571,9 @@ $scope.aa= role.options[ role.selectedIndex ].value;
     $scope.vote= function(id1,id2,note)
     { 
         console.log(id1,id2,note);
-      //    var up=$resource('http://natofamilynetwork.herokuapp.com/foods/update/:id1/:id2/:note', {}, {
-     // query: {method:'PUT', params:{id1:id1,id2:id2,note:note}, isArray:false}});
-                  
-	 // up.query();
+          var up=$resource('http://natofamilynetwork.herokuapp.com/foods/update/:id1/:id2/:note', {}, {
+    query: {method:'PUT', params:{id1:id1,id2:id2,note:note}, isArray:false}});
+                 up.query();
    
     }
     
