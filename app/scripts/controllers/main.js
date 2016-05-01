@@ -575,8 +575,7 @@ $scope.aa= role.options[ role.selectedIndex ].value;
         console.log(hh);
                   
 	  up.query();
-    $scope.foods=allfbs.query();
-    $route.reload();
+    $scope.foods=allfbs.query(); 
     }
     
     $scope.vote= function(id1,id2,note)
@@ -584,8 +583,7 @@ $scope.aa= role.options[ role.selectedIndex ].value;
         console.log(id1,id2,note);
           var up=$resource('http://natofamilynetwork.herokuapp.com/foods/update/:id1/:id2/:note', {}, {
     query: {method:'PUT', params:{id1:id1,id2:id2,note:$localStorage.currentuser.name}, isArray:false}});
-                 up.query();
-   $route.reload();
+                 up.query(); 
     }
     
    /* var hj=$resource('http://127.0.0.1:3000/login/update/:user/:league/:team', {}, {
