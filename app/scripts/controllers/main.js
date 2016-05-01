@@ -542,7 +542,7 @@ $scope.aa= role.options[ role.selectedIndex ].value;
      $scope.add = function(){
              var title=$scope.food.title;
              var contenue=$scope.food.contenue;
-             var mx=$rootScope.currentuser.name;
+             var mx=$rootScope.currentuser.username;
              var family=$rootScope.currentuser.familyid;
           $scope.food={title,contenue,mx,family};
                  
@@ -566,10 +566,10 @@ $scope.aa= role.options[ role.selectedIndex ].value;
     {
         var x=idd;
         var y=$scope.nom;
-        var hh=$rootScope.currentuser.name;
+        var hh=$rootScope.currentuser.username;
           var up=$resource('http://natofamilynetwork.herokuapp.com/foods/:id/:msg/:z', {}, {
       query: {method:'PUT', params:{id:x,msg:y,z:hh}, isArray:false}});
-        console.log($rootScope.currentuser.name);
+        console.log($rootScope.currentuser.username);
         console.log(hh);
                   
 	  up.query();
