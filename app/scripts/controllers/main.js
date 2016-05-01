@@ -529,7 +529,7 @@ $scope.aa= role.options[ role.selectedIndex ].value;
     
     
 	//var allfbs=$resource('http://127.0.0.1:3000/league/'+$routeParams.test+'/'+$routeParams.param);
-	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/foods/');
+	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/foods/'+$rootScope.currentuser.familyid);
 
     //getAll
 	 
@@ -537,8 +537,7 @@ $scope.aa= role.options[ role.selectedIndex ].value;
    // console.log($scope.foods);
 	 
     $scope.users=$localStorage.currentuser._id;
-    console.log($scope.users);
-    console.log("jvkhbkbqkjsdbhb qskdbqsbdlb");
+    
      $scope.add = function(){
              var title=$scope.food.title;
              var contenue=$scope.food.contenue;
