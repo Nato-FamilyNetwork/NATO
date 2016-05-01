@@ -542,7 +542,8 @@ $scope.aa= role.options[ role.selectedIndex ].value;
      $scope.add = function(){
              var title=$scope.food.title;
              var contenue=$scope.food.contenue;
-             var mx=$rootScope.currentuser._id;
+             var mx=$rootScope.currentuser.name;
+             var family=$rootScope.currentuser.familyid;
           $scope.food={title,contenue,mx};
                  
          
