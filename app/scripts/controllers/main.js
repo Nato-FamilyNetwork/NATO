@@ -540,10 +540,13 @@ $scope.aa= role.options[ role.selectedIndex ].value;
     console.log($scope.users);
     console.log("jvkhbkbqkjsdbhb qskdbqsbdlb");
      $scope.add = function(){
-            
-          var json = { nom:""};
-          json.nom="hello";
-          console.log($scoop.food.mx);
+             var title=$scope.food.title;
+             var contenue=$scope.food.contenue;
+             var mx=$rootScope.currentuser._id;
+         var $scope.food={title,contenue,mx};
+                 
+         
+         
 	$http.post('http://natofamilynetwork.herokuapp.com/foods/',$scope.food).
         success(function(data) {
            // $rootScope.currentuser=data;
