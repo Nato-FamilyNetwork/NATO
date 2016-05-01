@@ -827,12 +827,13 @@ hs.wrapperClassName = 'borderless';
                         // $('#notifi').prepend('<li style="color:red" class="badge badge-success">'+ nnn+ '</li>');
                      
                                 $("#notifi").show();
-                                    $('#notifi').prepend('<li style="color:red" class="badge badge-success">'+ aaa + '</li>');
-                                   
-                              
+                                   $('#notifi').prepend('<li style="color:red" class="badge badge-success">'+ aaa + '</li>');
+//$('#notifi').replaceWith('<li style="color:red" class="badge badge-success">'+ aaa + '</li>'); 
                                setTimeout(function() {
-                                $("#notifi").hide();
-                                }, 5000);
+                                
+                                $('#notifi').replaceWith(''); 
+                                   $("#notifi").hide();
+                                }, 7000);
                                
                         
                          
@@ -1121,7 +1122,7 @@ if (annyang) {
     $("#chat2").click(function(e) {
         e.preventDefault();
         $("#pp").toggle();
-       //  $("#notifi").remove();
+        $("#notifi").remove();
     });
     </script>
       
