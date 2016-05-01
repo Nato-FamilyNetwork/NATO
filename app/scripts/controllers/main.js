@@ -206,11 +206,30 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
   .controller('registerController',function($rootScope,$localStorage,$scope, $http, $route, $location){
     
 	
-	if($localStorage.loggedin && $localStorage.currentuser.familyid)
+    
+    
+   
+    
+    $scope.add = function(){
+        if($scope.formData.familyid){
+    $scope.formData.fid= $scope.formData.familyname+" Family";
+            $scope.formData.admin = "True";
+            $scope.formData.role = "Father";
+            $localStorage.admin=true
+            
+    }
+	$http.post('http://natofamilynetwork.herokuapp.com/register',$scope.formData).
+        success(function(data) {
+            $localStorage.currentuser=data;
+            $rootScope.currentuser=$localStorage.currentuser;
+        $localStorage.loggedin=true;
+        
+       
+	if($localStorage.currentuser.familyid && $localStorage.admin)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
-            $location.path("/me");
+            $location.path("/all");
             
         }
     if($localStorage.loggedin && !$localStorage.currentuser.familyid)
@@ -219,22 +238,8 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
             $location.path("/pending");
             
         }
-   
-    
-    $scope.add = function(){
-        if($scope.formData.familyid){
-    $scope.formData.fid= $scope.formData.familyname+" Family";
-            $scope.formData.admin = "True";
-            $scope.formData.role = "Father";
-    }
-	$http.post('http://natofamilynetwork.herokuapp.com/register',$scope.formData).
-        success(function(data) {
-            $localStorage.currentuser=data;
-            $rootScope.currentuser=$localStorage.currentuser;
-        $localStorage.loggedin=true;
         
         
-        $location.path( "/todo" );
         
         }).error(function(data) {
         $scope.error = "An error has occured please try again!";
@@ -265,6 +270,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
             
             $location.path( "/me" );
         }
+    
 	
     $scope.login = function(){
         
@@ -277,7 +283,8 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
          $localStorage.currentuser = data;
         $localStorage.loggedin = true;
         $rootScope.currentuser = $localStorage.currentuser;
-        console.log($localStorage.currentuser);
+        
+        console.log($localStorage.currentuser.admin);
         
         
         
@@ -318,7 +325,7 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
     
     
     
-    if($localStorage.loggedin && $localStorage.currentuser.familyid)
+    if($localStorage.currentuser.admin=="True")
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
@@ -334,8 +341,17 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
          var hj=$resource('http://natofamilynetwork.herokuapp.com/login/add/:id/:fid', {}, {
       query: {method:'PUT', params:{id:idd,fid:$rootScope.currentuser.familyid}, isArray:false}});
 	  hj.query();
+    $scope.fbs=allfbs.query();
     $route.reload();
+    
     }
+            
+        }
+    
+    if($localStorage.currentuser.admin!="True")
+        {
+            
+            $location.path("/me");
             
         }
     
