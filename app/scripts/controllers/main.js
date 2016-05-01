@@ -537,6 +537,7 @@ $scope.aa= role.options[ role.selectedIndex ].value;
    // console.log($scope.foods);
 	 
     $scope.users=$rootScope.currentuser._id;
+    console.log($scope.users);
      $scope.add = function(){
           
           var json = { nom:""};
