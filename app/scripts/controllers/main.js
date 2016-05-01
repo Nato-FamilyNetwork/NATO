@@ -536,7 +536,7 @@ $scope.aa= role.options[ role.selectedIndex ].value;
     $scope.foods=allfbs.query();
    // console.log($scope.foods);
 	 
-    $scope.users=$rootScope.currentuser._id;
+    $scope.users=$localStorage.currentuser._id;
     console.log($scope.users);
     console.log("jvkhbkbqkjsdbhb qskdbqsbdlb");
      $scope.add = function(){
