@@ -257,11 +257,14 @@ hs.wrapperClassName = 'borderless';
                         
 					</li>
                       <li ng-show="currentuser.familyid" class="blue">
-						<a href="#" id="chat2"> <i class="ace-icon fa fa-envelope icon-animated-vertical"></i>
-								<span class="badge badge-success"><!-- djiddou ici --></span> </a>
+                         
+						<a href="#" id="chat2"> <i class="ace-icon fa fa-envelope icon-animated-vertical"> <p id="notifi"> </p></i>
+								 <!-- djiddou ici -->  </a>
                         
 					</li>
-
+                            <li class="dropdown-footer">
+									<p style="color:white"  id="addnotifi" ng-show="currentuser">   </p>
+								</li>
                          
                         <li class="transparent">
                             <a ng-click="changeLanguage('fr')"  ><img  class="flag flag-fr"/></a>
@@ -818,8 +821,23 @@ hs.wrapperClassName = 'borderless';
                 console.log(me.fid);
                 
                   if(me.id !=uuid){
-                        nnn++;
-                         $('.notifi').prepend('<li style="color:red">'+ nnn+ '</li>');
+                        nnn++; 
+                  
+                      var aaa= "new message";
+                        // $('#notifi').prepend('<li style="color:red" class="badge badge-success">'+ nnn+ '</li>');
+                     
+                                $("#notifi").show();
+                                    $('#notifi').prepend('<li style="color:red" class="badge badge-success">'+ aaa + '</li>');
+                                   
+                              
+                               setTimeout(function() {
+                                $("#notifi").hide();
+                                }, 5000);
+                               
+                        
+                         
+                          
+                    
                     }
                 
                  $('#messages').append('<div class="itemdiv dialogdiv">'+Mustache.render(tmp,me)+'<div>');
@@ -861,7 +879,7 @@ hs.wrapperClassName = 'borderless';
         socket.on('notification', function(n){
              var nid = $("#chatid").val();
             if(nid == n.id){
-            $('.notifi').prepend('<li>'+ n.text+' ' + n.date.toString() + '</li><span style="color:red"> 1 </span>');
+            $('#addnotifi').prepend('<li class="badge badge-success">'+ n.text+' ' + n.date.toString() + '</li>');
             }
            
         });
@@ -1100,8 +1118,11 @@ if (annyang) {
     $("#chat2").click(function(e) {
         e.preventDefault();
         $("#pp").toggle();
+       //  $("#notifi").remove();
     });
     </script>
+      
+    
         <!-- endbuild -->
       
       
