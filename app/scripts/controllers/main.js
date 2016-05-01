@@ -1126,7 +1126,7 @@ if($localStorage.loggedin && $localStorage.currentuser.familyid)
         var city;
 		var x=new google.maps.LatLng(34.7406,10.7603);
         var j ;
-        console.log(value[1].role);
+        
         for(j=0;j<value.length;j++){
             if(value[j].role=="Mother"){
                 mother.push(value[j]);
@@ -1263,7 +1263,8 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
             var userFK=$rootScope.currentuser._id;
             var family=$rootScope.currentuser.familyid;
             var role=$rootScope.currentuser.role;
-            $scope.formData ={role,mylat,mylong,date,family,userFK };
+            var name=$rootScope.currentuser.username;
+            $scope.formData ={role,mylat,mylong,date,name,family,userFK };
             
             /*google api ready latitude and longitude*/
             var coords = new google.maps.LatLng(mylat, mylong);
@@ -1692,8 +1693,8 @@ function playAudio() {
         
         $scope.to = lastName;
       
-         var message =  $resource('https://natofamilynetwork.herokuapp.com/sms/send/'+msg);
-        $scope.envoie = message.query();
+        /* var message =  $resource('https://natofamilynetwork.herokuapp.com/sms/send/'+msg);
+        $scope.envoie = message.query();*/
         
         
     })
