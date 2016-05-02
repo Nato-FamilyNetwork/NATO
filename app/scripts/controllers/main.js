@@ -1262,7 +1262,8 @@ today = 'date : '+mm+'/'+dd+'/'+yyyy+' time : '+h+' h '+m+' m '+s+' s ';
             var userFK=$rootScope.currentuser._id;
             var family=$rootScope.currentuser.familyid;
             var role=$rootScope.currentuser.role;
-            $scope.formData ={role,mylat,mylong,date,family,userFK };
+            var name=$rootScope.currentuser.username;
+            $scope.formData ={role,mylat,mylong,date,name,family,userFK };
             
             /*google api ready latitude and longitude*/
             var coords = new google.maps.LatLng(mylat, mylong);
