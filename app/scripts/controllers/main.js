@@ -504,7 +504,15 @@ $scope.aa= role.options[ role.selectedIndex ].value;
 })
 
 
+.controller('botsController',function($localStorage,$scope, $http,$resource,$routeParams,$rootScope,$route){
+  $http.get('http://localhost/test2015/alice.php?sujet='+$scope.msg).success(function(data)
+  {
+    console.log(data)
+  }
+  ).error(function(data){ console.log("erreur");});
 
+  
+})
 
 .controller('foodsController',function($localStorage,$scope, $http,$resource,$routeParams,$rootScope,$route){
      console.log("jvkhbkbqkjsdbhb qskdbqsbdlb");
