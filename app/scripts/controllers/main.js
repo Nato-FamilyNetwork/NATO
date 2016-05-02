@@ -7,7 +7,8 @@
  * # MainCtrl
  * Controller of the familyNetworkApp
  */
-angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
+angular.module('familyNetworkAppc', ["ngResource","todo.fac","pcs","imps","tablettes","foods"])
+
   .controller('scheduleListController',function($rootScope,$localStorage,$scope, $resource){
     
 	if($localStorage.loggedin)
@@ -548,9 +549,8 @@ if(!$localStorage.loggedin )
   
 })
 
-.controller('foodsController',function($localStorage,$scope, $http,$resource,$routeParams,$rootScope,$route){
-     console.log("jvkhbkbqkjsdbhb qskdbqsbdlb");
-	if($localStorage.loggedin && $localStorage.currentuser.familyid)
+.controller('foodsController',function($localStorage,$scope, $http,$resource,$routeParams,$rootScope,$route,foodsListFromFactory){
+   	if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
             $rootScope.loggedin=$localStorage.loggedin;
@@ -570,12 +570,10 @@ if(!$localStorage.loggedin )
         } 
     
     
-	//var allfbs=$resource('http://127.0.0.1:3000/league/'+$routeParams.test+'/'+$routeParams.param);
-	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/foods/'+$rootScope.currentuser.familyid);
-
+	
     //getAll
 	 
-    $scope.foods=allfbs.query();
+    $scope.foods=foodsListFromFactory;
    // console.log($scope.foods);
 	 
     $scope.users=$localStorage.currentuser._id;
@@ -634,7 +632,7 @@ if(!$localStorage.loggedin )
       
 })
 
-      .controller('comparatorController',function($rootScope,$localStorage,$scope, $resource){
+      .controller('comparatorController',function($rootScope,$localStorage,$scope, $resource,pcListFromFactory){
     
 	
 	if($localStorage.loggedin && $localStorage.currentuser.familyid)
@@ -656,17 +654,18 @@ if(!$localStorage.loggedin )
             
         }
 	
-	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/pcs');
+	
     //getAll
 	
-    $scope.pcs=allfbs.query();
+    $scope.pcs=pcListFromFactory;
 	 
 
 
 
 
 })
-    .controller('imprimantesController',function($rootScope,$localStorage,$scope, $resource){
+
+    .controller('imprimantesController',function($rootScope,$localStorage,$scope, $resource,impListFromFactory){
     if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
             $rootScope.currentuser=$localStorage.currentuser;
@@ -687,10 +686,9 @@ if(!$localStorage.loggedin )
         }
 	
 	
-	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/imprimantes');
-    //getAll
+	 //getAll
 	
-    $scope.imprimantes=allfbs.query();
+    $scope.imprimantes=impListFromFactory;
 	 
       
 })
@@ -699,7 +697,7 @@ if(!$localStorage.loggedin )
 
 
 
- .controller('tabletteController',function($rootScope,$localStorage,$scope, $resource){
+ .controller('tabletteController',function($rootScope,$localStorage,$scope, $resource,tablettesListFromFactory){
     
 	if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
@@ -720,11 +718,9 @@ if(!$localStorage.loggedin )
             
         }
 	
+	 
 	
-	var allfbs=$resource('http://natofamilynetwork.herokuapp.com/tablettes');
-    //getAll
-	
-    $scope.tablettes=allfbs.query();
+    $scope.tablettes= tablettesListFromFactory;
 	 
       
 })
