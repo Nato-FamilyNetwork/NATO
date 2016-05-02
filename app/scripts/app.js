@@ -218,7 +218,7 @@ app.config(function ($translateProvider) {
     BUTTON_LANG_EN: 'Anglais',
     BUTTON_LANG_DE: 'Allemand'
   });
-  $translateProvider.preferredLanguage('de');
+  $translateProvider.preferredLanguage('en');
 });
   
 

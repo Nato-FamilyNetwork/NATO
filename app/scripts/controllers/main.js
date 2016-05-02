@@ -879,7 +879,7 @@ if(!$localStorage.loggedin )
        
         
         x.push({a,b});
-        alert(a+" ajouté!");
+        alert(a+" Added!");
         $localStorage.panier=x;
         console.log($localStorage.panier.length);
         
