@@ -826,14 +826,14 @@ hs.wrapperClassName = 'borderless';
                       var aaa= "new message";
                         // $('#notifi').prepend('<li style="color:red" class="badge badge-success">'+ nnn+ '</li>');
                      
-                                $("#notifi").show();
-                                   $('#notifi').prepend('<li style="color:red" class="badge badge-success">'+ aaa + '</li>');
+                               // $("#notifi").show();
+                                   $('#notifi').prepend('<li style="position:absolute;color:red;z-index:'+nnn+'" class="badge badge-success">'+  nnn +''+ aaa + '</li>');
 //$('#notifi').replaceWith('<li style="color:red" class="badge badge-success">'+ aaa + '</li>'); 
-                               setTimeout(function() {
+                              // setTimeout(function() {
                                 
-                                $('#notifi').replaceWith(''); 
-                                   $("#notifi").hide();
-                                }, 7000);
+                               // $('#notifi').replaceWith(''); 
+                               //    $("#notifi").hide();
+                              //  }, 7000);
                                
                         
                          
