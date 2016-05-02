@@ -420,6 +420,12 @@ app.config(function ($translateProvider) {
         
         
       })
+       .when('/bots', {
+        templateUrl: 'views/bots.html',
+        controller: 'botsController'
+        
+        
+      })
       .otherwise({
         redirectTo: '/login'
       });
