@@ -23,12 +23,74 @@
 									<i class="ace-icon fa fa-check green"></i>
 
 									{{'ferror' | translate}}
-									<input type="text" ng-model="msg"/>
+									
 			</div>
 							
 							</div><!-- /.position-relative -->
 
 							
+                            
+                            
+<div class="widget-box">
+											<div class="widget-header">
+												<h4 class="widget-title lighter smaller">
+													<i class="ace-icon fa fa-comment blue"></i>
+													Talk with rumble while waiting
+												</h4>
+											</div>
+
+											<div class="widget-body">
+												<div class="widget-main no-padding">
+													<!-- #section:pages/dashboard.conversations -->
+													<div ng-repeat="r in rep" class="dialogs ace-scroll"><div class="scroll-track scroll-active" style="display: block; height: 300px;"><div class="scroll-bar" style="height: 236px; top: 0px;"></div></div><div class="scroll-content" style="max-height: 300px;">
+														<div  class="itemdiv dialogdiv">
+															
+                                                            <div class="user">
+																	<img src="./images/avatar2.png"/>
+																</div>
+                                                            <div class="body">
+																<div class="text">{{user}} :{{r.message}}</div>
+                                                                
+                                                                </div>
+                                                            
+                                                            <br/>
+                                                            <br/>
+                                                            <div class="user">
+																<img alt="Alexa's Avatar" src="./images/cortana.gif">
+															</div>
+
+															<div class="body">
+																
+
+												
+																<div class="text">{{r.reponse}}</div>
+
+																
+															</div>
+														</div>
+				                                </div>
+                                                    
+                                                </div>
+
+													<!-- /section:pages/dashboard.conversations -->
+													<form>
+														<div class="form-actions">
+															<div class="input-group">
+																<input placeholder="Type your message here ..." type="text" ng-model="msg" class="form-control" name="message">
+																<span class="input-group-btn">
+																	<button class="btn btn-sm btn-info no-radius" type="button" ng-click="tkalem()">
+																		<i class="ace-icon fa fa-share"></i>
+																		Send
+																	</button>
+																</span>
+															</div>
+														</div>
+													</form>
+												</div><!-- /.widget-main -->
+											</div><!-- /.widget-body -->
+										</div>
+                            
+                            
 						</div>
 					</div><!-- /.col -->
 				</div><!-- /.row -->

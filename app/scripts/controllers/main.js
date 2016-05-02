@@ -495,6 +495,13 @@ $scope.aa= role.options[ role.selectedIndex ].value;
         })
             
         }
+    
+    if(!$localStorage.loggedin)
+        {
+            
+            $location.path("/");
+            
+        }
 	
 	
 	
@@ -504,13 +511,34 @@ $scope.aa= role.options[ role.selectedIndex ].value;
 })
 
 
-.controller('botsController',function($localStorage,$scope, $http,$resource,$routeParams,$rootScope,$route){
-  $http.get('http://localhost/test2015/alice.php?sujet='+$scope.msg).success(function(data)
+.controller('botsController',function($location,$localStorage,$scope, $http,$resource,$routeParams,$rootScope,$route){
+  
+if(!$localStorage.loggedin )
+        {
+            
+            $location.path("/");
+            
+        } 
+    
+   if($localStorage.currentuser.familyid )
+        {
+            
+            $location.path("/me");
+            
+        }  
+    
+    
+    var x = new Array();
+    $scope.tkalem = function() {
+    $http.get('http://localhost/bassem/alice.php?sujet='+$scope.msg).success(function(data)
   {
-    console.log(data)
+    $scope.user=$localStorage.currentuser.username;
+    x.push(data) ;
+        console.log(x);
+        $scope.rep = x;
   }
   ).error(function(data){ console.log("erreur");});
-
+}
   
 })
 
