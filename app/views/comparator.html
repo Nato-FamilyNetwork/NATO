@@ -4,7 +4,11 @@
     								<!-- PAGE CONTENT BEGINS -->
     								<div class="row">
     									<!-- #section:pages/pricing.large -->
-     Display All Products<select name="choix" ng-model="query">
+                                        <br/>
+                                        <br/>
+                                        <br/>
+                                        
+     Search by seller : <select class="form-control" name="choix" ng-model="query">
         <option name="choixx" value="Mytek">Mytek</option>
         <option name="choixx" value="Tunisianet">TunisiaNet</option>
         <option name="choixx" value="Technopro">Technopro</option>
@@ -12,8 +16,13 @@
         
     </select>
         <br>
+                                        <form class="form-search">
         <label>Search for a referance or type</label>
-        <input type="text" placeholder="Exemple: G5030" ng-model="query2">
+                                        <span class="input-icon">
+                                              <input class="nav-search-input" type="text" placeholder="Exemple: G5030" ng-model="query2">
+                                            <i class="ace-icon fa fa-search nav-search-icon" ></i>
+                                        </span>
+  </form>
          
 
        <div ng-repeat="m in pcs|filter:query|filter:query2">
@@ -24,7 +33,7 @@
     											</div>
 
     											<div class="widget-body">
-    												<div class="widget-main">
+    												<div class="widget-main" style="max-height: 317px">
     													<ul class="list-unstyled spaced2">
     														<li>
     															<img src={{m.photo}} style="width: 80%;">

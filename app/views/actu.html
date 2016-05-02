@@ -1,6 +1,14 @@
-<h1> Latest news from mosaiquefm </h1>
-<label for="rech">Search a program</label><input type="text" name="rech" ng-model="rech"/>
-
+<br/>
+                                        <br/>
+                                        <br/>
+        <br>
+                                        <form class="form-search">
+        <label>Search :</label>
+                                        <span class="input-icon">
+                                              <input class="nav-search-input" type="text" placeholder="Exemple: G5030" ng-model="rech">
+                                            <i class="ace-icon fa fa-search nav-search-icon" ></i>
+                                        </span>
+  </form>
 <div>
 
 
@@ -20,7 +28,7 @@ At : {{f.created_time}} &nbsp; &nbsp; &nbsp; &nbsp;
 
 
 <span ng-if="f.link">
-<a href="{{f.link}}" target="_blank" rel="nofollow"   > check it out </a> <br/><br/><br/>
+<a href="{{f.link}}" target="_blank" rel="nofollow" > check it out </a> <br/><br/><br/>
     </span>
 </li>
 
