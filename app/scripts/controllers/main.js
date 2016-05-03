@@ -321,6 +321,12 @@ angular.module('familyNetworkAppc', ["ngResource","todo.fac"])
 })
 
 
+
+
+
+
+
+
 .controller('familyListController',function($location,$localStorage,$rootScope,$resource, $scope, $http, $routeParams, $route){
     
     
@@ -1660,7 +1666,7 @@ function playAudio() {
   };
  
 })
-.controller('MeineController', function ($resource,$rootScope,$translate,$localStorage, $scope) {
+.controller('MeineController', function ($location,$resource,$rootScope,$translate,$localStorage, $scope) {
  
   if($localStorage.loggedin && $localStorage.currentuser.familyid)
         {
@@ -1693,6 +1699,45 @@ function playAudio() {
     var myprod=$resource('https://natofamilynetwork.herokuapp.com/needs/promote');
     
     $scope.myprod=myprod.query();
+    
+    
+    
+    $scope.bye= function(){
+        
+        if(confirm("Are you sure ? You won\'t be able to use Family Network again.") == true)
+            {
+        
+	var del=$resource('http://natofamilynetwork.herokuapp.com/login/bye/:id', {}, {
+        
+      query: {method:'DELETE', params:{id:$localStorage.currentuser._id}, isArray:false}});
+    
+	  del.query();
+        
+        
+       
+        delete $localStorage.currentuser;
+        delete $localStorage.panier;
+        $localStorage.loggedin=false;
+        $rootScope.currentuser = undefined;
+        $location.path('/login');
+              }
+
+        
+    }
+    
+    $scope.removeF = function(idd) {
+        
+        if(confirm("Are you sure you want to delete this member ?") == true){
+            
+             var hj=$resource('http://natofamilynetwork.herokuapp.com/login/remove/:id', {}, {
+      query: {method:'PUT', params:{id:idd}, isArray:false}});
+	  hj.query();
+            
+            $location.path("/me");
+        }
+        
+        
+    }
     
 })
 

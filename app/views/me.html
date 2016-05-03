@@ -14,7 +14,7 @@
 												<!-- /section:pages/profile.picture -->
 												<div class="space-4"></div>
 
-												<div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
+												<div  class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
 													<div class="inline position-relative">
 														<a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
 															<i class="ace-icon fa fa-circle light-green"></i>
@@ -24,6 +24,7 @@
 
 														
 													</div>
+                                                    
 												</div>
 											</div>
 
@@ -38,14 +39,22 @@
                                                 <h4>
                                                 <i class="ace-icon fa fa-star orange"></i>
                                                     {{m.titre}}
-                                                    </h4>
+                                                 </h4>
 												<img src="{{m.photo}}"  /> 
                                            <br/>
                                                 <span class="label label-primary arrowed arrowed-right">
                                              <h4 style="margin-top:-1px;">{{m.prix}}</h4>
                                                 </span>
                                                 
+                                                
 											</div>
+                                            <div class="space-12" ></div>
+                                            
+                                            
+                                            <div>
+                                            
+                                             <button class="btn btn-danger" ng-click="bye()">Delete my account</button>
+                                            </div>
 
 											<!-- /section:custom/extra.grid -->
 											<div class="hr hr16 dotted"></div>
@@ -115,10 +124,10 @@
 									<i class="ace-icon fa fa-check green"></i>
 
 									{{'dy' | translate}}
-			</div
+                                                        </div>
 															<!-- #section:pages/dashboard.members -->
 															<div class="clearfix">
-																<div ng-repeat="p in fbs" class="itemdiv memberdiv">
+																<div ng-repeat="p in fbs | filter: {username: '!'+currentuser.username}" class="itemdiv memberdiv">
 																	<div class="user">
 																		<img alt="Bob Doe's avatar" src="../assets/avatars/user.jpg">
 																	</div>
@@ -127,6 +136,9 @@
 																		<div class="name">
 																			<a href="#">{{p.name}} {{p.familyname}}</a>
 																		</div>
+                                                                        <div>
+                                                                        <button ng-click="removeF(p._id)" class="btn btn-danger">Remove from family</button>
+                                                                        </div>
 
 																		
 

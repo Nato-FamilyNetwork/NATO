@@ -9,7 +9,7 @@
 									{{'ff' | translate }}
         <br/><a href="#/"> click here to skip.</a>
 			</div>
-<div ng-repeat="p in fbs|filter:currentuser.familyname">
+<div ng-repeat="p in fbs | filter:currentuser.familyname | filter: {username: '!'+currentuser.username}">
     
     
     <div class="clearfix">

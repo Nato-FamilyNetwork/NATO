@@ -374,7 +374,7 @@ hs.wrapperClassName = 'borderless';
 							 
 							 
 
-							<li  ng-repeat="o in ons|filter: currentuser.familyid" class="">
+							<li  ng-repeat="o in ons | filter: currentuser.familyid | filter: {username: '!'+currentuser.username}" class="">
 								<a>
 									
                                     <i class="ace-icon fa fa-circle light-green"></i>
