@@ -1,1 +1,1143 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+      <!-- custom css -->
+      <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
+	<!-- <link rel="stylesheet" href="styles/css/fonts/linecons/css/linecons.css">-->
+	<link rel="stylesheet" href="styles/css/fonts/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="styles/css/bootstrap.css">
+		<!-- <link rel="stylesheet" href="scripts/docs/js/themes/sunburst.css" /> -->
+      
+     
+	
 
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="styles/ace-part2.css" />
+		<![endif]-->
+		<!-- <link rel="stylesheet" href="styles/css/ace-rtl.css" />-->
+
+      
+      
+	<link rel="stylesheet" href="styles/css/simple-sidebar.css">
+	
+	<link rel="stylesheet" href="styles/flags.css">
+	<link rel="stylesheet" href="styles/css/custom.css">
+     
+      
+      <!--
+      <script type="text/javascript" src="../assets/js/highslide/highslide.js"></script>
+      -->
+      
+      
+      	<!-- page specific plugin styles -->
+		<!--<link rel="stylesheet" href="../assets/css/jquery-ui.custom.css" />-->
+		<link rel="stylesheet" href="../assets/css/jquery.gritter.css" />
+      
+      
+<link rel="stylesheet" type="text/css" href="../assets/js/highslide/highslide.css" />
+      
+      
+	<link rel="stylesheet" href="styles/css/angular-chart.css">
+      <!-- end custom css -->
+      
+      
+      
+      
+    
+		<link rel="stylesheet" href="styles/font-awesome.css" />
+
+		<!-- page specific plugin styles -->
+
+		<!-- text fonts -->
+		<link rel="stylesheet" href="styles/ace-fonts.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="styles/ace.css" class="ace-main-stylesheet" id="main-ace-style" />
+      <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+      
+      
+      <script type="text/javascript">
+//<![CDATA[
+hs.registerOverlay({
+	html: '<div class="closebutton" onclick="return hs.close(this)" title="Close"></div>',
+	position: 'top right',
+	fade: 2 // fading the semi-transparent overlay looks bad in IE
+});
+
+
+hs.graphicsDir = '../assets/js/highslide/graphics/';
+hs.wrapperClassName = 'borderless';
+//]]>
+</script>
+      
+      
+    <!-- endbuild -->
+  </head>
+  <body style="overflow-x:hidden;" class="no-skin" ng-app="familyNetworkApp" ng-cloak>
+  
+      
+      
+      
+      
+      
+      
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <!-- #section:basics/navbar.layout -->
+     
+		<div ng-controller="BigCtrl" id="navbar" class="navbar navbar-default    navbar-collapse       h-navbar ace-save-state" style="position:fixed; z-index:100; width:100%" data-ng-cloak>
+			<div class="navbar-container ace-save-state" id="navbar-container" data-ng-cloak>
+				<div ng-show="currentuser" class="navbar-header pull-left" data-ng-cloak>
+					<!-- #section:basics/navbar.layout.brand -->
+					<a href="#" class="navbar-brand">
+						<small style="font-size:80%">
+							<i class="fa fa-leaf"></i>Family Network
+                            
+				
+						</small>
+					</a>
+
+					<!-- /section:basics/navbar.layout.brand -->
+
+					<!-- #section:basics/navbar.toggle -->
+					<button class="pull-right navbar-toggle navbar-toggle-img collapsed" type="button" data-toggle="collapse" data-target=".navbar-buttons,.navbar-menu">
+						<span class="sr-only">Toggle user menu</span>
+
+						<img src="images/user.jpg" alt="Jason's Photo" />
+					</button>
+
+					<button class="pull-right navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#sidebar">
+						<span class="sr-only">Toggle sidebar</span>
+
+						<span class="icon-bar"></span>
+
+						<span class="icon-bar"></span>
+
+						<span class="icon-bar"></span>
+					</button>
+
+					<!-- /section:basics/navbar.toggle -->
+				</div>
+
+				<!-- #section:basics/navbar.dropdown -->
+                
+                
+                
+				<div ng-show="currentuser" class="navbar-buttons navbar-header pull-right  collapse navbar-collapse" role="navigation" data-ng-cloak >
+                   
+                   
+					<ul class="nav ace-nav" >
+                        <li ng-show="currentuser.familyid" class="transparent">
+						<a href="#/todo">
+							<i class="menu-icon fa fa-list"></i>
+							<span class="menu-text"> {{ 'tod' | translate }} </span>
+
+						</a>
+
+						
+					</li>
+            <li ng-show="currentuser.familyid" class="transparent">
+						<a data-toggle="dropdown" class="dropdown-toggle" >
+								<i class="menu-icon fa fa-map-o"></i>
+							<span class="menu-text">
+								{{'mp' | translate}}
+							</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+							</a>
+
+							<ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+								
+
+								<li class="dropdown-content ace-scroll" style="position: relative;"><div class="scroll-track" style="display: none;"></div><div class="scroll-content" style="max-height: 200px;">
+									<ul class="dropdown-menu dropdown-navbar">
+										
+
+										
+
+										
+
+										
+										
+							<li>
+								<a href="#/mapLocalisation">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Position
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li >
+								<a href="#/mapTrace">
+									<i class="menu-icon fa fa-caret-right"></i>
+									{{'dist' | translate}}
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+									</ul>
+								</div>
+                                </li>
+
+								
+							</ul>
+
+							 
+							 
+
+
+				
+
+							 
+
+						 
+					</li>
+
+					<li ng-show="currentuser.familyid" class="transparent">
+						<a href="#/calendar">
+							<i class="menu-icon fa fa-calendar"></i>
+							<span class="menu-text">
+								{{'cl' | translate}}
+							</span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+					
+					
+
+				    
+                    <li ng-show="currentuser.admin" class="transparent">
+						<a href="#/all">
+							<i class="menu-icon fa fa-user"></i>
+							<span class="menu-text"> {{'myf' | translate}} </span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+                        
+					</li>
+                      <li ng-show="currentuser.familyid" class="blue">
+                         
+						<a href="#" id="chat2"> <i class="ace-icon fa fa-envelope icon-animated-vertical"> <p id="notifi"> </p></i>
+								 <!-- djiddou ici -->  </a>
+                        
+					</li>
+                            <li class="dropdown-footer">
+									<p style="color:white"  id="addnotifi" ng-show="currentuser">   </p>
+								</li>
+                         
+                        <li class="transparent">
+                            <a ng-click="changeLanguage('fr')"  ><img  class="flag flag-fr"/></a>
+                        </li>
+                        <li class="transparent">
+                            <a ng-click="changeLanguage('de')"  ><img  class="flag flag-de"/></a>
+                        </li>
+                        <li class="transparent">
+                            <a ng-click="changeLanguage('en')"  ><img  class="flag flag-us"/></a>
+                        </li>
+                        <li class="transparent">
+							<a  href="#/logout">
+							<i>{{ 'TITLE' | translate }} {{currentuser.username}}</i>
+								
+							</a>
+                        </li>
+						
+					</ul>
+				</div>
+
+				<!-- /section:basics/navbar.dropdown -->
+				
+			</div><!-- /.navbar-container -->
+		</div>
+
+		<!-- /section:basics/navbar.layout -->
+      
+		<div class="main-container ace-save-state" id="main-container" data-ng-cloak>
+			
+
+			<!-- #section:basics/sidebar.horizontal -->
+	
+			<!-- /section:basics/sidebar.horizontal -->
+			<div class="main-content">
+				<div  class="main-content-inner">
+                     
+					<div class="page-content" style="padding-top: 0; padding: 0;">
+						
+						
+
+						<div class="row" style="margin-top:3%">
+							
+
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+								
+     <div class="col-xs-2" ng-show="currentuser.familyid" >
+         <div id="sidebar" class="sidebar                  responsive" data-sidebar="true" data-sidebar-scroll="true" data-sidebar-hover="true" style="width:209px;">
+				<script type="text/javascript">
+					try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+				</script>
+
+				
+<div ng-show="currentuser" id="weatherplz" ng-controller="WeatherCtrl">
+                    <h2>{{ 'weather' | translate }}</h2>
+    <weather-icon cloudiness="{{ weather.clouds }}"></weather-icon>
+    <h4>{{ 'curr' | translate }} {{ weather.temp.current | temp:2 }}</h4>
+    min: {{ weather.temp.min | temp }}, max: {{ weather.temp.max | temp }}
+                         
+                                                  <div >
+                         
+                           
+                         
+                         </div>
+                    </div>
+				<ul class="nav nav-list" style="top: 0px;">
+					<li class="">
+						<a href="#/me">
+							<i class="menu-icon fa fa-list"></i>
+							<span class="menu-text">{{ 'myp' | translate}} </span>
+
+							<b class="arrow fa fa-home"></b>
+						</a>
+
+						
+					</li>
+                    
+                    
+                    
+                    
+                    
+                    
+                         
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-desktop"></i>
+							<span class="menu-text">
+ Online members
+							</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul ng-controller="OnlineController" class="submenu">
+							 
+							 
+
+							<li  ng-repeat="o in ons | filter: currentuser.familyid | filter: {username: '!'+currentuser.username}" class="">
+								<a>
+									
+                                    <i class="ace-icon fa fa-circle light-green"></i>
+									{{o.name}} {{o.familyname}}
+									 
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							
+							 
+
+						 </ul>
+
+	 
+
+					</li>
+            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-desktop"></i>
+							<span class="menu-text">
+								{{ 'Entert' | translate }}
+							</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							 
+							 
+
+							<li class="">
+								<a href="#/programs">
+									<i class="menu-icon fa fa-caret-right"></i>
+									TV station schedule
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="#/news">
+									<i class="menu-icon fa fa-caret-right"></i>
+									News from newspapers
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="#/actu">
+									<i class="menu-icon fa fa-caret-right"></i>
+								    News facebook
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+<li class="">
+								<a href="#/twitts">
+									<i class="menu-icon fa fa-caret-right"></i>
+								    My twitter feed
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							 
+
+						 </ul>
+
+	 
+
+					</li>
+					<li class="">
+						<a href="#/league">
+							<i class="menu-icon fa fa-futbol-o"></i>
+							<span class="menu-text"> {{ 'foot' | translate }} </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+                    <li class="">
+						<a href="#/foods">
+							<i class="menu-icon fa fa-thumbs-up"></i>
+							<span class="menu-text"> Food </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+                 <li class="">
+						<a href="#/frontfitness">
+							<i class="menu-icon fa fa-list-alt"></i>
+							<span class="menu-text"> Fitness </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+          
+                <li class="">
+						<a href="#/needs">
+							<i class="menu-icon fa fa-list-alt"></i>
+							<span class="menu-text"> Needs </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+                    
+                    <li class="hover">
+						<a href="#/neeed">
+							<i class="menu-icon fa fa-credit-card"></i>
+
+							<span class="menu-text">
+								Sms
+
+								<!-- #section:basics/sidebar.layout.badge -->
+								
+								<!-- /section:basics/sidebar.layout.badge -->
+							</span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+                	<li class="">
+						<a href="#/galery">
+							<i class="menu-icon fa fa-picture-o"></i>
+							<span class="menu-text"> Gallery </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+
+					
+							<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-usd"></i>
+							<span class="menu-text">
+								{{'pricec' | translate}}
+							</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class=""></b>
+
+						<ul class="submenu">
+							 
+							 
+
+							<li class="">
+								<a href="#/comparator">
+									<i class="menu-icon fa fa-caret-right"></i>
+									PCs
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							
+
+							<li class="">
+								<a href="#/tablette">
+									<i class="menu-icon fa fa-caret-right"></i>
+								    Tablets
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+
+							 
+
+						 </ul>
+
+	 
+
+					</li>
+
+                    <li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-play"></i>
+							<span class="menu-text">
+								RADIO
+							</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class=""></b>
+
+						<ul style="margin-left:17px" class="submenu">
+							  
+							 
+<li>
+                    
+                    
+                    <video controls poster="images/jfm2.jpg">
+    <!--<source src="http://streaming2.toutech.net:8000/jawharafm">-->
+    </video>
+                </li>
+                <li>
+                    <video controls poster="images/ifm2.png">
+    <!--<source src="http://5.135.138.182:8000/direct">-->
+        
+    </video>
+                </li>
+                <li>
+                    <video controls poster="images/mosalive.png">
+    <!--<source src="http://radio.mosaiquefm.net:8000/mosalive">-->
+        
+    </video>
+                </li>
+							
+
+
+							 
+
+						 </ul>
+
+	 
+
+					</li>
+                    
+                
+				</ul><!-- /.nav-list -->
+
+				
+			</div>
+         
+        <!-- 
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                
+                
+                <li>
+                    
+                    
+                    <video controls poster="images/jfm2.jpg">
+    <source src="http://streaming2.toutech.net:8000/jawharafm">
+    </video>
+                </li>
+                <li>
+                    <video controls poster="images/ifm2.png">
+    <source src="http://5.135.138.182:8000/direct">
+        
+    </video>
+                </li>
+                <li>
+                    <video controls poster="images/mosalive.png">
+    <source src="http://radio.mosaiquefm.net:8000/mosalive">
+        
+    </video>
+                </li>
+                
+                
+            </ul>
+         </div>
+         -->
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        
+                        <!--<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">{{'togg' | translate}}</a>-->
+                   
+        <!-- /#page-content-wrapper -->
+
+    </div> 
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+								<div class="">
+                                    
+                                    
+                                    
+                                    <div ng-if="currentuser.familyid">
+    <div class="col-xs-8" ng-view=""></div>
+</div>
+<div ng-if="! currentuser.familyid">
+    <div class="" ng-view=""></div>
+</div>
+                                    
+                                  
+                                    
+                                   
+   
+    
+      <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+   <!-- <script src="https://natofamilynetwork.herokuapp.com/socket.io/socket.io.js"></script> -->
+             
+          
+        <div  ng-show="currentuser.familyid" class="col-xs-2" id="pp">  
+     
+        
+    	<div style="position:fixed; z-index:40;"  class="widget-body" >
+												<div class="widget-main no-padding" style="margin-top:32%">
+												
+										<div class="widget-box">
+											<div class="widget-header">
+												<h4 class="widget-title lighter smaller">
+                                                    
+													<i class="ace-icon fa fa-comment blue"></i>
+													{{'conv' | translate }} 
+												</h4>
+											</div>
+
+											<div class="widget-body">
+                    <div class="widget-main no-padding">
+													
+     <div class="">
+             
+            <div style="min-height:406px; max-height:406px; overflow-x:hidden; overflow-y: scroll;" class="">
+                                                       
+                                                           <div  id="messages"></div>
+														<div class="itemdiv dialogdiv" id="msgtpl"    >
+															<div class="user">
+																<img alt="Alexa's Avatar" src="../assets/avatars/avatar1.png">
+															</div>
+
+															<div class="body">
+																<div class="time">
+																	<span class="green" >{{h}} {{m}} </span>
+                                                                    
+																</div>
+
+																<div class="name">
+																	<a href="#" >{{username}}</a>
+																</div>
+																<div class="text" >{{message}} </div>
+
+																
+															</div>
+														</div>
+                                                            
+
+
+														
+
+														
+
+													</div></div>
+                                            </div></div>
+
+												
+													<form id="forml">
+														<div class="form-actions">
+															<div class="input-group">
+																<input placeholder="Type your message here ..." class="form-control" name="message" type="text" id="message">
+                                                                <input type="hidden"  id="username2" value="{{currentuser.username}}" />
+     
+                                                                    <input type="hidden"  id="chatid" value="{{currentuser._id}}" />
+                                                                <input type="hidden"  id="fid" value="{{currentuser.familyid}}" />
+																<span class="input-group-btn">
+																	<button class="btn btn-sm btn-info no-radius" type="submit">
+																		<i class="ace-icon fa fa-share"></i>
+																		Send
+																	</button>
+																</span>
+															</div>
+														</div>
+													</form>
+												</div>
+											</div>
+										</div>
+									
+    
+            </div> 
+     <script src="mustache2/mustache.js"></script>
+     <!--
+<script>
+     var nnn=0;
+    (function ($) {
+        
+    
+     var tmp = $('#msgtpl').html();
+        $('#msgtpl').remove();
+             var hh ="";
+    
+    var socket = io.connect('https://natofamilynetwork.herokuapp.com/');
+    
+    
+  
+    $("#forml").submit(function (event) {
+       
+        event.preventDefault();
+        
+        socket.emit('login', {
+         
+            message  : $("#message").val(),
+            username  : $("#username2").val(),
+            date  : $("#date").val(),
+             id  : $("#chatid").val(),
+             fid  : $("#fid").val()
+             
+            
+               
+         
+            
+           
+        } );
+        
+       $("#message").val("");
+      
+
+   // jQuery methods go here...
+
+    });
+        
+        
+        socket.on('newusers', function(me){
+                var ffid = $("#fid").val();
+             var uuid=$("#chatid").val();
+         
+            
+            if(me.fid == ffid){
+                console.log(me.fid);
+                
+                  if(me.id !=uuid){
+                        nnn++; 
+                  
+                      var aaa= "new message";
+                        // $('#notifi').prepend('<li style="color:red" class="badge badge-success">'+ nnn+ '</li>');
+                     
+                               // $("#notifi").show();
+                                   $('#notifi').prepend('<li style="position:absolute;color:red;z-index:'+nnn+'" class="badge badge-success">'+  nnn +''+ aaa + '</li>');
+//$('#notifi').replaceWith('<li style="color:red" class="badge badge-success">'+ aaa + '</li>'); 
+                              // setTimeout(function() {
+                                
+                               // $('#notifi').replaceWith(''); 
+                               //    $("#notifi").hide();
+                              //  }, 7000);
+                               
+                        
+                         
+                          
+                    
+                    }
+                
+                 $('#messages').append('<div class="itemdiv dialogdiv">'+Mustache.render(tmp,me)+'<div>');
+            }
+                 
+         
+          
+            /*
+            $('#message').append('<h3>'+me.message+'</h3>');
+           
+            $('#users').append('<h1 id='+ me.username+'>'+me.username+'</h1>');
+             $('#message2').append('<h3>'+me.message+'</h3>');
+            $('#date2').append('<h6>'+me.date+'</h6>');
+             $('#h').append('<h6>'+me.h+'h</h6>');
+             $('#m').append('<h6>'+me.m+'m</h6>');
+            */
+            
+            
+        });
+        socket.on('disuser',function(me){
+            $('#'+me.username).remove();
+            
+        })
+    
+    
+    
+}(jQuery));
+    
+    
+    
+    
+    </script>
+                                 
+                                    
+                   <script>
+         var socket = io.connect('https://natofamilynetwork.herokuapp.com/');
+                    
+                    
+        socket.on('notification', function(n){
+             var nid = $("#chatid").val();
+            if(nid == n.id){
+            $('#addnotifi').prepend('<li class="badge badge-success">'+ n.text+' ' + n.date.toString() + '</li>');
+            }
+           
+        });
+    </script>                         
+                                    
+                    -->                
+									
+								</div>
+
+								<!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				
+			</div><!-- /.main-content -->
+
+			
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+			</a>
+
+		</div><!-- /.main-container -->
+      
+		<!-- basic scripts
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+      <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+		<!--[if !IE]> -->
+		<script src="scripts/js/jquery.js"></script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script src="scripts/js/jquery1x.js"></script>
+<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='scripts/js/jquery.mobile.custom.js'>"+"<"+"/script>");
+		</script>
+		<script src="scripts/js/bootstrap.js"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<!-- ace scripts 
+		<script src="scripts/js/ace/elements.scroller.js"></script>
+ 		<script src="scripts/js/ace/elements.fileinput.js"></script>
+  		<script src="scripts/js/ace/elements.spinner.js"></script>
+		<script src="scripts/js/ace/elements.treeview.js"></script>
+		<script src="scripts/js/ace/elements.wizard.js"></script>
+		<script src="scripts/js/ace/elements.aside.js"></script>
+		<script src="scripts/js/ace/ace.js"></script>
+		<script src="scripts/js/ace/ace.ajax-content.js"></script>
+		<script src="scripts/js/ace/ace.touch-drag.js"></script>
+		<script src="scripts/js/ace/ace.sidebar.js"></script>
+		<script src="scripts/js/ace/ace.sidebar-scroll-1.js"></script>
+		<script src="scripts/js/ace/ace.submenu-hover.js"></script>
+		<script src="scripts/js/ace/ace.widget-box.js"></script>
+		<script src="scripts/js/ace/ace.settings.js"></script>
+		<script src="scripts/js/ace/ace.settings-rtl.js"></script>
+		<script src="scripts/js/ace/ace.settings-skin.js"></script>
+		<script src="scripts/js/ace/ace.widget-on-reload.js"></script>
+		<script src="scripts/js/ace/ace.searchbox-autocomplete.js"></script>
+		-->
+
+		<!-- inline scripts related to this page -->
+		<script type="text/javascript">
+			jQuery(function($) {
+			 var $sidebar = $('.sidebar').eq(0);
+			 if( !$sidebar.hasClass('h-sidebar') ) return;
+			
+			 $(document).on('settings.ace.top_menu' , function(ev, event_name, fixed) {
+				if( event_name !== 'sidebar_fixed' ) return;
+			
+				var sidebar = $sidebar.get(0);
+				var $window = $(window);
+			
+				//return if sidebar is not fixed or in mobile view mode
+				var sidebar_vars = $sidebar.ace_sidebar('vars');
+				if( !fixed || ( sidebar_vars['mobile_view'] || sidebar_vars['collapsible'] ) ) {
+					$sidebar.removeClass('lower-highlight');
+					//restore original, default marginTop
+					sidebar.style.marginTop = '';
+			
+					$window.off('scroll.ace.top_menu')
+					return;
+				}
+			
+			
+				 var done = false;
+				 $window.on('scroll.ace.top_menu', function(e) {
+			
+					var scroll = $window.scrollTop();
+					scroll = parseInt(scroll / 4);//move the menu up 1px for every 4px of document scrolling
+					if (scroll > 17) scroll = 17;
+			
+			
+					if (scroll > 16) {			
+						if(!done) {
+							$sidebar.addClass('lower-highlight');
+							done = true;
+						}
+					}
+					else {
+						if(done) {
+							$sidebar.removeClass('lower-highlight');
+							done = false;
+						}
+					}
+			
+					sidebar.style['marginTop'] = (17-scroll)+'px';
+				 }).triggerHandler('scroll.ace.top_menu');
+			
+			 }).triggerHandler('settings.ace.top_menu', ['sidebar_fixed' , $sidebar.hasClass('sidebar-fixed')]);
+			
+			 $(window).on('resize.ace.top_menu', function() {
+				$(document).triggerHandler('settings.ace.top_menu', ['sidebar_fixed' , $sidebar.hasClass('sidebar-fixed')]);
+			 });
+			
+			
+			});
+		</script>
+
+		<!-- the following scripts are used in demo only for onpage help and you don't need them
+		<link rel="stylesheet" href="styles/ace.onpage-help.css" /> -->
+		
+		
+	
+<script src="mustache2/mustache.js"></script>
+
+		<script type="text/javascript"> ace.vars['base'] = '..'; </script>
+	<!-- 	<script src="scripts/js/ace/elements.onpage-help.js"></script>
+		<script src="scripts/js/ace/ace.onpage-help.js"></script>-->
+		<script src="scripts/docs/js/rainbow.js"></script>
+		<script src="scripts/docs/js/language/generic.js"></script>
+		<script src="scripts/docs/js/language/html.js"></script>
+		<script src="scripts/docs/js/language/css.js"></script>
+		<script src="scripts/docs/js/language/javascript.js"></script>
+     
+     
+          
+            <script type="text/javascript" src="../lib2/jQuery/jquery.ui.min.js"></script>
+     
+       <script  src="scripts/js/client.js"></script>
+            
+    
+
+    
+
+
+
+     
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+      <script src="scripts/js/angular-1.5.0/angular.min.js"></script>
+      <script src="scripts/bower_components/angular-route/angular-route.min.js"></script>
+      <script src="scripts/js/angular-1.5.0/angular-resource.min.js"></script>
+       <script src="scripts/services/todoFactory.js"></script>
+      <!-- <script src="scripts/js/oauth.js"></script> -->
+     
+     <script src="http://maps.googleapis.com/maps/api/js"></script>
+      
+      
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	
+      <script src="scripts/app.js"></script>
+      <script src="scripts/controllers/services.js"></script>
+      <script src="scripts/services.js"></script>
+  <script src="scripts/bower_components/angular-translate/dist/angular-translate.min.js"></script>
+      
+        <script src="scripts/controllers/main.js"></script>
+     <!--  <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.2.1/annyang.min.js"></script>
+
+necessaires -->
+	<script src="../assets/js/bootbox.js"></script>
+		<script src="../assets/js/jquery.easypiechart.js"></script>
+		<!--<script src="../assets/js/jquery.gritter.js"></script>-->
+		<script src="../assets/js/spin.js"></script>
+
+		<!-- ace scripts -->
+		
+	 
+ 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+ <script src="scripts/js/ng-flow/ng-flow.min.js"></script>
+		
+
+
+
+<!--
+<script>
+if (annyang) {
+ 
+  var commands = {
+    'news': function() {
+      document.location.href="http://127.0.0.1:37095/app/index.html#/news"
+    },
+      'twitter': function() {
+      document.location.href="http://127.0.0.1:37095/app/index.html#/twitts"
+    },
+      'disconnect': function() {
+      document.location.href="http://127.0.0.1:37095/app/index.html#/logout"
+    },
+      'map': function() {
+      document.location.href="http://127.0.0.1:37095/app/index.html#/mapLocalisation"
+    }
+      
+      
+      
+      
+  };
+
+  
+  annyang.addCommands(commands);
+
+  
+  annyang.start();
+}
+</script>-->
+      <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+ <script>
+    $("#chat2").click(function(e) {
+        e.preventDefault();
+        $("#pp").toggle();
+        $("#notifi").remove();
+    });
+    </script>
+      
+    
+        <!-- endbuild -->
+      
+      
+      
+      <div class="footer" style="margin-top:65px;">
+				<div class="footer-inner">
+					<!-- #section:basics/footer -->
+					<div class="footer-content">
+						<span class="bigger-120">
+							<span class="blue bolder">Family</span>
+							Network © 2015-2016
+						</span>
+
+						&nbsp; &nbsp;
+						<span class="action-buttons">
+							<a href="#">
+								<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+							</a>
+
+							<a href="#">
+								<i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
+							</a>
+
+							<a href="#">
+								<i class="ace-icon fa fa-rss-square orange bigger-150"></i>
+							</a>
+						</span>
+					</div>
+
+					<!-- /section:basics/footer -->
+				</div>
+			</div>
+      
+      
+</body>
+</html>
